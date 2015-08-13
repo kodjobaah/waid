@@ -1,0 +1,12 @@
+<rss version="2.0" xmlns:jwplayer="http://developer.longtailvideo.com/trac/" xmlns:media="http://search.yahoo.com/mrss/">
+<channel>
+  <title>RTMP Playlist</title>
+  <item>
+    <title>What Am I Doing</title>
+    <description>What Am I Doing</description>
+    <media:content url="kodjo.flv" />
+    <jwplayer:provider>rtmp</jwplayer:provider>
+    <jwplayer:streamer>rtmp://localhost:1935/oflaDemo</jwplayer:streamer>
+    <jwplayer:duration>20</jwplayer:duration>
+  </item>
+</channel>

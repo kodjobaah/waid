@@ -1,0 +1,13 @@
+Following things need to be running:
+
+1: start nginx
+2: Start neo4j -- initailize database
+3: start red5
+4: start tigase: scripts/tigase.sh run etc/tigase.conf
+5: 
+
+TODO:
+remove jenkins
+remove lighthttp
+remove red5-server
+

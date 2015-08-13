@@ -1,0 +1,347 @@
+New log file opened at Wed Aug 05 16:28:45 BST 2015 by 40086@kodjos-iMac.local
+jvm 40086@kodjos-iMac.local
+jvm vmName=Java HotSpot(TM) 64-Bit Server VM vmVendor=Oracle Corporation vmVersion=25.40-b25
+jvm specName=Java Virtual Machine Specification specVendor=Oracle Corporation specVersion=1.8
+jvm arguments: [-Xms256m, -Xmx1024m, -XX:MetaspaceSize=64m, -XX:MaxMetaspaceSize=256m]
+Starting event engine
+Starting sbt command engine
+Command engine arguments=List()
+Command engine baseDirectory=/Users/kodjobaah/projects/video-processing-server-zeromq
+Waiting for sbt command engine
+Command engine initial remaining commands List(--initialize, onFailure load-failed, boot, server-send-ready-for-request, server-handle-next-server-request)
+> --initialize
+> initialize
+> onFailure load-failed
+> boot
+> reload
+[Loading] Scanning directory /Users/kodjobaah/projects/video-processing-server-zeromq/project/project
+[Loading] Found non-root projects 
+[Loading] Done in /Users/kodjobaah/projects/video-processing-server-zeromq/project/project, returning: ()
+deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))))
+  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.JUnitXmlReportPlugin)
+sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin) not found List(sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin) not found List(sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin) not found List(sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin) not found List()
+  :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
+[Loading] Done in /Users/kodjobaah/projects/video-processing-server-zeromq/project/project, returning: (video-processing-server-zeromq-build-build)
+Loading project definition from /Users/kodjobaah/projects/video-processing-server-zeromq/project/project
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@70118984, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	
+[Loading] Scanning directory /Users/kodjobaah/projects/video-processing-server-zeromq/project
+[Loading] Found non-root projects 
+[Loading] Done in /Users/kodjobaah/projects/video-processing-server-zeromq/project, returning: ()
+deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin)))))
+  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.JUnitXmlReportPlugin)
+sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin) not found List(sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin) not found List(sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin) not found List(sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin) not found List()
+  :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.JUnitXmlReportPlugin)
+[Loading] Done in /Users/kodjobaah/projects/video-processing-server-zeromq/project, returning: (video-processing-server-zeromq-build)
+Loading project definition from /Users/kodjobaah/projects/video-processing-server-zeromq/project
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@70118984, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	
+[Loading] Scanning directory /Users/kodjobaah/projects/video-processing-server-zeromq
+[Loading] Found non-root projects 
+[Loading] Done in /Users/kodjobaah/projects/video-processing-server-zeromq, returning: ()
+deducing auto plugins based on known facts Set(Atom(sbt.plugins.CorePlugin)) and clauses Clauses(List(Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.JUnitXmlReportPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.BackgroundRunPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.IvyPlugin))), Clause(Atom(sbt.plugins.IvyPlugin),Set(Atom(sbt.plugins.JvmPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.JUnitXmlReportPlugin))), Clause(Atom(sbt.plugins.JvmPlugin),Set(Atom(sbt.plugins.BackgroundRunPlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.InteractionServicePlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.SendEventServicePlugin))), Clause(Atom(sbt.plugins.CorePlugin),Set(Atom(sbt.plugins.SerializersPlugin)))))
+  :: deduced result: Matched(sbt.plugins.CorePlugin,sbt.plugins.SerializersPlugin,sbt.plugins.SendEventServicePlugin,sbt.plugins.InteractionServicePlugin,sbt.plugins.IvyPlugin,sbt.plugins.JvmPlugin,sbt.plugins.BackgroundRunPlugin,sbt.plugins.JUnitXmlReportPlugin)
+sorting: ns: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin) not found List(sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin) not found List(sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin) not found List(sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+  :: sorting:: found: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin) not found List()
+  :: sorted deduced result: List(sbt.plugins.CorePlugin, sbt.plugins.SerializersPlugin, sbt.plugins.SendEventServicePlugin, sbt.plugins.InteractionServicePlugin, sbt.plugins.IvyPlugin, sbt.plugins.JvmPlugin, sbt.plugins.BackgroundRunPlugin, sbt.plugins.JUnitXmlReportPlugin)
+[Loading] Done in /Users/kodjobaah/projects/video-processing-server-zeromq, returning: (video-processing-server-zeromq)
+Set current project to video-stream-processor (in build file:/Users/kodjobaah/projects/video-processing-server-zeromq/)
+Reapplying settings...
+Set current project to video-stream-processor (in build file:/Users/kodjobaah/projects/video-processing-server-zeromq/)
+> iflast shell
+> server-send-ready-for-request
+> server-handle-next-server-request
+> {file:/Users/kodjobaah/projects/video-processing-server-zeromq/}video-processing-server-zeromq/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@52b4c292, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 2 s, completed 05-Aug-2015 16:28:52
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/kodjobaah/projects/video-processing-server-zeromq/}video-processing-server-zeromq/compile:mainClass
+Evaluating tasks: compile:mainClass
+Running task... Cancel: sbt.server.ServerTaskCancellation@78024e79, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 0 s, completed 05-Aug-2015 16:28:53
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/kodjobaah/projects/video-processing-server-zeromq/}video-processing-server-zeromq/compile:discoveredMainClasses
+Evaluating tasks: compile:discoveredMainClasses
+Running task... Cancel: sbt.server.ServerTaskCancellation@68a6ac2c, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 0 s, completed 05-Aug-2015 16:28:53
+> server-post-command-cleanup
+> server-handle-next-server-request
+> {file:/Users/kodjobaah/projects/video-processing-server-zeromq/}video-processing-server-zeromq/compile:mainClass
+Evaluating tasks: compile:mainClass
+Running task... Cancel: sbt.server.ServerTaskCancellation@6fe28fcb, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Total time: 0 s, completed 05-Aug-2015 16:28:54
+> server-post-command-cleanup
+> server-handle-next-server-request
+> backgroundRunMain VideoProcessingServer
+Evaluating tasks: compile:backgroundRunMain
+Running task... Cancel: sbt.server.ServerTaskCancellation@cadf3e6, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/application.conf,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/application.conf)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/logback.xml,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/logback.xml)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors/hls,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors/hls)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors/hls/mpegts-ipod320.properties,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors/hls/mpegts-ipod320.properties)
+Total time: 1 s, completed 05-Aug-2015 16:30:06
+> server-post-command-cleanup
+> server-handle-next-server-request
+objc[40099]: Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/jre/bin/java and /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/jre/lib/libinstrument.dylib. One of the two will be used. Which one is undefined.
+08/05 16:30:08.687 INFO [main] o.j.j.JmxReporter - Registering new SimonManager JMX bean with name org.javasimon.jmx.JmxReporter:type=Simon
+0
+01
+02
+03
+04
+about to receive the request
+05
+idenitti:
+message receive:[6b434b57-3b76-11e5-9a16-005056c00008]
+hasMore[true]kl
+about to receive the request
+idenitti:
+message receive:[CONNECT]
+hasMore[false]kl
+message[6b434b57-3b76-11e5-9a16-005056c00008,CONNECT]
+CONNECT STRING RECEIVED:[6b434b57-3b76-11e5-9a16-005056c00008]
+node:user:_1
+about to receive the request
+fetched from cached[UserNode(node:user:_,Some(1),Some(Map(email -> kodjo_baah@hotmail.com, registrationToken -> 7f2a1f14-3b74-11e5-9a16-005056c00008, lastName -> no-last-name-provided, firstName -> no-first-name-provided, createdDate -> 1438780724, password -> $2a$10$3PzF1hrLQgl3vxZxVyH3MOM0lkLrg1ephkBzEPgjhE3UkuDEHBoja)))]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+found node
+node:user:_1
+user stream[Some(UserStreamNode(None,node:token:_1_:3,Some(4),Some(Map(token -> ddceec17-3b86-11e5-9837-005056c00008, playListCount -> 0, createdDate -> 1438788613))))]
+sid[ddceec17-3b86-11e5-9837-005056c00008]
+idenitti:
+message receive:[6b434b57-3b76-11e5-9a16-005056c00008]
+hasMore[true]kl
+about to receive the request
+idenitti:
+message receive:[CONNECT]
+hasMore[false]kl
+message[6b434b57-3b76-11e5-9a16-005056c00008,CONNECT]
+CONNECT STRING RECEIVED:[6b434b57-3b76-11e5-9a16-005056c00008]
+about to receive the request
+fetched from cached[UserNode(node:user:_,Some(1),Some(Map(email -> kodjo_baah@hotmail.com, registrationToken -> 7f2a1f14-3b74-11e5-9a16-005056c00008, lastName -> no-last-name-provided, firstName -> no-first-name-provided, createdDate -> 1438780724, password -> $2a$10$3PzF1hrLQgl3vxZxVyH3MOM0lkLrg1ephkBzEPgjhE3UkuDEHBoja)))]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     
+found node
+node:user:_1
+user stream[Some(UserStreamNode(None,node:token:_1_:3,Some(5),Some(Map(token -> f059c768-3b86-11e5-9837-005056c00008, playListCount -> 0, createdDate -> 1438788644))))]
+sid[f059c768-3b86-11e5-9837-005056c00008]
+> backgroundRunMain VideoProcessingServer
+Evaluating tasks: compile:backgroundRunMain
+Running task... Cancel: sbt.server.ServerTaskCancellation@5141c1a4, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/application.conf,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/application.conf)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/logback.xml,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/logback.xml)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors/hls,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors/hls)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors/hls/mpegts-ipod320.properties,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors/hls/mpegts-ipod320.properties)
+Total time: 1 s, completed 05-Aug-2015 16:31:02
+> server-post-command-cleanup
+> server-handle-next-server-request
+objc[40100]: Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/jre/bin/java and /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/jre/lib/libinstrument.dylib. One of the two will be used. Which one is undefined.
+08/05 16:31:04.363 INFO [main] o.j.j.JmxReporter - Registering new SimonManager JMX bean with name org.javasimon.jmx.JmxReporter:type=Simon
+0
+01
+02
+Exception in thread "Thread-0" org.zeromq.ZMQException: Address already in use(0x30)
+	at org.zeromq.ZMQ$Socket.bind(Native Method)
+	at VideoReceiver.run(VideoReceiver.scala:30)
+> ~run
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@70118984, check cycles: false
+Running task... Cancel: sbt.TaskCancellationStrategy$Null$@70118984, check cycles: false
+> sbtClearOnFailure
+> run
+Evaluating tasks: compile:run
+Running task... Cancel: sbt.server.ServerTaskCancellation@6c77377b, check cycles: false
+
+Initial source changes: 
+	removed:Set()
+	added: Set()
+	modified: Set()
+Removed products: Set()
+External API changes: API Changes: Set()
+Modified binary dependencies: Set()
+Initial directly invalidated sources: Set()
+
+Sources indirectly invalidated by:
+	product: Set()
+	binary dep: Set()
+	external source: Set()
+All initially invalidated sources: Set()
+
+Copy resource mappings: 
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/application.conf,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/application.conf)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/logback.xml,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/logback.xml)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors/hls,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors/hls)
+	(/Users/kodjobaah/projects/video-processing-server-zeromq/src/main/resources/com/whatamidoing/actors/hls/mpegts-ipod320.properties,/Users/kodjobaah/projects/video-processing-server-zeromq/target/scala-2.10/classes/com/whatamidoing/actors/hls/mpegts-ipod320.properties)
+objc[40101]: Class JavaLaunchHelper is implemented in both /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/jre/bin/java and /Library/Java/JavaVirtualMachines/jdk1.8.0_40.jdk/Contents/Home/jre/lib/libinstrument.dylib. One of the two will be used. Which one is undefined.
+08/05 16:31:24.073 INFO [main] o.j.j.JmxReporter - Registering new SimonManager JMX bean with name org.javasimon.jmx.JmxReporter:type=Simon
+0
+01
+02
+Exception in thread "Thread-0" org.zeromq.ZMQException: Address already in use(0x30)
+	at org.zeromq.ZMQ$Socket.bind(Native Method)
+	at VideoReceiver.run(VideoReceiver.scala:30)
+Exception in thread "sbt-bg-threads-1" java.lang.RuntimeException: Nonzero exit code returned from runner: 137
+	at scala.sys.package$.error(package.scala:27)
+	at sbt.BuildCommon$$anonfun$toError$1.apply(Defaults.scala:1943)
+	at sbt.BuildCommon$$anonfun$toError$1.apply(Defaults.scala:1943)
+	at scala.Option.foreach(Option.scala:236)
+	at sbt.BuildCommon$class.toError(Defaults.scala:1943)
+	at sbt.package$.toError(package.scala:4)
+	at sbt.plugins.BackgroundRun$$$$b4c18989468ecd5aa4b4422d7494c6$$$$onfun$apply$6.apply(BackgroundRunPlugin.scala:38)
+	at sbt.plugins.BackgroundRun$$$$b4c18989468ecd5aa4b4422d7494c6$$$$onfun$apply$6.apply(BackgroundRunPlugin.scala:37)
+	at sbt.BackgroundThreadPool$$anonfun$1.apply$mcV$sp(AbstractBackgroundJobService.scala:134)
+	at sbt.BackgroundThreadPool$BackgroundRunnable.run(AbstractBackgroundJobService.scala:68)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)

@@ -1,0 +1,239 @@
+@* whatamidoing Template File *@
+@(stream: String,locations:List[Location],inviteId: String, roomJid: String,nickname: String, sessionId: String, accessType: String)
+
+@import models.Location
+
+@main("(WAID) What Am I Doing ?") {
+
+<link 
+      href='@routes.Assets.at("converse/converse.css")'
+      rel='stylesheet'>
+
+<script src='@routes.Assets.at("/jwplayer/HLSprovider/test/jwplayer6/jwplayer.js")'></script>
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHizctBV5_2T9EgbtZQAFHIjGiFrG3i1s&sensor=true">
+    </script>
+
+
+<!--
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+-->
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/build/dep/salsa20.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/build/dep/bigint.js")'></script>
+    <!-- CryptoJS -->
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/core.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/enc-base64.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/crypto-js/src/md5.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/crypto-js/src/evpkdf.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/cipher-core.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/aes.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/sha1.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/sha256.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/hmac.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/pad-nopadding.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/vendor/cryptojs/mode-ctr.js")'></script>
+    <!-- until here -->
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/build/dep/eventemitter.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/otr/build/otr.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/strophe/strophe.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/strophe.roster/index.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/strophe.muc/index.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/strophe.vcard/index.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/strophe.disco/index.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/underscore/underscore.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/backbone/backbone.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/backbone.localStorage/backbone.localStorage.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/tinysort/src/jquery.tinysort.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/components/jed/jed.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/locale/en/LC_MESSAGES/en.js")'></script>
+    <script type="text/javascript" src='@routes.Assets.at("converse/converse.js")'></script>
+
+}{
+
+<br/>
+<br/>
+<div class="row center-block">
+<input type="hidden" id="whatamidoing-nickname" value="@nickname">
+<input type="hidden" id="whatamidoing-roomjid" value="@roomJid">
+  <div class="col-md-5 col-mod-offset-1">
+    <div id="player">Loading video</div>
+  </div>
+  <div class="jumbotron col-md-6 col-md-offset-1" id="map"  style="width: 500px; height: 400px;"> Location Was Not Supplied </div>
+</div>
+
+<div class="row center-block">
+  <div class="col-md-5 col-mod-offset-1"></div>
+</div>
+<div id="conversejs"></div>
+
+<script>
+  var map;
+   @if(!locations.isEmpty) {
+        var locations = [
+            @for((loc,index) <- locations.zipWithIndex) {
+              @if((index.asInstanceOf[Int] +1) == locations.size) {				   
+                 [@loc.latitude, @loc.longitude, @index+1]
+	       } else {
+                 [@loc.latitude, @loc.longitude, @index+1],
+	       }
+             }
+          ];
+
+
+      map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 18,
+      center: new google.maps.LatLng(@locations.head.latitude, @locations.head.longitude),
+      mapTypeId: google.maps.MapTypeId.HYBRID
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {  
+      marker = new google.maps.Marker({
+        position: new google.maps.LatLng(locations[i][0], locations[i][1]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, i) {
+        return function() {
+          infowindow.setContent("don't know");
+          infowindow.open(map, marker);
+        }
+      })(marker, i));
+    }
+
+   }
+
+if( /Android/i.test(navigator.userAgent) ) {
+    $("#player").empty();
+    $("#player").append('<a  href="http://www.whatamidoing.info/hlsapp/@stream">Start Watching Live Stream</a>');
+}
+if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ) {
+    $("#player").empty();
+    $("#player").append('<video  src="http://www.whatamidoing.info:8080/hlsapp/@stream" height="300" width="400"></video>');
+} else {
+
+    function videoStartedPlaying() {
+        @if(accessType == "SOCIALMEDIA") {
+        $.post( "@routes.WhatAmIDoingController.videoStarted(sessionId,accessType)");
+        }  else {
+        $.post( "@routes.WhatAmIDoingController.videoStarted(inviteId,accessType)");
+        }
+     }
+    function videoStoppedPlaying(event) {
+
+        @if(accessType == "SOCIALMEDIA") {
+        $.post( "@routes.WhatAmIDoingController.videoStopped(sessionId,accessType)");
+        } else {
+          $.post( "@routes.WhatAmIDoingController.videoStopped(inviteId,accessType)");
+        }
+    }
+ 
+    function problemsPlayingVideo() {
+       alert('problems playing stream -- try reloading the page');
+    }
+
+    jwplayer("player").setup({
+
+     playlist: [{
+       // file is the url to m3u8 file
+       file:'http://www.whatamidoing.info:8080/hlsapp/@stream',
+       provider: '@routes.Assets.at("/jwplayer/HLSprovider/test/jwplayer6/HLSProvider6.swf")',
+       type:'hls'
+      }],
+      width: 500,
+      height: 400,
+      primary: "flash"
+    });
+   jwplayer("").onPlay(videoStartedPlaying);
+   jwplayer("").onPause(videoStoppedPlaying);
+
+}
+</script>
+<script>
+
+var newMarkerArray = [];
+var markerArray  = [];                              
+
+$(window).load(function() {
+ $("#player_wrapper").addClass("well well-lg");
+
+     var refreshId = setInterval( function() {
+             newMarkerArray = [];
+             var jqxhr = $.getJSON( "@routes.WhatAmIDoingController.whatAreTheLocations(inviteId)", function(data) {
+                     $(data).each(function(index,dataArray) {
+
+                           //checking to see if stream has ended
+                           if ((dataArray.length < 1) && (markerArray.length > 0)) {
+			       clearInterval(refreshId);
+                            }
+                           if (dataArray.length != markerArray.length) {
+                                removeMarkers(markerArray);
+                                markerArray = newMarkerArray;
+                                $(dataArray).each(function(inx,d) {
+
+                                  var latLng = new google.maps.LatLng(d.lat, d.long);
+                                  if (typeof map == 'undefined') {
+                                     map = new google.maps.Map(document.getElementById('map'), {
+                                     zoom: 18,
+                                     center: latLng,
+                                     mapTypeId: google.maps.MapTypeId.HYBRID
+                                     });
+                                  }
+                                  var marker = new google.maps.Marker({
+                                                    map:map,
+                                                    animation: google.maps.Animation.DROP,
+                                                    position: latLng
+                                                 });
+                                 newMarkerArray.push(marker);
+                        
+                               });
+                        }
+
+                   });
+
+              });
+
+     }, 3000);
+
+
+
+});
+function removeMarkers(array) {
+  for (var i=0; i < array.length; i++) {
+      array[i].setMap(null);
+  }
+}
+
+
+
+
+$(document).ready(function() {
+ converse.initialize({
+        auto_list_rooms: false,
+        auto_subscribe: false,
+        bosh_service_url: 'http://www.whatamidoing.info/http-bind/', // Please use this connection manager only for testing purposes
+        hide_muc_server: false,
+        i18n: locales.en, // Refer to ./locale/locales.js to see which locales are supported
+        prebind: true,
+        show_controlbox_by_default: true,
+        xhr_user_search: false
+    });
+ 
+ });
+
+$(window).unload(function() {
+    videoStoppedPlaying();
+});
+
+$(window).bind('beforeunload',function(){
+    videoStoppedPlaying();
+});
+
+  
+
+ </script>
+}
+
+

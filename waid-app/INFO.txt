@@ -1,0 +1,26 @@
+CREATE INDEX ON :User(email);
+CREATE INDEX ON :AuthenticationToken(Token)
+CREATE INDEX ON :Year(value)
+CREATE INDEX ON :Mony(value)
+CREATE INDEX ON :Day(value)
+CREATE INDEX ON :Stream(name)
+CREATE INDEX ON :Invite(time)
+
+
+-- Labels --
+:Year
+:Month
+:Day
+:Invite
+:User
+:AuthenticationToken
+:Stream
+
+-- Relationships --
+
+:HAS_TOKEN  --  Assocation between "User" and "Token"
+:BROADCAST_ON --  Assocation betwen "Stream" and "Day"
+:BROADCAST_ENDED_ON -- Association between "Stream" and "Day"
+:USING  -- Association between "Stream" and "AuthenticationToken"
+:TO_WATCH -- Associated between "Invite" and "Stream"
+:ACCEPTED_ON -- Association between "Invite" and "Day"

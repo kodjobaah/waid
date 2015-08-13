@@ -1,0 +1,198 @@
+
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:stretchColumns="*"
+    tools:context="om.waid.activity.main.WhatAmIdoingFragment">
+
+    <TableRow
+        android:layout_weight="1"
+        >
+
+<LinearLayout
+    android:id="@+id/waid_main"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent"
+    android:orientation="horizontal"
+    >
+
+    <!--
+    <include layout="@layout/camera_menu_landscape"/>
+    -->
+    <LinearLayout
+        android:id="@+id/camera_menu_frame"
+        android:layout_weight="1"
+        android:layout_margin="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@android:color/transparent"
+        android:orientation="vertical" >
+
+        <View style="@style/DividerWithMarging">
+            android:layout_weight="1"
+        </View>
+
+        <ImageButton
+            android:id="@+id/start_video"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="camera"
+            android:onClick="startVideo"
+            android:layout_weight="1"
+            android:src="@drawable/camera" >
+        </ImageButton>
+
+        <View style="@style/DividerWithMarging">
+            android:layout_weight="1"
+        </View>
+
+        <ImageButton
+            android:id="@+id/start_transmission"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="sharing"
+            android:onClick="startTransmission"
+            android:layout_weight="1"
+            android:src="@drawable/share_blue" >
+        </ImageButton>
+
+
+        <ImageButton
+            android:id="@+id/selectCamera"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="switch camera"
+            android:onClick="switchCamera"
+            android:prompt="@string/select_camera"
+            android:src="@drawable/switch_camera" />
+
+        <View style="@style/DividerWithMarging">
+            android:layout_weight="1"
+        </View>
+
+
+    </LinearLayout>
+    <!--
+android:background="@android:color/transparent"
+-->
+    <LinearLayout
+        android:id="@+id/vdieo_frame"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_weight="8"
+        android:background="@android:color/transparent"
+        >
+
+        <FrameLayout
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:background="@android:color/transparent"
+            android:layout_gravity="center_vertical">
+            <SurfaceView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:visibility="gone"
+                android:id="@+id/viewToReplace" />
+
+        </FrameLayout>
+
+    </LinearLayout>
+   <!--
+    </ScrollView>
+    -->
+    <!--
+    <include layout="@layout/action_menu_landscape"/>
+    -->
+    <LinearLayout
+        android:id="@+id/options_frame"
+        android:layout_weight="1"
+        style="?android:attr/buttonBarButtonStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@android:color/transparent"
+        >
+        <View style="@style/DividerWithMarging">
+            android:layout_weight="1"
+        </View>
+
+        <TextView
+            android:id="@+id/totalWatchers"
+            style="@style/btnStyleArsenic"
+            android:layout_width="wrap_content"
+            android:hint="@string/num_of_viewers"
+            android:paddingTop="10dp"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@drawable/text_view_border" />
+
+        <View style="@style/DividerWithMarging">
+            android:layout_weight="1"
+        </View>
+
+        <ImageButton
+            android:id="@+id/shareLocation"
+            android:layout_weight="1"
+            android:layout_width="15dp"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="@string/share_location"
+            android:onClick="shareLocation"
+            android:prompt="@string/share_location"
+            android:src="@drawable/location" />
+
+        <View style="@style/DividerWithMarging">
+            android:layout_weight="1"
+        </View>
+
+        <ImageButton
+            android:id="@+id/viewSharers"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_weight="1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="@string/view_sharers"
+            android:onClick="whoHasAccepted"
+            android:prompt="@string/view_sharers"
+            android:src="@drawable/watching" />
+
+        <View style="@style/DividerWithMarging">
+            android:layout_weight="1"
+        </View>
+
+        <ImageButton
+            android:id="@+id/send_messge"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="group chat"
+            android:onClick="displayChat"
+            android:layout_weight="1"
+            android:src="@drawable/group_chat" >
+        </ImageButton>
+
+        <View style="@style/DividerWithMarging">
+            android:layout_weight="1"
+        </View>
+
+    </LinearLayout>
+</LinearLayout>
+        </TableRow>
+    </TableLayout>

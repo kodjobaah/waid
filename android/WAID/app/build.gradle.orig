@@ -1,0 +1,83 @@
+apply plugin: 'com.android.model.application'
+
+model {
+    android {
+        compileSdkVersion = 22
+        buildToolsVersion = "22.0.1"
+
+        defaultConfig.with {
+            applicationId = "com.waid"
+            minSdkVersion.apiLevel = 15
+            targetSdkVersion.apiLevel = 21
+            versionCode = 1
+            versionName = "1.0"
+        }
+
+
+
+    }
+
+    android.ndk {
+        // All configurations that can be changed in android.ndk.
+        moduleName = "native"
+        toolchain = "clang"
+        toolchainVersion = "3.5"
+        // Note that CFlags has a capital C, which is inconsistent with
+        // the naming convention of other properties.  This is a
+        // technical limitation that will be resolved
+        CFlags += "-DCUSTOM_DEFINE"
+        cppFlags += "-DCUSTOM_DEFINE"
+        ldFlags += "-L/custom/lib/path"
+        ldLibs += "log"
+        stl = "stlport_static"
+    }
+
+    android.buildTypes {
+            release {
+                isMinifyEnabled = false
+                proguardFiles += file('proguard-rules.pro')
+            }
+    }
+
+
+    android.productFlavors {
+
+        create ("arm7") {
+            ndk.abiFilters += "armeabi-v7a"
+        }
+        create ("arm8") {
+            ndk.abiFilters += "arm64-v8a"
+        }
+        create ("x86-32") {
+            ndk.abiFilters += "x86"
+        }
+        // for detailed abiFilter descriptions, refer to "Supported ABIs" @
+        // https://developer.android.com/ndk/guides/abis.html#sa
+        // build one including all productFlavors
+        // build one including all productFlavors
+        create("fat")
+    }
+
+    //Configures source set directory
+    /*
+    android.sources {
+        main {
+            java {
+                source {
+                    srcDir 'src'
+                }
+            }
+        }
+    }
+    */
+
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile 'com.android.support:support-v4:22.2.0'
+    compile 'com.android.support:appcompat-v7:22.2.0'
+    compile 'com.google.android.gms:play-services:7.5.0'
+    compile 'com.android.support:gridlayout-v7:22.2.0'
+    compile project(':openCVLibrary300')
+}

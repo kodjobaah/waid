@@ -1,0 +1,5 @@
+neo4j indexes:
+
+
+CREATE INDEX ON :User(email);
+CREATE INDEX ON :AuthenticationToken(token);

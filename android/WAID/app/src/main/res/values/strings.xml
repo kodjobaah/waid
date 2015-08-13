@@ -1,0 +1,30 @@
+<resources>
+    <string translatable="false" name="app_name">WAID (What Am I Doing!)</string>
+    <string translatable="false" name="session_name_in_cookie">PLAY_SESSION</string>
+    <string translatable="false" name="auth_success_message">ADDED AUTHENTICATION TOKEN TO SESSISON</string>
+    <string translatable="false" name="new_auth_success_message">USER CREATED - ADDED AUTHENTICATION TOKEN TO SESSISON</string>
+    <string translatable="false" name="app_url">http://www.whatamidoing.info</string>
+    <string translatable="false" name="login_url">http://www.whatamidoing.info:9000/register</string>
+    <string name="forgotten_password_url">http://www.whatamidoing.info:9000/resendPassword</string>
+    <string name="title_activity_what_am_idoing">WhatAmIdoing</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="select_camera">Select Location</string>
+    <string name="view_sharers">View Sharers</string>
+    <string name="share_location">Share Location</string>
+    <string name="share_video">Share Video</string>
+    <string name="welcome_messge">Login to start sharing live video with friends.</string>
+    <string name="action_forgot_password">Forgot Password</string>
+    <string name="error_email_does_not_exist">Email does not exists - Register</string>
+    <string name="info">Info</string>
+    <string name="nice">Nice</string>
+    <string name="forgotten_password_sent">Email has been sent which you can use to reset your password</string>
+    <string name="network_connection_problems">Can not connect to the internet</string>
+    <string name="account_created">Account created -- check email</string>
+    <string name="auth_complete_registration">Needs to complete Registration</string>
+    <string name="account_verification">Account already created -- check email to verify</string>
+    <string name="account_waiting_verification">Account needs to be verified</string>
+    <string name="account_verification_needed">Account has to be activated -- check email</string>
+    <string name="num_of_viewers">Viewers</string>
+    <string name="logout">Logout</string>
+</resources>

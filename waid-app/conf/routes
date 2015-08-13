@@ -1,0 +1,53 @@
+# Routes
+# This file defines all application routes (Higher priority routes first)
+# ~~~~
+
+
+# Home page
+
+GET  /				    controllers.Index.index
+
+POST /videoStarted		        controllers.WhatAmIDoingController.videoStarted(sessionId:String,accessType: String)
+POST /videoStopped		        controllers.WhatAmIDoingController.videoStopped(sessionId:String, accessType: String)
+POST /findAllInvites		    controllers.WhatAmIDoingController.findAllInvites(token: Option[String])
+POST /getInviteList		        controllers.WhatAmIDoingController.getInviteList(token: Option[String])
+POST /invalidateToken		    controllers.WhatAmIDoingController.invalidateToken(token: Option[String])
+POST /inviteTwitter		        controllers.WhatAmIDoingController.inviteTwitter(token: String)
+POST /inviteFacebook		    controllers.WhatAmIDoingController.inviteFacebook(token: String)
+POST /inviteLinkedin		    controllers.WhatAmIDoingController.inviteLinkedin(token: String)
+POST /usersWatching             controllers.WhatAmIDoingController.getCountOfAllUsersWatchingStream(token: String)
+POST /getRoomJid                controllers.WhatAmIDoingController.getRoomJid(token: String)
+POST /invite 			        controllers.WhatAmIDoingController.invite(token: Option[String], email: Option[String])
+
+GET /whatamidoing		        controllers.WhatAmIDoingController.whatAmIdoing(invitedId: Option[String])
+GET /shareLocation              controllers.WhatAmIDoingController.createLocationForStream(token:String, latitude: Double, longitude: Double)
+GET /getLocations               controllers.WhatAmIDoingController.whatAreTheLocations(inviteId: String)
+
+GET  /calendar                  controllers.AdminController.getInvites
+GET /streamInvites              controllers.AdminController.getStreamInvites(streamId: String)
+GET /getStreams                 controllers.AdminController.getStreams(start: String, end: String)
+GET /findAllStreams             controllers.AdminController.findAllStreams(email: String)
+GET /list                       controllers.AdminController.list
+GET /listInvites                controllers.AdminController.listInvites(sEcho:Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String, token: String)
+GET /logout                     controllers.AdminController.logout
+GET /forgottenPassword          controllers.AdminController.forgottenPassword
+GET /changePassword	            controllers.AdminController.changePassword(changePasswordId: String)
+GET /userDetails		        controllers.AdminController.fetchUserDetails
+
+POST /login			            controllers.AdminController.login
+POST /performPasswordChange 	controllers.AdminController.performPasswordChange
+POST /updateUserDetails		    controllers.AdminController.updateUserDetails
+
+# Redis
+POST /resendPassword            controllers.UserAdminController.resendPassword(email: String)
+POST /register		            controllers.UserAdminController.registerLoginRedis(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])
+POST /updatePassword            controllers.UserAdminController.performPasswordChange
+POST /changePasswordRequest	    controllers.UserAdminController.changePasswordRequest
+
+GET /register                   controllers.UserAdminController.completeRegistration(registrationId: Option[String])
+GET /passwordChange             controllers.UserAdminController.passwordChange(changePasswordId:String,email:String)
+
+
+# resolved
+# Map static resources from the /public folder to the /assets URL path
+GET     /assets/*file               controllers.Assets.at(path="/public", file)

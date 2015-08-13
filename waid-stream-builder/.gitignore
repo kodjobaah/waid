@@ -1,0 +1,5 @@
+target
+app/target
+project/project/target
+project/target
+src/main/resources/application.conf

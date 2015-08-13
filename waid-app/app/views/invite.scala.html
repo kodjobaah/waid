@@ -1,0 +1,198 @@
+@* whatamidoing Template File *@
+@main("(WAID) What Am I Doing ?") {
+
+
+<link
+        href='@routes.Assets.at("fullcalendar/fullcalendar.css")'
+        rel='stylesheet'>
+<link
+        href='@routes.Assets.at("fullcalendar/fullcalendar.print.css")'
+        rel='stylesheet'>
+
+<link
+        href='@routes.Assets.at("jquery-ui-1.10.3/css/base/jquery.ui.dialog.css")'
+        rel='stylesheet'
+        type="text/css" >
+
+<link
+        href='@routes.Assets.at("jquery-ui-1.10.3/css/ui-lightness/jquery-ui-1.10.3.custom.css")'
+        rel='stylesheet'
+        type="text/css" >
+
+<script type="text/javascript"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHizctBV5_2T9EgbtZQAFHIjGiFrG3i1s&sensor=true">
+    </script>
+
+<script
+        src='@routes.Assets.at("fullcalendar/fullcalendar.js")'
+        type='text/javascript'></script>
+<script
+        src='@routes.Assets.at("spin/spin.js")'
+        type='text/javascript'></script>
+
+<script
+        src='@routes.Assets.at("spin/jquery.spin.js")'
+        type='text/javascript'></script>
+
+<script>
+
+    $(document).ready(function() {
+
+
+    var opts = {
+    lines: 13, // The number of lines to draw
+    length: 20, // The length of each line
+    width: 10, // The line thickness
+    radius: 30, // The radius of the inner circle
+    corners: 1, // Corner roundness (0..1)
+    rotate: 0, // The rotation offset
+    direction: 1, // 1: clockwise, -1: counterclockwise
+    color: '#000', // #rgb or #rrggbb or array of colors
+    speed: 1, // Rounds per second
+    trail: 60, // Afterglow percentage
+    shadow: false, // Whether to render a shadow
+    hwaccel: false, // Whether to use hardware acceleration
+    className: 'spinner', // The CSS class to assign to the spinner
+    zIndex: 2e9, // The z-index (defaults to 2000000000)
+    top: 'auto', // Top position relative to parent in px
+    left: 'auto' // Left position relative to parent in px
+    };
+    var target = document.getElementById('loading');
+    var spinner;
+
+    jQuery.fn.center = function () {
+    this.css("position","absolute");
+    this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+    $(window).scrollTop()) + "px");
+    this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+    $(window).scrollLeft()) + "px");
+    return this;
+    }
+
+    $('#loading').center();
+    $('#calendar').fullCalendar({
+
+        header: {
+            left: 'prev,next today',
+            center: 'title',
+            right: 'month,agendaWeek,agendaDay'
+        },
+
+        editable: false,
+
+        events: {
+
+            url: '/getStreams',
+            type: 'GET',
+            dataType: 'json',
+            error: function() {
+                alert('there was an error while fetching events!');
+            },
+            color: 'yellow',   // a non-ajax option
+            textColor: 'black' // a non-ajax option
+        },
+
+        eventDrop: function(event, delta) {
+            alert(event.title + ' was moved ' + delta + ' days\n' +
+                                    '(should probably update your database)');
+        },
+
+        loading: function(bool) {
+            if (bool){
+             $('#loading').show()
+            spinner = new Spinner(opts).spin(target);
+            } else {
+            $('#loading').hide()
+            spinner.stop();
+            }
+        },
+
+        eventRender: function(event, element, view) {
+            element.attr('href', 'javascript:void(0);');
+            element.attr('onclick', 'openModal("' + event.id + '","'+event.title+'");');
+
+        }
+    });
+
+
+
+    });
+
+    function openModal(id,title) {
+        $('.opened-dialogs').dialog("close");
+
+        $('<div class="opened-dialogs">').html('loading...').dialog({
+            position:  ['center',20],
+            open: function () {
+                    $(this).load("/streamInvites?streamId="+id);
+
+            },
+            close: function(event, ui) {
+            $(this).remove();
+            },
+
+            title: title,
+            minWidth: 600
+        });
+
+    return false;
+
+    }
+
+</script>
+<style>
+    body {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 14px;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    }
+
+    #loading {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+    }
+
+    #calendar {
+    width: 900px;
+    margin: 0 auto;
+    }
+
+    .Centered
+    {
+    width:100%;
+    position:fixed;
+    top:50%;
+    left:45%;
+    }
+
+
+    jQuery.fn.center = function () {
+        this.css("position","absolute");
+        this.css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) +
+        $(window).scrollTop()) + "px");
+        this.css("left", Math.max(0, (($(window).width() - $(this).outerWidth()) / 2) +
+        $(window).scrollLeft()) + "px");
+        return this;
+    }
+
+</style>
+}{
+<hr/>
+<div class="list-group">
+<div>
+<a href="/logout" class="btn btn-primary">Logout</a>
+<a href="/userDetails" class="btn btn-primary">Update User Details</a>
+</div>
+        <div class="container">
+            The Calendar below shows the streams you have started. Click on a stream to see who accepted or did not accept your invite
+        </div>
+    </div>
+
+<hr/>
+
+<div id='loading' class="Centered" style='width:100%;position:absolute;top:50%;right:45%;transform: translate(-50%, -50%);width: 48%, height: 59%;display:none'>loading...</div>
+<div id='calendar'></div>
+<div id="dialog"></div>
+ }

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../waid-graph/.idea/modules/waid-graph.iml" filepath="$PROJECT_DIR$/../waid-graph/.idea/modules/waid-graph.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../waid-graph/.idea/modules/waid-graph-build.iml" filepath="$PROJECT_DIR$/../waid-graph/.idea/modules/waid-graph-build.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/waid-video-streamer.iml" filepath="$PROJECT_DIR$/.idea/modules/waid-video-streamer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/waid-video-streamer-build.iml" filepath="$PROJECT_DIR$/.idea/modules/waid-video-streamer-build.iml" />
+    </modules>
+  </component>
+</project>

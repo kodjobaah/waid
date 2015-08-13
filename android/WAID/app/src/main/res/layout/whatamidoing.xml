@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:opencv="http://schemas.android.com/apk/res-auto"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent" >
+
+    <LinearLayout
+        android:id="@+id/main_holder"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:fillViewport="true"
+        android:orientation="vertical" >
+
+        <LinearLayout
+            android:id="@+id/sharing_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="gone" >
+
+            <ProgressBar
+                style="?android:attr/progressBarStyleLarge"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp" />
+
+            <TextView
+                android:id="@+id/invite_status_message"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="16dp"
+                android:text="@string/share_video"
+                android:textAppearance="?android:attr/textAppearanceMedium" />
+        </LinearLayout>
+
+        <GridLayout
+            android:id="@+id/video_display"
+            android:layout_width="fill_parent"
+            android:layout_height="0dp"
+            android:layout_gravity="fill_vertical|fill_horizontal"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_weight="1.1"
+            android:alignmentMode="alignBounds"
+            android:columnCount="3"
+            android:columnOrderPreserved="true"
+            android:keepScreenOn="true"
+            android:rowCount="7"
+            android:rowOrderPreserved="true"
+            android:useDefaultMargins="true"
+            tools:context=".LiveVideoStreamActivity" >
+
+            <!-- -ROW 0 -->
+
+            <LinearLayout
+            
+                android:id="@+id/top_options_frame"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="fill_horizontal"
+                android:layout_row="0"
+                android:paddingLeft="10dp"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal" >
+
+                
+                <TextView
+                    android:id="@+id/totalWatchers"
+                    style="@style/btnStyleArsenic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null" />
+                
+               <ImageButton
+                    android:id="@+id/shareLocation"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:contentDescription="@string/share_location"
+                    android:onClick="shareLocation"
+                    android:prompt="@string/share_location"
+                    android:src="@drawable/location" />
+               
+               <ImageButton
+                    android:id="@+id/viewSharers"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:contentDescription="@string/view_sharers"
+                    android:onClick="whoHasAccepted"
+                    android:prompt="@string/view_sharers"
+                    android:src="@drawable/watching" />
+                <ImageButton
+                    android:id="@+id/selectCamera"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:contentDescription="switch camera"
+                    android:onClick="switchCamera"
+                    android:prompt="@string/select_camera"
+                    android:src="@drawable/switch_camera" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/momemts_frame"
+                android:paddingLeft="10dp"
+                android:layout_column="0"
+                android:layout_gravity="fill_vertical"
+                android:layout_row="1"
+                android:layout_rowSpan="5"
+                android:background="@drawable/moments_frame"
+                android:orientation="horizontal"
+                android:padding="4dp" >
+                <SurfaceView
+                    android:id="@+id/surfaceView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                />
+
+                <!--
+               <org.opencv.android.JavaCameraView
+          android:layout_width="fill_parent"
+          android:layout_height="fill_parent"
+          android:visibility="gone"
+          android:id="@+id/opencvCameraView"
+          opencv:show_fps="true"  opencv:camera_id="any" />
+                 -->
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/options_frame"
+                android:paddingLeft="10dp"
+                style="?android:attr/buttonBarButtonStyle"
+                android:layout_width="fill_parent"
+                android:layout_column="0"
+                android:layout_gravity="fill_horizontal"
+                android:background="@android:color/transparent"
+                android:orientation="horizontal" >
+
+                <ImageButton
+                    android:id="@+id/start_video"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:contentDescription="camera"
+                    android:onClick="startVideo"
+                    android:src="@drawable/camera" >
+                </ImageButton>
+
+                <ImageButton
+                    android:id="@+id/start_transmission"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:contentDescription="sharing"
+                    android:onClick="startTransmission"
+                    android:src="@drawable/share_blue" >
+                </ImageButton>
+
+                <ImageButton
+                    android:id="@+id/send_messge"
+                    style="?android:attr/buttonBarButtonStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="4dp"
+                    android:background="@null"
+                    android:clickable="true"
+                    android:contentDescription="group chat"
+                    android:onClick="displayChat"
+                    android:src="@drawable/group_chat" >
+                </ImageButton>
+            </LinearLayout>
+        </GridLayout>
+    </LinearLayout>
+
+</ScrollView>

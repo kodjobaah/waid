@@ -1,0 +1,31 @@
+import java.io._
+import java.util.zip._
+
+import org.apache.commons.io.IOUtils
+
+object Compressor{
+
+    def byte[] compress(content: byte[] ): byte[] = {
+         val byteArrayOutputStream:  ByteArrayOutputStream = new ByteArrayOutputStream()
+        try{
+            val  gzipOutputStream: GZIPOutputStream = new GZIPOutputStream(byteArrayOutputStream)
+            gzipOutputStream.write(content);
+            gzipOutputStream.close();
+        } catch {
+	   case io: IOException =>  throw new RuntimeException(io)
+        }
+        System.out.printf("Compression ratio %f\n", (1.0f * content.length/byteArrayOutputStream.size()))
+        return byteArrayOutputStream.toByteArray()
+    }
+
+    def decompress(contentBytes: byte[] ): byte[] = {
+        val out: ByteArrayOutputStream  = new ByteArrayOutputStream()
+        try{
+            IOUtils.copy(new GZIPInputStream(new ByteArrayInputStream(contentBytes)), out)
+        } catch {
+	   case io: IOException =>  throw new RuntimeException(io)
+        }
+        return out.toByteArray();
+    }
+
+}

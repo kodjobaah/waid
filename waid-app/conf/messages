@@ -1,0 +1,10 @@
+no.token.provided=No Token Provided
+login.submit.button = Login
+error.notFound = User name does not exists
+error.authenticationFailure = Email or Password is not valid
+error.notRegistered = You will need to register
+error.passwordnotmatch = Both Passwords Have to be the Same
+error.validate = Account needs to be activated -- check email
+forgottenpassword.submit.button = Request Change Password
+changepassword.submit.button = Change Password
+updateuserdetails.submit.button = Update Details

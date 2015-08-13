@@ -1,0 +1,27 @@
+@* whatamidoing Template File *@
+@(stream: String)
+@main("What Am I Doing") {
+
+<link href="@routes.Assets.at("/video-js/video-js.css")" rel="stylesheet">
+<script src="@routes.Assets.at("/video-js/video.js")"></script>
+<script>
+    videojs.options.flash.swf = "@routes.Assets.at("/video-js/video-js.swf")"
+</script>
+}{
+	<div class="span12">
+	 <div  class="span3">&nbsp;</div>
+     <div class="span6">
+      &nbsp;
+      &nbsp;
+     <div id="player">Loading the player ...</div>
+         <video id="example_video_1" class="video-js vjs-default-skin"
+                controls preload="auto" width="640" height="264"
+                poster="http://video-js.zencoder.com/oceans-clip.png"
+                data-setup='{"example_option":true}'>
+             <source src="rtmp://192.168.0.101:1935/oflaDemo/@stream" type='video/flv' />
+         </video>
+
+	  </div>
+	  <div class="span3">&nbsp;</div>
+	  </div>
+}

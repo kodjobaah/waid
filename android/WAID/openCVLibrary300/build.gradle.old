@@ -1,0 +1,21 @@
+//apply plugin: 'com.android.library'
+apply plugin: 'com.android.model.application'
+model {
+    android {
+        compileSdkVersion = 14
+        buildToolsVersion = "19.1.0"
+
+        defaultConfig.with {
+            minSdkVersion.apiLevel = 8
+            targetSdkVersion.apiLevel = 8
+        }
+    }
+
+    android.buildTypes {
+        release {
+            isMinifyEnabled = false
+            proguardFiles += file('proguard-android.txt')
+            proguardFiles += file('proguard-rules.txt')
+        }
+    }
+}

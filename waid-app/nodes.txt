@@ -1,0 +1,46 @@
+
+Below are the list of nodes that are created
+user:User {id:"$em", email:"$em", password:"$pw_hash",firstName:"$fn",lastName:"$ln"}
+token:AuthenticationToken {id:"$token" ,token:"$token",valid:"$valid"}
+stream:Stream {id:"$stream",name:"$stream", state:"active"}
+invite:Invite {name:"${stream}-${email}", id:"$id"}
+invite:InviteTwitter {name:"${stream}-${twitter}", id:"$id"}
+invite:InviteFacebook {name:"${stream}-${twitter}", id:"$id"}
+invite:InviteLinkedin {name:"${stream}-${linkedin}", id:"$id"}
+changePassword:ChangePassword {id:"$id",state:"active"}
+referal:Referal{id:"$id}
+streamStarted:STREAM_STARTED
+streamStopped:STREAM_STOPPED
+referer:Referer{id:"$referer" , sessionId: "$sessionId"}
+Below are the relationships that exists between the nodes
+
+(user)-[r:HAS_TOKEN]->(token)
+
+(stream)-[r:USING]->(token)
+
+(stream)-[r:BROADCAST_ON {time:"$time"}]->(day)
+
+(invite)-[r:TO_WATCH]->(stream)
+(inviteTwitter)-[r:TO_WATCH]->(stream)
+(inviteFacebook)-[r:TO_WATCH]->(stream)
+
+(user)-[s:RECEIVED]->(invite)
+
+(invite)-[r:ACCEPTED_ON {time:"$time"}]->(day)
+
+(inviteTwitter)-[r:USING_REFERER]->(referal:Referal)-[a:ACCEPTED_ON {time:"$time"}]->(day)
+(inviteFacebook)-[r:USING_REFERER]->(referal:Referal)-[a:ACCEPTED_ON {time:"$time"}]->(day)
+(inviteLinkedin)-[r:USING_REFERER]->(referal:Referal)-[a:ACCEPTED_ON {time:"$time"}]->(day)
+
+(user)-[r:CHANGE_PASSWORD_REQUEST]->(changePassword)-[m:MADE_ON {time:"$time"}]->(day)
+
+(changePassword)-[c:CHANGED_ON {time:"$time"}]->(day)
+
+(stream)-[l:LOCATED_AT]->(ul:Location {latitude:$latitude,longitude:$longitude})
+
+(referer)-[ps:START_PLAYING]->(streamStarted {state:"$state"})-[o:ON {time:"$time"}]->(day)
+(referer)-[ps:STOP_PLAYING]->(streamStopped {state:"$state"})-[o:ON {time:"$time"}]->(day)
+
+
+
+
