@@ -2,12 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../.idea/modules/projects.iml" filepath="$PROJECT_DIR$/../.idea/modules/projects.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../.idea/modules/projects-build.iml" filepath="$PROJECT_DIR$/../.idea/modules/projects-build.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/video-processing-server-zeromq.iml" filepath="$PROJECT_DIR$/.idea/modules/video-processing-server-zeromq.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/video-processing-server-zeromq-build.iml" filepath="$PROJECT_DIR$/.idea/modules/video-processing-server-zeromq-build.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../waid-graph/.idea/modules/waid-graph.iml" filepath="$PROJECT_DIR$/../waid-graph/.idea/modules/waid-graph.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../waid-graph/.idea/modules/waid-graph-build.iml" filepath="$PROJECT_DIR$/../waid-graph/.idea/modules/waid-graph-build.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/waid-stream-builder.iml" filepath="$PROJECT_DIR$/.idea/modules/waid-stream-builder.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/waid-stream-builder-build.iml" filepath="$PROJECT_DIR$/.idea/modules/waid-stream-builder-build.iml" />
     </modules>

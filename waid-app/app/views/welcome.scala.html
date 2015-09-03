@@ -31,7 +31,7 @@
                 <p>
                     If someone has already shared a stream with you then you were automatically registered and you
                     should have received your password in an email. Click here to <a
-                        href="@routes.AdminController.forgottenPassword"> Request a new password</a>
+                        href="@routes.UserAdminController.forgottenPassword"> Request a new password</a>
                 </p>
             </div>
 
@@ -77,7 +77,7 @@
                     @helper.inputText(myForm("Email"),'id -> "userName")
                     @helper.inputPassword(myForm("Password"), 'id ->"password")
                     <input type="submit" class="btn btn-lg" value='@Messages.get(Lang.forCode("en"),"login.submit.button")'> <a
-                        href="@routes.AdminController.forgottenPassword">Forgotten password</a>
+                        href="@routes.UserAdminController.forgottenPassword">Forgotten password</a>
                     }
 
                 </div>

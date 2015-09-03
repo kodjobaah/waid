@@ -3,11 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-graph-matching/jars/neo4j-graph-matching-2.0.0-M06.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-graph-matching/docs/neo4j-graph-matching-2.0.0-M06-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-graph-matching/srcs/neo4j-graph-matching-2.0.0-M06-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

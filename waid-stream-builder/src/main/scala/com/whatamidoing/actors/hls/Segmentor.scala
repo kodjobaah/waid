@@ -17,7 +17,8 @@ class Segmentor(val streamName: String) extends Actor with ActorLogging {
   var segments: List[SegmentData] = List()
   var createSegment: List[SegmentInfo] = List()
   var segCounter = 1
-  var time = 0;
+  var time = 0
+  var totalTime = 0
   var prevSegmentCount = 0
 
   val segmentDirectory: Option[String] = RedisUserService.getSegmentLocationOfStream(streamName)
@@ -31,7 +32,7 @@ class Segmentor(val streamName: String) extends Actor with ActorLogging {
       if (actSeg == None) {
 
         for(sd <- segmentDirectory) {
-          activeSegment = Segment(sd,streamName + "_" + segCounter + ".ts")
+          activeSegment = Segment(totalTime,sd,streamName + "_" + segCounter + ".ts")
           activeSegment.init()
           val segData = SegmentData(activeSegment, segCounter, streamName)
           segCounter = segCounter + 1
@@ -44,12 +45,13 @@ class Segmentor(val streamName: String) extends Actor with ActorLogging {
       }
       activeSegment.addImage(image, ts)
 
-      time = ts + time;
-      log.info("total time of frames received:" + time)
+      time = ts + time
+      totalTime = ts + totalTime
+      log.info("-----total time of frames received:[" + totalTime+"] segment time["+time+"]")
       if ((time / 1000) > segmentTime) {
         activeSegment.duration = time / 1000
         activeSegment.close()
-        time = 0;
+        time = 0
         log.info("reseting the time:")
       }
 

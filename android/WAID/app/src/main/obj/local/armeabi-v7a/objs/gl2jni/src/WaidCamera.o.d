@@ -735,6 +735,7 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/is_copy_constructible.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/atomic_undef_macros.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/atomic_redef_macros.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/queue \
  /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv/cv.h \
  /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h \
  /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h \
@@ -879,12 +880,413 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/KHR/khrplatform.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/GLES2/gl2ext.h \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMqTransport.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/queue \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/atomic \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/NativeCommunicator.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/jni.h \
- /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/cppzmq/zmq.hpp \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/SoundCapture.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_Platform.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_Android.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_AndroidConfiguration.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_AndroidMetadata.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/shared_array.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/smart_ptr/shared_array.hpp \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMq.h \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/zeromq/include/zmq.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/chrono
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/gregorian/gregorian.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/gregorian/formatters.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_formatting.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/iso_format.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/parse_format_base.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_format_simple.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/gregorian/gregorian_io.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_facet.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/replace.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/config.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/iterator_range_core.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_facade.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/interoperable.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/detail/config_def.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/detail/config_undef.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_categories.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/placeholders.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/arg.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/arg_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/na_assert.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/assert.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/gpu.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/pp_counter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/arity_spec.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/arg_typedef.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/placeholders.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/detail/facade_iterator_category.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/indirect_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/detail/enable_if.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/always.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessor/default_params.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/apply.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/apply_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/apply_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/apply_wrap.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_apply.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/has_apply.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/msvc_never_true.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/lambda.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/bind.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/bind_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/bind.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/next.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/next_prior.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/common_name_wknd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/protect.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/bind.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/full_lambda.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/quote.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_type.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/bcc.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/template_arity.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/template_arity.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/full_lambda.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/apply.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/functions.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/begin.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/config.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/range_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/mutable_iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/extract_optional_type.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/msvc_has_iterator_workaround.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/const_iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/end.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/implementation_help.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/common.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/sfinae.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/size_type.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/difference_type.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/concepts.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept_check.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/assert.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/general.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/backward_compatibility.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/has_constraints.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/conversion_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/usage.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/concept_def.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/for_each_i.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/seq.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/elem.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/enum.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/concept_undef.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_concepts.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/value_type.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/misc_concept.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/make_unsigned.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/has_member_size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/utility.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/utility/base_from_member.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/utility/binary.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/control/deduce_d.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/cat.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/fold_left.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/transform.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/arithmetic/mod.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/arithmetic/detail/div_base.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/comparison/less_equal.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/logical/not.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/utility/identity_type.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/distance.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/empty.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/rbegin.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/reverse_iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/reverse_iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_adaptor.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/rend.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/has_range_iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/algorithm/equal.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/safe_bool.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/find_format.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/as_literal.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/iterator_range.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/iterator_range_io.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/str_types.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/concept.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/find_format.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/find_format_store.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/replace_storage.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/sequence_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/yes_no_type.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/sequence.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/find_format_all.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/finder.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/constants.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/finder.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/compare.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/formatter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/formatter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/util.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/special_values_formatter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/period_formatter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/period_parser.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/string_parse_tree.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/bad_lexical_cast.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/try_lexical_convert.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/is_character.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/converter_numeric.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/cast.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/converter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/conversion_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/conversion_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/meta.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/equal_to.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/comparison_op.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/numeric_op.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/numeric_cast.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/tag.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_tag.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/numeric_cast_utils.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/forwarding.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/msvc_eti_base.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/is_msvc_eti_arg.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/int_float_mixture.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/int_float_mixture_enum.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/sign_mixture.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/sign_mixture_enum.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/is_subranged.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/multiplies.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/times.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/arithmetic_op.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/times.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/less.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/less.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/converter_policies.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/converter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/bounds.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/bounds.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/numeric_cast_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/converter_lexical.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/has_left_shift.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/has_right_shift.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/lcast_precision.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/widest_char.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/array.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/swap.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/functional/hash_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/container/container_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/container/detail/std_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/converter_lexical_streams.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/lcast_char_constants.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/inf_nan.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/sign.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/tools/config.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/tools/user.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/fenv.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/fenv.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/math_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/detail/round_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/tools/promotion.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/policies/policy.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/limits/list.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/list20.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/list10.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/list0.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/long.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/long_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/push_front.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/push_front_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/item.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/tag.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/pop_front.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/pop_front_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/push_back.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/push_back_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/front.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/front_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/clear.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/clear_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/O1_size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/O1_size_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/size_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/empty.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/empty_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/begin_end.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/begin_end_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/iterator_tags.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/deref.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/msvc_type.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/lambda_spec.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/include_preprocessed.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/preprocessed/plain/list10.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/preprocessed/plain/list20.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/list.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/contains.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/contains_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/sequence_tag.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/sequence_tag_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_begin.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/contains_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/begin_end.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/begin_end_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/traits_lambda_spec.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/find.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/find_if.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/find_if_pred.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/iter_apply.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/iter_fold_if.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/pair.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/iter_fold_if_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/iter_fold_if_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/same_as.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/remove_if.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/fold.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/O1_size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/O1_size_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/fold_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/fold_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/reverse_fold.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/reverse_fold_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/reverse_fold_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/inserter_algorithm.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/back_inserter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/push_back.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/push_back_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/inserter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/front_inserter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/push_front.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/push_front_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/clear.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/clear_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/limits/vector.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/vector20.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/vector10.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/vector0.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/at.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/at_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/tag.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/typeof.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/front.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/push_front.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/item.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/pop_front.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/push_back.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/pop_back.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/pop_back_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/back.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/back_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/clear.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/vector0.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/plus.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/plus.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/minus.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/minus.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/advance_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/distance_fwd.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/prior.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/O1_size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/empty.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/begin_end.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/include_preprocessed.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/preprocessed/typeof_based/vector10.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/preprocessed/typeof_based/vector20.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/vector.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/at.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/at_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/advance.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/negate.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/advance_forward.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/advance_forward.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/advance_backward.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/advance_backward.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/size.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/size_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/distance.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/iter_fold.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/iter_fold_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/iter_fold_impl.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/iterator_range.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/comparison.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/not_equal_to.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/not_equal_to.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/greater.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/greater.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/less_equal.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/less_equal.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/greater_equal.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/greater_equal.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/config/no_tr1/complex.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/detail/fp_traits.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/endian.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/predef/detail/endian_compat.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/fpclassify.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/tools/real_cast.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/basic_pointerbuf.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/case_conv.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/transform_iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/case_conv.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/string_convert.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_generator_formatter.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_generator_parser.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/format_date_parser.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/strings_from_facet.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/special_values_parser.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/gregorian/parsers.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_parsing.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/tokenizer.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/token_iterator.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/minimum_category.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/token_functions.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/posix_time/posix_time.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/posix_time/time_formatters.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/time_formatting_streams.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_formatting_locales.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_names_put.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/time_parsing.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/posix_time/posix_time_io.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/time_facet.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/erase.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/posix_time/time_parsers.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/include.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/chrono.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/chrono_io.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/io_v1/chrono_io.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/process_cpu_clocks.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/thread_clock.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/ratio/ratio_io.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/ratio/detail/ratio_io.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/integer/common_factor_rt.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/detail/scan_keyword.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/move/unique_ptr.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/move/detail/unique_ptr_meta_utils.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/move/default_delete.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/move/adl_move_swap.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/detail/no_warning/signed_unsigned_cmp.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/io/utility/to_string.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/floor.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/round.hpp
 
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/WaidCamera.h:
 
@@ -2356,6 +2758,8 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/atomic_redef_macros.hpp:
 
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/queue:
+
 /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv/cv.h:
 
 /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h:
@@ -2644,14 +3048,816 @@
 
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMqTransport.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/queue:
-
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/atomic:
+
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/NativeCommunicator.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/jni.h:
 
-/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/cppzmq/zmq.hpp:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/SoundCapture.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_Platform.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_Android.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_AndroidConfiguration.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_AndroidMetadata.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/shared_array.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/smart_ptr/shared_array.hpp:
+
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMq.h:
 
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/zeromq/include/zmq.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/chrono:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/gregorian/gregorian.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/gregorian/formatters.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_formatting.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/iso_format.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/parse_format_base.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_format_simple.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/gregorian/gregorian_io.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_facet.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/replace.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/config.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/iterator_range_core.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_facade.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/interoperable.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/detail/config_def.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/detail/config_undef.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_categories.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/placeholders.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/arg.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/arg_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/na_assert.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/assert.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/gpu.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/pp_counter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/arity_spec.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/arg_typedef.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/arg.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/placeholders.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/detail/facade_iterator_category.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/indirect_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/detail/enable_if.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/always.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessor/default_params.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/apply.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/apply_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/apply_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/apply_wrap.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_apply.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/has_apply.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/msvc_never_true.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/apply_wrap.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/lambda.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/bind.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/bind_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/bind.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/bind_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/next.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/next_prior.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/common_name_wknd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/protect.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/bind.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/full_lambda.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/quote.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_type.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/bcc.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/quote.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/template_arity.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/template_arity.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/full_lambda.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/apply.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/functions.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/begin.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/config.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/range_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/mutable_iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/extract_optional_type.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/msvc_has_iterator_workaround.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/const_iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/end.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/implementation_help.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/common.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/sfinae.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/size_type.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/difference_type.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/concepts.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept_check.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/assert.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/general.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/backward_compatibility.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/has_constraints.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/conversion_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/usage.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/concept_def.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/for_each_i.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/seq.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/elem.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/enum.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/concept/detail/concept_undef.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_concepts.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/value_type.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/misc_concept.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/make_unsigned.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/has_member_size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/utility.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/utility/base_from_member.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/utility/binary.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/control/deduce_d.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/cat.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/fold_left.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/seq/transform.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/arithmetic/mod.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/arithmetic/detail/div_base.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/comparison/less_equal.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/preprocessor/logical/not.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/utility/identity_type.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/distance.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/empty.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/rbegin.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/reverse_iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/reverse_iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/iterator_adaptor.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/rend.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/has_range_iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/algorithm/equal.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/safe_bool.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/find_format.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/as_literal.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/iterator_range.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/iterator_range_io.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/range/detail/str_types.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/concept.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/find_format.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/find_format_store.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/replace_storage.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/sequence_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/yes_no_type.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/sequence.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/find_format_all.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/finder.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/constants.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/finder.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/compare.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/formatter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/formatter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/util.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/special_values_formatter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/period_formatter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/period_parser.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/string_parse_tree.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/bad_lexical_cast.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/try_lexical_convert.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/is_character.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/converter_numeric.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/cast.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/converter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/conversion_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/conversion_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/meta.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/equal_to.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/comparison_op.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/numeric_op.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/numeric_cast.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/tag.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_tag.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/numeric_cast_utils.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/forwarding.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/msvc_eti_base.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/is_msvc_eti_arg.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/equal_to.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/int_float_mixture.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/int_float_mixture_enum.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/sign_mixture.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/sign_mixture_enum.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/udt_builtin_mixture.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/udt_builtin_mixture_enum.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/is_subranged.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/multiplies.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/times.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/arithmetic_op.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/times.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/less.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/less.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/converter_policies.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/converter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/bounds.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/bounds.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/numeric_cast_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/numeric_cast_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_common.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/numeric/conversion/detail/preprocessed/numeric_cast_traits_long_long.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/converter_lexical.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/has_left_shift.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/type_traits/has_right_shift.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/lcast_precision.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/widest_char.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/array.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/swap.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/functional/hash_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/container/container_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/container/detail/std_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/converter_lexical_streams.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/lcast_char_constants.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/lcast_unsigned_converters.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/lexical_cast/detail/inf_nan.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/sign.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/tools/config.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/tools/user.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/fenv.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/fenv.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/math_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/detail/round_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/tools/promotion.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/policies/policy.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/limits/list.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/list20.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/list10.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/list0.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/long.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/long_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/push_front.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/push_front_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/item.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/tag.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/pop_front.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/pop_front_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/push_back.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/push_back_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/front.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/front_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/clear.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/clear_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/O1_size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/O1_size_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/size_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/empty.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/empty_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/begin_end.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/begin_end_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/iterator_tags.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/deref.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/msvc_type.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/lambda_spec.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/include_preprocessed.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/preprocessed/plain/list10.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/list/aux_/preprocessed/plain/list20.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/list.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/contains.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/contains_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/sequence_tag.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/sequence_tag_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_begin.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/contains_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/begin_end.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/begin_end_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/traits_lambda_spec.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/find.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/find_if.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/find_if_pred.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/iter_apply.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/iter_fold_if.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/pair.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/iter_fold_if_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/iter_fold_if_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/same_as.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/remove_if.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/fold.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/O1_size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/O1_size_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/has_size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/fold_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/fold_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/reverse_fold.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/reverse_fold_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/reverse_fold_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/inserter_algorithm.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/back_inserter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/push_back.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/push_back_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/inserter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/front_inserter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/push_front.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/push_front_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/clear.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/clear_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/limits/vector.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/vector20.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/vector10.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/vector0.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/at.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/at_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/tag.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/config/typeof.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/front.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/push_front.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/item.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/pop_front.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/push_back.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/pop_back.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/pop_back_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/back.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/back_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/clear.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/vector0.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/plus.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/plus.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/minus.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/minus.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/advance_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/distance_fwd.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/prior.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/O1_size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/empty.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/begin_end.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/include_preprocessed.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/preprocessed/typeof_based/vector10.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/vector/aux_/preprocessed/typeof_based/vector20.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/vector.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/at.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/at_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/advance.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/negate.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/advance_forward.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/advance_forward.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/advance_backward.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/advance_backward.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/size.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/size_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/distance.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/iter_fold.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/iter_fold_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/iter_fold_impl.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/iterator_range.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/comparison.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/not_equal_to.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/not_equal_to.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/greater.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/greater.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/less_equal.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/less_equal.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/greater_equal.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/mpl/aux_/preprocessed/gcc/greater_equal.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/config/no_tr1/complex.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/detail/fp_traits.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/endian.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/predef/detail/endian_compat.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/special_functions/fpclassify.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/math/tools/real_cast.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/basic_pointerbuf.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/case_conv.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/transform_iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/detail/case_conv.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/string_convert.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_generator_formatter.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_generator_parser.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/format_date_parser.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/strings_from_facet.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/special_values_parser.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/gregorian/parsers.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_parsing.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/tokenizer.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/token_iterator.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/iterator/minimum_category.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/token_functions.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/posix_time/posix_time.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/posix_time/time_formatters.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/time_formatting_streams.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_formatting_locales.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/date_names_put.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/time_parsing.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/posix_time/posix_time_io.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/time_facet.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/algorithm/string/erase.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/date_time/posix_time/time_parsers.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/include.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/chrono.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/chrono_io.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/io_v1/chrono_io.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/process_cpu_clocks.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/thread_clock.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/ratio/ratio_io.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/ratio/detail/ratio_io.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/integer/common_factor_rt.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/detail/scan_keyword.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/move/unique_ptr.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/move/detail/unique_ptr_meta_utils.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/move/default_delete.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/move/adl_move_swap.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/detail/no_warning/signed_unsigned_cmp.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/io/utility/to_string.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/floor.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/chrono/round.hpp:

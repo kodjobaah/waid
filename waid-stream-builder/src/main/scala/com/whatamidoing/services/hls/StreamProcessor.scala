@@ -13,6 +13,7 @@ import com.whatamidoing.actors.hls.FrameSupervisorHls
 import com.whatamidoing.actors.hls.model.Value.FrameData
 import com.whatamidoing.utils.{ActorUtils, Compressor}
 import org.joda.time.Seconds
+import org.slf4j.{LoggerFactory, Logger}
 import org.zeromq.ZMQ
 import spray.caching.{Cache, LruCache}
 import sun.misc.BASE64Decoder
@@ -25,6 +26,8 @@ import scala.concurrent.duration._
  * Created by kodjobaah on 04/08/2015.
  */
 class StreamProcessor(context: ZMQ.Context) extends Thread {
+
+  val logger: Logger  = LoggerFactory.getLogger(classOf[StreamProcessor])
 
   val cl = ActorUtils.getClass.getClassLoader
   val config = ConfigFactory.load()
@@ -68,50 +71,57 @@ class StreamProcessor(context: ZMQ.Context) extends Thread {
 
   def performOperation(message: List[String], socket: ZMQ.Socket) {
     var identifier: String = message.head
+    val authId = identifier.substring(0,identifier.indexOf(":"))
+    val type_id = identifier.substring(identifier.indexOf(":")+1,identifier.length)
     var action: String = message.tail.head
 
     action match {
+      case "INIT" =>
+        logger.debug("INIT-STRING receieved["+identifier+"]")
+
       case "CONNECT" =>
-        println("CONNECT STRING RECEIVED:["+identifier+"]")
-        var userNodeFuture = fetchUserNode(identifier)
+        logger.debug("CONNECT STRING RECEIVED:["+identifier+"] authId["+authId+"] typeId["+type_id+"]")
+        var userNodeFuture = fetchUserNode(authId)
 
         var streamId:Option[String] = None
 
         Await.result(userNodeFuture, 5 second).foreach { userNode: UserNode =>
           var email = userNode.attributes get KeyPrefixGenerator.Email
-          println("USER_EMAIL[" + email + "]")
+
+          streamId = Option("audio")
+          if (type_id.equalsIgnoreCase("video")) {
           RedisUserService.removeValidStreamUsingEmail(email)
-          var userStreamNode = RedisUserService.createStream(identifier)
+          var userStreamNode = RedisUserService.createStream(authId)
           for (usn <- userStreamNode) {
+            RedisUserService.addStreamToUsersList(Option(userNode),userStreamNode)
+
             var foundSid: String = usn.attributes get KeyPrefixGenerator.Token
-            println("sid[" + foundSid + "]")
             if (foundSid != null) {
-              println("STREAM_ID[" + foundSid + "]")
               val fs = priority.actorOf(FrameSupervisorHls.props(foundSid).withMailbox("prio-mailbox"), "frameSupervisor-" + foundSid)
               framesupervisors += foundSid -> fs
               streamId = Some(foundSid)
-              RedisUserService.addStreamSequenceNumber(foundSid,userNode.genId,0.toString)
+              RedisUserService.addStreamSequenceNumber(foundSid, userNode.genId, 0.toString)
 
-              val segDirectory = segmentDirectory+"/"+userNode.genId+"/"+usn.genId
+              val segDirectory = segmentDirectory + "/" + userNode.genId + "/" + usn.genId
               Files.createDirectories(Paths.get(segDirectory))
-              RedisUserService.addSegmentLocationToStream(usn.genId,segDirectory)
+              RedisUserService.addSegmentLocationToStream(usn.genId, segDirectory)
 
             }
+          }
           }
         }
 
         socket.send(identifier, ZMQ.SNDMORE)
-        println("BEFORE_CHECK["+streamId+"]")
         if (streamId == None) {
             socket.send("TOKEN_NOT_VALID", ZMQ.SNDMORE)
             socket.send("TERMINATE")
         } else {
-          socket.send("IS_VALID", ZMQ.SNDMORE)
-          socket.send(streamId.get)
-        }
+          socket.send("IS_VALID" + '\0', ZMQ.SNDMORE)
+          socket.send(streamId.get+'\0')
 
+        }
       case "END_STREAM" =>
-        println("ENDING STREAM")
+        logger.info("ENDING STREAM")
       /*
        streamId = message.tail.head
        val framesupervisor = framesupervisors get streamId
@@ -128,15 +138,22 @@ class StreamProcessor(context: ZMQ.Context) extends Thread {
         var streamId = message.tail.tail.head
         var time = message.tail.tail.tail.head
         var data = message.tail.tail.tail.tail.head
+        var dataType = message.tail.tail.tail.tail.tail.head;
         //println("streamId ["+streamId+"] time=["+time+"] data["+data.length+"]")
 
 
         val framesupervisor = framesupervisors get streamId
-        var frameData = FrameData(streamId,identifier,count,time.toInt,data)
-        count  = count + 1
 
-         for(fs <- framesupervisor)
-                  fs ! frameData
+        if ("VIDEO".equalsIgnoreCase(type_id)) {
+          var frameData = FrameData(streamId, identifier, count, time.toInt, data)
+          count = count + 1
+
+          for (fs <- framesupervisor)
+            fs ! frameData
+        } else {
+          val samples = data.split(",").map(_.toInt)
+          logger.debug("AUDIO-RECEIVED:["+samples.length+"]")
+        }
 
       case _ => println("--------------MESSAGE NOT MATCH["+action+"]")
 

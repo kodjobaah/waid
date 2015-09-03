@@ -2,16 +2,65 @@
 // Created by kodjo baah on 10/08/2015.
 //
 
-#include "WaidCamera.h"
+#include <WaidCamera.h>
 #include <boost/thread.hpp>
+#include <boost/thread/mutex.hpp>
 #include <boost/thread/thread.hpp>
 
 #include <VideoRendererVbo.h>
 #include <ZeroMqTransport.h>
 
+#include <boost/date_time/gregorian/gregorian.hpp>
+#include <boost/date_time/posix_time/posix_time.hpp>
+#include <boost/chrono.hpp>
+
+
 #define  LOG_TAG    "WAIDCAMERA"
 #define LOG(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 namespace waid {
+
+    void WaidCamera::addToQueue() {
+
+        boost::unique_lock <boost::mutex> lock(m_mutex);
+        while (dataToSend.empty() && (!stopZeroMqDeque)) {
+            zmq_send_cond.wait(lock);
+        }
+
+        if (!stopZeroMqDeque) {
+            std::tuple <cv::Mat, std::string, std::string> result = dataToSend.front();
+            dataToSend.pop();
+
+            std::string framePs  = std::get<2>(result);
+            std::string time = std::get<1>(result);
+            cv::Mat outframe = std::get<0>(result);
+            cv::Mat rgbframe;
+            if (orientation == 0) { //landscape
+                cv::flip(outframe, rgbframe, -1);
+            } else {
+                cv::flip(outframe, rgbframe, 1);
+            }
+
+            std::tuple <cv::Mat, std::string, std::string> frameData(rgbframe, time,framePs);
+            zeroMqTransport->addDataToQueue(frameData);
+        }
+    }
+
+    void WaidCamera::sendToZeroMqTransport() {
+        sendingToZeroMq = true;
+        while (!stopZeroMqDeque) {
+            try {
+                boost::this_thread::interruption_point();
+            }
+            catch (const boost::thread_interrupted &) {
+                LOG("ZMQ_BREAK");
+                break;
+            }
+
+            addToQueue();
+
+        }
+        sendingToZeroMq = false;
+    }
 
     void WaidCamera::renderFrame() {
 
@@ -27,8 +76,6 @@ namespace waid {
 
             if (fr.empty() == false) {
                 cv::cvtColor(fr, outframe, CV_BGR2BGR565);
-                //cv::cvtColor(fr, rgbframe, CV_BGR2BGR565);
-                //cv::cvtColor(fr, outframe, CV_BGR2RGBA);
 
                 std::stringstream s;
                 s << "Display performance: " << outframe.cols << "x" << outframe.rows << "@" <<
@@ -36,7 +83,6 @@ namespace waid {
                 cv::putText(outframe, s.str(), cv::Point(outframe.rows / 4, outframe.cols / 4),
                             cv::FONT_HERSHEY_PLAIN, 2.5, cv::Scalar(0, 255, 0, 255), 2, CV_AA);
 
-                // cv::transpose(outframe,outframe);
                 if (orientation == 0) { //landscape
                     cv::flip(outframe, rgbframe, -1);
                 } else {
@@ -44,16 +90,12 @@ namespace waid {
                 }
 
 
-
-
                 cv::Mat frameToSend;
                 pthread_mutex_lock(&FGmutex);
-                rgbframe.copyTo(frameToSend);
+                frameToSend = rgbframe.clone();
                 videoRendererVbo->renderFrame(screenWidth, screenHeight, rgbframe);
 
                 pthread_mutex_unlock(&FGmutex);
-                //videoRendererNoVbo.renderFrame(screenWidth,screenHeight,outframe);
-                //videoRenderer.draw(outframe);
             } else {
                 LOG("DAMN---VIDOEO IS EMPTY");
             }
@@ -70,9 +112,10 @@ namespace waid {
         cv::Mat drawing_frame;
         std::queue <int64> time_queue;
 
-        boost::posix_time::ptime current_date_microseconds = boost::posix_time::microsec_clock::local_time();
-        long previousFrameTime = current_date_microseconds.time_of_day().total_milliseconds();
+        boost::posix_time::ptime current_date_microseconds = current_date_microseconds = boost::posix_time::microsec_clock::local_time();
+        previousFrameTime = current_date_microseconds.time_of_day().total_milliseconds();
 
+        numberOfFramesSent = 0;
         int count = 0;
         while (true) {
 
@@ -90,11 +133,8 @@ namespace waid {
             LOG("READ %d", capture.empty());
             // Capture frame from camera and draw it
             if (!capture.empty()) {
-                // if (capture->grab())
-                //  capture->retrieve(drawing_frame, CV_CAP_ANDROID_COLOR_FRAME_RGBA);
 
                 capture->read(drawing_frame);
-                // capture->retrieve(drawing_frame, CV_CAP_ANDROID_COLOR_FRAME_BGRA);
 
                 pthread_mutex_lock(&FGmutex);
                 int loc = bufferIndex++ % 30;
@@ -105,15 +145,30 @@ namespace waid {
                 boost::posix_time::ptime current_date_microseconds = boost::posix_time::microsec_clock::local_time();
                 long currentFrameTime = current_date_microseconds.time_of_day().total_milliseconds();
                 long diffbetweenFrame = currentFrameTime - previousFrameTime;
+                previousFrameTime = currentFrameTime;
 
                 cv::Mat anotherCopy;
                 drawing_frame.copyTo(anotherCopy);
                 if (shouldSendToZmq) {
-                    LOG("---SHOULD-SEND-TO-ZMQ [%d]",count);
+                    LOG("---SHOULD-SEND-TO-ZMQ [%d][%d]", count, (int) diffbetweenFrame);
                     count = count + 1;
                     cv::Mat o;
                     cv::cvtColor(anotherCopy, o, CV_BGR2BGR565);
-                    zeroMqTransport->addDataToQueue(o,diffbetweenFrame);
+                    std::string arrivalTime;
+                    std::stringstream strstream;
+                    strstream << diffbetweenFrame;
+                    strstream >> arrivalTime;
+
+                    std::string framePs;
+                    std::stringstream fpsstream;
+                    fpsstream << fps;
+                    fpsstream >> framePs;
+
+                    std::tuple <cv::Mat, std::string, std::string > frameData(o, arrivalTime,framePs);
+                    // Acquire lock on the queue
+                    boost::lock_guard <boost::mutex> lock(m_mutex);
+                    dataToSend.push(frameData);
+                    zmq_send_cond.notify_one();
                 } else {
                     LOG("--NOT-SENDKNG-TO-ZMQ");
                 }
@@ -129,10 +184,8 @@ namespace waid {
 
             fps = time_queue.size() * (float) cv::getTickFrequency() / (now - then);
         }
-        LOG("Camera Closed");
         capture.release();
         videoStopped = 0;
-        LOG("DIG-DIG %d", videoStopped);
 
     }
 
@@ -172,24 +225,17 @@ namespace waid {
         return cv::Size(frame_width, frame_height);
     }
 
-
     void WaidCamera::initialize(int width, int height, int camera) {
 
-        LOG("STARTING-CAMERA w=%d, h=%d", width, height);
-        LOG("BOOLAH-1");
         capture = new cv::VideoCapture(camera);
-        LOG("BOOLAH-3");
-
         union {
             double prop;
             const char *name;
         } u;
         u.prop = capture->get(CV_CAP_PROP_SUPPORTED_PREVIEW_SIZES_STRING);
 
-        LOG("SUPPORTED-STRING %s", u.name);
         cv::Size camera_resolution;
 
-        //if (u.name)
         camera_resolution = calc_optimal_camera_resolution(u.name, width, height);
 
         if ((camera_resolution.width != 0) && (camera_resolution.height != 0)) {
@@ -211,27 +257,45 @@ namespace waid {
 
         LOG("DONG-WIDTH=%d, HIEGHT=%d", frameWidth, frameHeight);
 
-
     }
 
     void WaidCamera::startCamera(int width, int height, int camera) {
 
-        initialize(width,height,camera);
+        initialize(width, height, camera);
 
         videoRendererVbo->setupGraphics(width, height);
 
-        cameraOperatorThread = new boost::thread(&WaidCamera::frameRetriever,this);
+        cameraOperatorThread = new boost::thread(&WaidCamera::frameRetriever, this);
 
     }
 
     void WaidCamera::sendToZeroMq(const char *urlPath, const char *authToken) {
         shouldSendToZmq = true;
-        zeroMqTransport->establishConnection(urlPath,authToken);
+        stopZeroMqDeque = false;
+        zeroMqTransport->establishConnection(urlPath, authToken);
+        zeromqTransportThread = new boost::thread(&WaidCamera::sendToZeroMqTransport, this);
+        zeroMqTransport->startSoundCapture();
     }
 
     void WaidCamera::stopSendToZeroMq() {
         shouldSendToZmq = false;
+
+        LOG("ZEROMQ_STOPPING_TRANSPORT");
         zeroMqTransport->stop();
+        LOG("ZEROMQ_STOPPING_SOUNDCAPTURE");
+        zeroMqTransport->stopSoundCapture();
+        LOG("ZEROMQ_STOPPING_SOUNDCAPTURE_STOPPED");
+        //zeroMqTransportThread->interrupt();
+        zmq_send_cond.notify_one();
+        stopZeroMqDeque = true;
+
+        LOG("ZEROMQ_STOP_[%s]", sendingToZeroMq ? "true" : "false");
+        while (sendingToZeroMq) {
+            LOG("ZEROMQ_SEND_WAITING_TO FINISH");
+        }
+
+        //delete zeroMqTransportThread;
+
     }
 
     void WaidCamera::setOrientation(int orient) {
@@ -249,52 +313,42 @@ namespace waid {
         //frameHeight = camera_resolution.height;
     }
 
-    void WaidCamera::storeJni(JavaVM *gjVM){
-        gJavaVM = gjVM;
-        zeroMqTransport->storeJni(gjVM);
-    }
-
-    void WaidCamera::storeMessenger(jobject gnObject){
-        gNativeObject = gnObject;
-        zeroMqTransport->storeMessenger(gnObject);
-    }
-
-
     void WaidCamera::stop() {
-        LOG("WAITIING_STOP");
         cameraOperatorThread->interrupt();
-        while(videoStopped) {
-            LOG("WAITING-FOR-VIDEO-STOPED[%d]",videoStopped);
+        while (videoStopped) {
+            LOG("WAITING-FOR-VIDEO-STOPED[%d]", videoStopped);
         }
-        LOG("CAMERA_STOPPED");
 
         delete cameraOperatorThread;
-
-        LOG("THREAD_DELETED");
     }
 
     void WaidCamera::start() {
-        LOG("STARTING-CAMERA");
-        initialize(frameWidth,frameHeight,0);
-        LOG("CAMERA_INIT_COMPLETE");
-        cameraOperatorThread = new boost::thread(&WaidCamera::frameRetriever,this);
-        LOG("RETRIEVER STARTED");
+        initialize(frameWidth, frameHeight, 0);
+        cameraOperatorThread = new boost::thread(&WaidCamera::frameRetriever, this);
     }
 
     void WaidCamera::restartCamera(int camera) {
-
-        LOG("--RESTARTING-CAMERA-");
         cameraOperatorThread->interrupt();
-        while(videoStopped) {
-            LOG("WAITING-FOR-VIDEO-STOPED[%d]",videoStopped);
+        while (videoStopped) {
+            LOG("WAITING-FOR-VIDEO-STOPED[%d]", videoStopped);
         }
         delete cameraOperatorThread;
 
-        LOG("--STARTING-CAMERA-INIT");
-        initialize(frameWidth,frameHeight,camera);
-        LOG("--CAMERA-INIT-COMPLETE");
-        cameraOperatorThread = new boost::thread(&WaidCamera::frameRetriever,this);
-        LOG("---CAMREA-THREAD-STARTED");
+        initialize(frameWidth, frameHeight, camera);
+        cameraOperatorThread = new boost::thread(&WaidCamera::frameRetriever, this);
+
+    }
+
+    void WaidCamera::setNativeCommunicator(waid::NativeCommunicator * nc) {
+        nativeCommunicator = nc;
+    }
+
+    void WaidCamera::cleanUp() {
+        stopSendToZeroMq();
+        stop();
+        delete videoRendererVbo;
+        delete zeroMqTransport;
+
     }
 
     WaidCamera::~WaidCamera() {
@@ -304,58 +358,9 @@ namespace waid {
 
     }
 
-    WaidCamera::WaidCamera():videoRendererVbo(new waid::VideoRendererVbo()),zeroMqTransport(new waid::ZeroMqTransport()) {
+    WaidCamera::WaidCamera() : videoRendererVbo(new waid::VideoRendererVbo()),
+                               zeroMqTransport(new waid::ZeroMqTransport()) {
         shouldSendToZmq = false;
-
     }
-
-
-    jobject WaidCamera::getCallbackInterface(JNIEnv *env) {
-
-        bool send = true;
-        /* Construct a Java string */
-        LOG("-Z3");
-        jobject interfaceClass = env->NewWeakGlobalRef(gNativeObject);
-        LOG("-Z4");
-        if (!interfaceClass) {
-            LOG("-Z5");
-            LOG("callback_handler: failed to get class reference");
-            gJavaVM->DetachCurrentThread();
-            send = false;
-        }
-
-        if (send) {
-            return interfaceClass;
-        } else {
-            return NULL;
-        }
-
-    }
-
-    JNIEnv * WaidCamera::getJniEnv() {
-
-        JNIEnv *env;
-        bool isAttached = false;
-        bool send = true;
-        int status = gJavaVM->GetEnv((void **) &env, JNI_VERSION_1_6);
-        if (status < 0) {
-            LOG("callback_handler: failed to get JNI environment, "
-                        "assuming native thread");
-            status = gJavaVM->AttachCurrentThread(&env, NULL);
-            if (status < 0) {
-                LOG("callback_handler: failed to attach "
-                            "current thread");
-                send = false;
-            }
-            isAttached = true;
-        }
-
-        if (send) {
-            return env;
-        } else {
-            return NULL;
-        }
-    }
-
 
 }

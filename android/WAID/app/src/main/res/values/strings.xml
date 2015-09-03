@@ -5,6 +5,7 @@
     <string translatable="false" name="new_auth_success_message">USER CREATED - ADDED AUTHENTICATION TOKEN TO SESSISON</string>
     <string translatable="false" name="app_url">http://www.whatamidoing.info</string>
     <string translatable="false" name="login_url">http://www.whatamidoing.info:9000/register</string>
+    <string translatable="false" name="zeromq_url">tcp://www.whatamidoing.info:12345</string>
     <string name="forgotten_password_url">http://www.whatamidoing.info:9000/resendPassword</string>
     <string name="title_activity_what_am_idoing">WhatAmIdoing</string>
     <string name="hello_world">Hello world!</string>

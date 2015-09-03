@@ -1,0 +1,37 @@
+@(streamId: String, reference: String)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script type="text/javascript" src="http://cdn.clappr.io/latest/clappr.min.js"></script>
+    <title>WAID viewer</title>
+</head>
+<body>
+<div id="player"></div>
+<script>
+    var player = new Clappr.Player({source: "http://localhost:8080/stream/@streamId/playlist/@reference", parentId: "#player"});
+  </script>
+</body>
+</html>
+
+<head>
+    <script type="text/javascript" src="http://mydomain.com/jwplayer/HLSprovider/test/jwplayer6/jwplayer.js"></script>
+</head>
+<body>
+<div id="player">Loading the player...</div>
+
+<script type="text/javascript">
+    jwplayer("player").setup({
+     playlist: [{
+       // file is the url to m3u8 file
+       file:'http://mydomain.com/hls/bbb.m3u8',
+       provider: 'http://mydomain.com/jwplayer/HLSprovider/test/jwplayer6/HLSProvider6.swf',
+       type:'hls'
+      }],
+      width: 640,
+      height: 480,
+      primary: "flash"
+    });
+</script>
+
+</body>
+</html>

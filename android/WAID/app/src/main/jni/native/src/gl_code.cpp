@@ -51,16 +51,18 @@
 #include <VideoRendererVbo.h>
 #include <ZeroMqTransport.h>
 #include <WaidCamera.h>
+#include <SoundCapture.h>
 
 #define  LOG_TAG    "libgl2jni"
 #define LOG(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 
 
-JavaVM *gJavaVM;
-jobject gNativeObject;
+static JavaVM *gJavaVM;
+static jobject gNativeObject;
 
 waid::WaidCamera *waidCamera;
-
+waid::NativeCommunicator *nativeCommunicator;
+waid::SoundCapture *soundCapture;
 extern "C" {
 
     JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_init(JNIEnv * env, jobject ojb, jint width, jint height, int camera, int restart);
@@ -76,9 +78,21 @@ extern "C" {
     JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_stopCamera(JNIEnv * env, jobject obj);
     JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_startCamera(JNIEnv * env, jobject obj);
     JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_restartCamera(JNIEnv * env, jobject obj, jint camera);
+    JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_startRecording(JNIEnv * env, jobject obj,jstring url, jstring token);
+    JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_stopRecording(JNIEnv * env, jobject obj);
+    JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_cleanUp(JNIEnv * env, jobject obj);
 
 };
 
+JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_cleanUp(JNIEnv * env, jobject obj) {
+        waidCamera->cleanUp();
+}
+JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_startRecording(JNIEnv * env, jobject obj,jstring url, jstring token) {
+
+}
+JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_stopRecording(JNIEnv * env, jobject obj) {
+
+}
 
 JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_stopCamera(JNIEnv * env, jobject obj) {
 
@@ -97,10 +111,13 @@ JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_restartCamera(JNIEnv
 JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_init(JNIEnv * env, jobject obj, int width , int height, int camera, int restart)
 {
 
+    LOG("--INIT-CAMERA");
     waidCamera = new waid::WaidCamera();
     waidCamera->startCamera(width,height,camera);
-    waidCamera->storeJni(gJavaVM);
-    waidCamera->storeMessenger(gNativeObject);
+
+    nativeCommunicator = new waid::NativeCommunicator(gJavaVM,gNativeObject);
+    waidCamera->setNativeCommunicator(nativeCommunicator);
+
 }
 
 
@@ -128,7 +145,6 @@ JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_stopZeroMQ(JNIEnv * 
 
 JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_startZeroMQ(JNIEnv * env, jobject ob, jstring url, jstring token) {
 
-
         const char *urlPath = env->GetStringUTFChars(url, 0);
         const char *authToken = env->GetStringUTFChars(token, 0);
         waidCamera->sendToZeroMq(urlPath,authToken);
@@ -137,6 +153,9 @@ JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_startZeroMQ(JNIEnv *
 
 JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_storeMessenger(JNIEnv * env, jclass c, jobject jc) {
         LOG("SETTING MESSENGER");
+
+        // Caches the VM.
+        env->GetJavaVM(&gJavaVM);
         gNativeObject  = env->NewGlobalRef(jc);
 
 }
@@ -149,7 +168,7 @@ JNIEXPORT jint JNICALL JNI_OnLoad(JavaVM *vm, void *reserved) {
         return -1;
     }
 
-    gJavaVM = vm;
+
     LOG("JNIOnLoad-SETTING JVM CONTEXT");
 
     return JNI_VERSION_1_6; /* the required JNI version */

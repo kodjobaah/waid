@@ -1,8 +1,37 @@
-@(social: Seq[Tuple3[String,String,String]],locations:List[Location], accepted: Seq[Tuple3[String,String,String]], notAccepted:Seq[Tuple3[String,String,String]], linkedInRefs:List[Tuple2[Float,Float]], twitterRefs: List[Tuple2[Float,Float]], facebookRefs: List[Tuple2[Float,Float]])
+@(hostStreamer: String, portStreamer: Int, streamId: String, token: String, social: Seq[Tuple3[String,String,String]],locations:List[Location], accepted: Seq[Tuple3[String,String,String]], notAccepted:Seq[Tuple3[String,String,String]], linkedInRefs:List[Tuple2[Float,Float]], twitterRefs: List[Tuple2[Float,Float]], facebookRefs: List[Tuple2[Float,Float]])
 
 @import models.Location
 
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href='@routes.Assets.at("mediaelement/mediaelementplayer.min.css")' />
+    <script src='@routes.Assets.at("mediaelement/mediaelement-and-player.min.js")'></script>
+
+</head>
+<body>
 <div style="overflow:scroll;">
+    <video id="example-video" width="600" height="300" class="video-js vjs-default-skin" controls>
+        <source
+                src="http://@hostStreamer:@portStreamer/stream/@streamId/playlistall/@token/referred/playlist.m3u8"
+                type="application/x-mpegURL">
+    </video>
+
+    <script>
+
+
+    $('video').mediaelementplayer({
+     hls_debug: false,
+     hls_debug2: false,
+	success: function(media, node, player) {
+		$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
+	}
+    });
+
+
+
+    </script>
+
 
     @if(!locations.isEmpty) {
     <table class="table table-hover">
@@ -103,7 +132,7 @@
  
 
   <script>
-      $( "#locationMap" ).resizable();
+     $( "#locationMap" ).resizable();
 
   var locationMap;
    @if(!locations.isEmpty) {
@@ -259,3 +288,5 @@
   </script>
 
  </div>
+</body>
+</html>

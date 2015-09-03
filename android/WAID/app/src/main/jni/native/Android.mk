@@ -27,11 +27,14 @@ LOCAL_C_INCLUDES       += /Users/kodjobaah/projects/waid/android/WAID/app/src/ma
 						  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/include \
 						   $(LOCAL_PATH)/include
 LOCAL_SRC_FILES :=  src/gl_code.cpp \
+                    src/SoundCapture.cpp \
                     src/VideoRendererVbo.cpp \
+                    src/NativeCommunicator.cpp \
                     src/WaidCamera.cpp \
+                    src/ZeroMq.cpp \
                     src/ZeroMqTransport.cpp
 
-LOCAL_LDLIBS +=  $(OPENGLES_LIB) -llog -ldl -lEGL  -lGLESv2 -ljnigraphics \
+LOCAL_LDLIBS +=  $(OPENGLES_LIB) -llog -ldl -lEGL  -lGLESv2 -lOpenSLES -ljnigraphics \
 			$(CPP_STATIC)
 include $(BUILD_SHARED_LIBRARY)
 $(call import-module,boost/1.58.0)

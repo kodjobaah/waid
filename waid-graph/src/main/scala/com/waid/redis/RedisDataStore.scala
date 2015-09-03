@@ -12,8 +12,18 @@ import scala.collection.mutable.ListBuffer
  * Created by kodjobaah on 16/07/2015.
  */
 object RedisDataStore {
+
   val clients = new RedisClientPool(ApplicationProps.redisServer, ApplicationProps.redisPort)
 
+
+
+  def addZValue(key: String, timestamp: Long, value: String) = {
+    clients.withClient {
+      client =>
+        client.zadd(key,timestamp.toDouble,value)
+
+    }
+  }
 
   def addEleemnt(key: String, attributes: Map[String,String]) = {
 
@@ -116,11 +126,16 @@ object RedisDataStore {
           var streamTokenId = incrCounter(KeyPrefixGenerator.StreamCounter+userId.toString)
           userStreamNode.id = streamTokenId
           client.hmset(userStreamNode.genId,userStreamNode.attributes.getOrElse(Map()))
+
           var token = userStreamNode.attributes get KeyPrefixGenerator.Token
           var lookupStream = Map(email -> token)
+          client.hmset(KeyPrefixGenerator.LookupValidStreamsEmail, lookupStream)
           var lookupStreamToken = Map(token -> userStreamNode.genId)
           client.hmset(KeyPrefixGenerator.LookupValidStreams, lookupStreamToken)
-          client.hmset(KeyPrefixGenerator.LookupValidStreamsEmail, lookupStream)
+
+          val keyForStore = KeyPrefixGenerator.StoreStreams + userId.toString
+          client.hmset(keyForStore,lookupStreamToken)
+
         }
     )
     userStreamNode
@@ -185,5 +200,16 @@ object RedisDataStore {
           client.hmset(KeyPrefixGenerator.LookupValidLoginsEmail, validEmail)
         }
       }
+  }
+
+
+  def removeFromValidLogins(token: String, email: String): Unit = {
+
+    clients.withClient {
+      client => {
+        client.hdel(KeyPrefixGenerator.LookupValidLogins, token)
+        client.hdel(KeyPrefixGenerator.LookupValidLoginsEmail, email)
+      }
+    }
   }
 }

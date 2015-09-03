@@ -114,6 +114,7 @@ public class GL2JNIView extends GLSurfaceView {
 
         /* Set the renderer responsible for frame rendering */
         setRenderer(new Renderer(displayMetrics));
+        Log.i(TAG,"APPINIT_VIEW_init_createdRendered");
     }
 
     private static class ContextFactory implements GLSurfaceView.EGLContextFactory {
@@ -352,9 +353,15 @@ public class GL2JNIView extends GLSurfaceView {
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
             int width = (int)(displayMetrics.widthPixels*.8);
             int height = (int)(displayMetrics.heightPixels*.8);
-            Log.i(TAG,"----------------------DOOO-3 width="+width+" height="+height);
+            Log.i(TAG,"APPINIT_VIEW_RENDERER_onSurfaceCreate");
 
             GL2JNILib.init(width,height,0,0);
         }
+    }
+
+    @Override public void onPause() {
+        super.onPause();
+        Log.i(TAG,"APPINIT_VIEW_onPause");
+        GL2JNILib.stopCamera();
     }
 }

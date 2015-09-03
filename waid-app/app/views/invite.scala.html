@@ -9,15 +9,6 @@
         href='@routes.Assets.at("fullcalendar/fullcalendar.print.css")'
         rel='stylesheet'>
 
-<link
-        href='@routes.Assets.at("jquery-ui-1.10.3/css/base/jquery.ui.dialog.css")'
-        rel='stylesheet'
-        type="text/css" >
-
-<link
-        href='@routes.Assets.at("jquery-ui-1.10.3/css/ui-lightness/jquery-ui-1.10.3.custom.css")'
-        rel='stylesheet'
-        type="text/css" >
 
 <script type="text/javascript"
       src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHizctBV5_2T9EgbtZQAFHIjGiFrG3i1s&sensor=true">
@@ -122,7 +113,10 @@
         $('.opened-dialogs').dialog("close");
 
         $('<div class="opened-dialogs">').html('loading...').dialog({
-            position:  ['center',20],
+            position: {
+            my: 'center',
+            at: 'center'
+            },
             open: function () {
                     $(this).load("/streamInvites?streamId="+id);
 
@@ -166,6 +160,7 @@
     top:50%;
     left:45%;
     }
+
 
 
     jQuery.fn.center = function () {

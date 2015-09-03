@@ -1,5 +1,7 @@
-target
-app/target
-project/project/target
-project/target
-conf/application.conf
+/RUNNING_PID
+/logs/
+/project/*-shim.sbt
+/project/project/
+/project/target/
+/target/
+/.idea/

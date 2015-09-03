@@ -1165,9 +1165,18 @@
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/glm/gtc/type_ptr.inl \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMqTransport.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/atomic \
- /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/cppzmq/zmq.hpp \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/NativeCommunicator.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/SoundCapture.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_Platform.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_Android.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_AndroidConfiguration.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_AndroidMetadata.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/shared_array.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/smart_ptr/shared_array.hpp \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMq.h \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/zeromq/include/zmq.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/chrono \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/WaidCamera.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/thread.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/thread/once.hpp \
@@ -3595,11 +3604,29 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/atomic:
 
-/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/cppzmq/zmq.hpp:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/NativeCommunicator.h:
+
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/SoundCapture.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_Platform.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_Android.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_AndroidConfiguration.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES_AndroidMetadata.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/shared_array.hpp:
+
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/smart_ptr/shared_array.hpp:
+
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMq.h:
 
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/zeromq/include/zmq.h:
-
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/chrono:
 
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/WaidCamera.h:
 

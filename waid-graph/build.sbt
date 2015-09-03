@@ -16,6 +16,7 @@ libraryDependencies ++= Seq(
   "net.debasishg" %% "redisclient" % "3.0" ,
   "org.mindrot" % "jbcrypt" % "0.3m",
   "com.fasterxml.uuid" % "java-uuid-generator" % "3.1.3",
+  "joda-time" % "joda-time" % "2.2",
   "org.scalatest" %% "scalatest" % "2.2.1" % "test"
 
 )

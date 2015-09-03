@@ -14,7 +14,7 @@ import javax.imageio.ImageIO
 import java.util.Properties
 import org.javasimon.{Split, Stopwatch, SimonManager}
 
-class Segment(segDirectory: String, streamName: String) {
+class Segment(initTime: Long,segDirectory: String, streamName: String) {
 
   val stopwatch: Stopwatch  = SimonManager.getStopwatch(streamName)
 
@@ -30,9 +30,9 @@ class Segment(segDirectory: String, streamName: String) {
 
   def log = LoggerFactory.getLogger("Xuggler")
 
-  def this() = this("", "")
+  def this() = this(0,"", "")
 
-  var startTime: Long = _
+  var startTime: Long = initTime
   var count = 0
   var mediaWriter: IMediaWriter = null
 
@@ -59,19 +59,26 @@ class Segment(segDirectory: String, streamName: String) {
 //    Configuration.printConfigurable(System.out,videoStream.getStreamCoder)
     val videoCoder = videoStream.getStreamCoder
     val retval: Int = Configuration.configure(props, videoCoder)
-    videoCoder.setFlag(IStreamCoder.Flags.FLAG_QSCALE, false);
+    videoCoder.setFlag(IStreamCoder.Flags.FLAG_QSCALE, false)
     videoCoder.setProperty("nr", 0)
     videoCoder.setProperty("mbd", 0)
     // g / gop should be less than a segment so at least one key frame is in a segment
     val gops:Int = (10 / 10) // (fps / segment length) == gops
     videoCoder.setProperty("g", gops)
-    videoCoder.setNumPicturesInGroupOfPictures(gops)
+    //videoCoder.setNumPicturesInGroupOfPictures(gops)
     // previously used with mpeg-ts
     //videoCoder.setProperty("level",3)
     videoCoder.setProperty("async", 2)
     //videoCoder.setProperty("vsync", 1)
     import Segment.bitrate
-    videoCoder.setBitRate(bitrate)
+    videoCoder.setBitRate(350000)
+    //videoCoder.setNumPicturesInGroupOfPictures(30)
+    //videoCoder.setPixelType(IPixelFormat.Type.YUV420P)
+
+    val frameRate: IRational  = IRational.make(1,30)
+    //videoCoder.setFrameRate(frameRate)
+
+    //videoCoder.setTimeBase(IRational.make(frameRate.getDenominator/frameRate.getNumerator))
     videoCoder.setBitRateTolerance(videoCoder.getBitRate() / 2)
     videoCoder.setGlobalQuality(0);
 
@@ -90,19 +97,20 @@ class Segment(segDirectory: String, streamName: String) {
 
   def addImage(image: BufferedImage, diff: Int) {
     import java.util.concurrent.TimeUnit
-    if (count == 0) {
-      startTime = 0
-    }else {
+    //if (count == 0) {
+    //  startTime = 0
+    //}else {
       startTime = startTime + diff
-    }
+    //}
 
     var im = image
-    if (im.getType() == BufferedImage.TYPE_3BYTE_BGR) {
+    if (im.getType() == BufferedImage.TYPE_INT_RGB) {
 
-      im = convertType(im, BufferedImage.TYPE_INT_RGB)
+      im = convertType(im, BufferedImage.TYPE_3BYTE_BGR)
     }
 
 
+    /*
     var kernelWidth = 2
     var kernelHeight = 2
 
@@ -116,31 +124,35 @@ class Segment(segDirectory: String, streamName: String) {
     var g2: Graphics2D = newSource.createGraphics()
     g2.drawImage(im, xOffset, yOffset, null)
     g2.dispose()
-
-    //var dstbim: BufferedImage = new BufferedImage(im.getWidth,im.getHeight,BufferedImage.TYPE_INT_RGB)
+    */
+    //var dstbim: BufferedImage = new BufferedImage(im.getWidth,im.getHeight,BufferedImage.TYPE_INT_RGB);
+    /*
     val kernel: Kernel = new Kernel(3, 3, SHARPEN3x3)
 
     val cop: ConvolveOp = new ConvolveOp(kernel, ConvolveOp.EDGE_NO_OP, null)
     var dstbim: BufferedImage = cop.filter(im, null)
 
-
     if (dstbim.getType() == BufferedImage.TYPE_INT_RGB) {
 
       dstbim = convertType(dstbim, BufferedImage.TYPE_3BYTE_BGR)
     }
+     */
 
+
+    /*
     val tx: AffineTransform = AffineTransform.getScaleInstance(-1, 1)
     tx.translate(-dstbim.getWidth(null), 0)
     val op: AffineTransformOp = new AffineTransformOp(tx, AffineTransformOp.TYPE_NEAREST_NEIGHBOR)
     dstbim = op.filter(dstbim, null);
-    if (count < 20) {
-      log.info("WRTING FILE")
-      val outputfile = new File("/tmp/image" + count + ".jpg")
-      ImageIO.write(dstbim, "jpg", outputfile)
+    */
+    //if (count < 20) {
+     // log.info("WRTING FILE")
+      val outputfile = new File("/tmp/raw/image" + count + ".jpg")
+      ImageIO.write(im, "jpg", outputfile)
       count = count + 1;
-    }
+    //}
 
-    mediaWriter.encodeVideo(0, dstbim, startTime, TimeUnit.MILLISECONDS)
+    mediaWriter.encodeVideo(0, im, startTime, TimeUnit.MILLISECONDS)
   }
 
   def convertType(src: BufferedImage, t: Int): BufferedImage = {
@@ -179,6 +191,7 @@ class Segment(segDirectory: String, streamName: String) {
         duration = reader.getContainer.getDuration()/1000000
       }
 
+      println("------------------------duration["+duration+"]---------------------------")
       reader.close
 
     } catch {
@@ -193,7 +206,7 @@ class Segment(segDirectory: String, streamName: String) {
 
   def removeSegment = {
     val file = new File(segDirectory + streamName)
-    file.delete();
+    file.delete()
   }
 
   def isActiveSegment = activeSegment
@@ -206,7 +219,7 @@ object Segment {
   val segDirectory: String = config.getString("segment.directory")
   val bitrate: Int = config.getInt("segment.bitrate")
 
-  def apply(streamName: String) = new Segment(segDirectory, streamName)
-  def apply(sd: String, streamName: String) = new Segment(sd, streamName)
+  //def apply(streamName: String) = new Segment(0,segDirectory, streamName)
+  def apply(startTime: Long,sd: String, streamName: String) = new Segment(startTime,sd, streamName)
 
 }

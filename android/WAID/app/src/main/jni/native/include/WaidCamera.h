@@ -12,6 +12,8 @@
 
 //#include  <atomic>
 
+#include <queue>
+
 #include <cv.h>
 #include <highgui.h>
 #include <opencv2/core/core.hpp>
@@ -20,19 +22,31 @@
 #include <opencv2/highgui/highgui.hpp>
 #include <VideoRendererVbo.h>
 #include <ZeroMqTransport.h>
+#include <NativeCommunicator.h>
+#include <ZeroMq.h>
 
 namespace waid {
     class WaidCamera {
 
     private:
 
+        boost::atomic <bool> shouldSendToZmq;
+        bool stopZeroMqDeque = false;
+        bool sendingToZeroMq = false;
+
+        boost::condition_variable zmq_send_cond;
+        boost::mutex m_mutex;   // The mutex to synchronise on
+        std::queue<std::tuple<cv::Mat, std::string, std::string>> dataToSend;
+
+        long previousFrameTime;
+        int numberOfFramesSent;
+
         waid::VideoRendererVbo *videoRendererVbo;
         waid::ZeroMqTransport *zeroMqTransport;
+        waid::NativeCommunicator *nativeCommunicator;
 
         boost::thread *cameraOperatorThread;
-
-        JavaVM *gJavaVM;
-        jobject gNativeObject;
+        boost::thread *zeromqTransportThread;
 
         cv::Ptr <cv::VideoCapture> capture;
         cv::Mat buffer[30];
@@ -45,7 +59,6 @@ namespace waid {
         int orientation = 0;
         int fps =0;
 
-        boost::atomic <bool> shouldSendToZmq;
 
         pthread_mutex_t FGmutex;
 
@@ -56,10 +69,9 @@ namespace waid {
 
         cv::Size calc_optimal_camera_resolution(const char *supported, int width, int height);
 
-        JNIEnv *getJniEnv();
-        jobject getCallbackInterface(JNIEnv *env);
 
     public:
+
         WaidCamera();
 
         ~WaidCamera();
@@ -78,15 +90,19 @@ namespace waid {
 
         void stopSendToZeroMq();
 
-        void storeJni(JavaVM *gjVM);
-
-        void storeMessenger(jobject gnObject);
-
         void resize(int width, int height);
 
         void setOrientation(int orient);
 
         void restartCamera(int camera);
+
+        void setNativeCommunicator(NativeCommunicator *nc);
+
+        void sendToZeroMqTransport();
+
+        void cleanUp();
+
+        void addToQueue();
 
     };
 

@@ -37,3 +37,4 @@ class VideoReceiver(context: ZMQ.Context) extends Thread {
 
 
 }
+                    

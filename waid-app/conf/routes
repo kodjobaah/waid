@@ -26,27 +26,22 @@ GET /getLocations               controllers.WhatAmIDoingController.whatAreTheLoc
 GET  /calendar                  controllers.AdminController.getInvites
 GET /streamInvites              controllers.AdminController.getStreamInvites(streamId: String)
 GET /getStreams                 controllers.AdminController.getStreams(start: String, end: String)
-GET /findAllStreams             controllers.AdminController.findAllStreams(email: String)
-GET /list                       controllers.AdminController.list
-GET /listInvites                controllers.AdminController.listInvites(sEcho:Int, iDisplayLength: Int, iDisplayStart: Int, iSortCol_0: Int, sSortDir_0: String, streamId: String, token: String)
 GET /logout                     controllers.AdminController.logout
-GET /forgottenPassword          controllers.AdminController.forgottenPassword
-GET /changePassword	            controllers.AdminController.changePassword(changePasswordId: String)
-GET /userDetails		        controllers.AdminController.fetchUserDetails
 
 POST /login			            controllers.AdminController.login
-POST /performPasswordChange 	controllers.AdminController.performPasswordChange
-POST /updateUserDetails		    controllers.AdminController.updateUserDetails
 
 # Redis
 POST /resendPassword            controllers.UserAdminController.resendPassword(email: String)
 POST /register		            controllers.UserAdminController.registerLoginRedis(email: Option[String], password: Option[String], firstName: Option[String], lastName: Option[String])
 POST /updatePassword            controllers.UserAdminController.performPasswordChange
 POST /changePasswordRequest	    controllers.UserAdminController.changePasswordRequest
+POST /updateUserDetails		    controllers.UserAdminController.updateUserDetails
 
+GET /userDetails		        controllers.UserAdminController.fetchUserDetails
 GET /register                   controllers.UserAdminController.completeRegistration(registrationId: Option[String])
 GET /passwordChange             controllers.UserAdminController.passwordChange(changePasswordId:String,email:String)
-
+GET /forgottenPassword          controllers.UserAdminController.forgottenPassword
+GET /forgottenPassword          controllers.UserAdminController.forgottenPassword
 
 # resolved
 # Map static resources from the /public folder to the /assets URL path

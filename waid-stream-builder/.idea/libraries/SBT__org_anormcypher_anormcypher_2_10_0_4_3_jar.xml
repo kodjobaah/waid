@@ -3,11 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.ivy2/cache/org.anormcypher/anormcypher_2.10/jars/anormcypher_2.10-0.4.3.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.anormcypher/anormcypher_2.10/docs/anormcypher_2.10-0.4.3-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.anormcypher/anormcypher_2.10/srcs/anormcypher_2.10-0.4.3-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

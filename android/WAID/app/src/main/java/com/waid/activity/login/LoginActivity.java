@@ -52,14 +52,8 @@ import com.waid.utils.WaidUtils;
  */
 public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
 
-    /**
-     * A dummy authentication store containing known user names and passwords.
-     * TODO: remove after connecting to a real authentication system.
-     */
-    private static final String[] DUMMY_CREDENTIALS = new String[]{
-            "foo@example.com:hello", "bar@example.com:world"
-    };
-    public static final String TAG = "UserLoginTask";
+
+    public static final String TAG = "LoginActivity";
     /**
      * Keep track of the login task to ensure we can cancel it if requested.
      */
@@ -94,6 +88,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        Log.i(TAG,"onCreate");
 
         mActivity = this;
         // Set up the login form.
@@ -562,6 +557,7 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
     private void startCamera() {
         Intent intent = new Intent(this, WhatAmIdoing.class);
         startActivity(intent);
+        finish();
     }
 }
 

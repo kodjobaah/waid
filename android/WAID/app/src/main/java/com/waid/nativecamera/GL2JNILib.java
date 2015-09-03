@@ -39,7 +39,7 @@ public class GL2JNILib {
 
     public static native void stopZeroMQ();
 
-    public static native void storeMessenger(ZeroMQMessenger zeromMessenger);
+    public static native void storeMessenger(NativeToJavaMessenger nativeToJavaMessenger);
 
     public static native void restartCamera(int camera);
 
@@ -47,4 +47,9 @@ public class GL2JNILib {
 
     public static native void startCamera();
 
+    public static native void startRecording(String url, String token);
+
+    public static native void stopRecording();
+
+    public static native void cleanUp();
 }

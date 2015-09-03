@@ -4,8 +4,6 @@
       <root url="jar://$USER_HOME$/.ivy2/cache/org.ostermiller/utils/jars/utils-1.07.00.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.ostermiller/utils/srcs/utils-1.07.00-sources.jar!/" />
-    </SOURCES>
+    <SOURCES />
   </library>
 </component>

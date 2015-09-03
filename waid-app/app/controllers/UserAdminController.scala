@@ -7,8 +7,8 @@ import com.waid.redis.{RedisDataStore, KeyPrefixGenerator}
 import com.whatamidoing.mail.EmailSenderService
 import com.waid.redis.service.RedisUserService
 import com.whatamidoing.utils.{ActorUtils, ActorUtilsReader}
-import models.{ForgottenPassword, PasswordChange, ChangePassword}
-import com.waid.redis.model.UserNode
+import models.{UserDetails, ForgottenPassword, PasswordChange, ChangePassword}
+import com.waid.redis.model.{UserStreamNode, UserNode}
 import play.api.Logger
 import play.api.data.{Form, FormError}
 import play.api.data.Forms._
@@ -21,6 +21,13 @@ import scala.concurrent.Future
  * Created by kodjobaah on 21/07/2015.
  */
 class UserAdminController @Inject()(val messagesApi: MessagesApi)  extends Controller with I18nSupport {
+
+  val userDetailsForm = Form(
+    mapping(
+      "email" -> optional(text),
+      "firstName" -> nonEmptyText(),
+      "lastName" -> nonEmptyText()
+    )(UserDetails.apply)(UserDetails.unapply))
 
   val forgottenPasswordForm = Form(
     mapping(
@@ -323,5 +330,82 @@ class UserAdminController @Inject()(val messagesApi: MessagesApi)  extends Contr
     emailSenderService.sendChangePasswordLink(email, token)
     Right("")
   }
+
+
+  def fetchUserDetails = Action.async {
+    implicit request =>
+
+      request.session.get("whatAmIdoing-authenticationToken").map {
+        token =>
+          val res = RedisUserService.checkIfTokenIsValid(token)
+
+          if (res != None) {
+            val userDetails = populateUserDetails(res.get)
+            val filledForm = userDetailsForm.fill(userDetails)
+            Future {
+              Ok(views.html.userdetails(filledForm, state = false))
+            }
+          } else {
+            Future {Unauthorized(views.html.welcome(Index.userForm))}
+          }
+      }.getOrElse {
+        Future {Unauthorized(views.html.welcome(Index.userForm))}
+      }
+
+  }
+
+  private def populateUserDetails(userNode: UserNode ): UserDetails =  {
+    val email = userNode.attributes get KeyPrefixGenerator.Email
+    val firstName = userNode.attributes get KeyPrefixGenerator.FirstName
+    val lastName = userNode.attributes get KeyPrefixGenerator.LastName
+    val userDetails = UserDetails(Option(email),firstName,lastName)
+    userDetails
+  }
+  def updateUserDetails() = Action.async {
+    implicit request =>
+
+      request.session.get("whatAmIdoing-authenticationToken").map {
+        token =>
+
+          val bindForm = userDetailsForm.bindFromRequest
+
+          bindForm.fold(
+            formWithErrors => {
+              Future {BadRequest(views.html.userdetails(formWithErrors, state = false))}
+            },
+            userData => {
+
+              var user = RedisUserService.checkIfTokenIsValid(token)
+
+              if(user != None) {
+                val firstName = Map(KeyPrefixGenerator.FirstName -> userData.firstName)
+                val lastName = Map(KeyPrefixGenerator.LastName -> userData.lastName)
+                RedisDataStore.addEleemnt(user.get.genId,firstName)
+                RedisDataStore.addEleemnt(user.get.genId,lastName)
+
+                user = RedisUserService.checkIfTokenIsValid(token)
+                val userDetails = populateUserDetails(user.get)
+                val filledForm = userDetailsForm.fill(userDetails)
+                Future {
+                  Ok(views.html.userdetails(filledForm, state = true))
+                }
+              } else {
+                Future {Unauthorized(views.html.welcome(Index.userForm))}
+              }
+              }
+          )
+      }.getOrElse {
+        Future {Unauthorized(views.html.welcome(Index.userForm))}
+      }
+
+
+  }
+
+  def forgottenPassword = Action.async {
+    implicit request =>
+      Future {Ok(views.html.forgottenPassword(forgottenPasswordForm))}
+
+  }
+
 
 }

@@ -3,11 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-cypher/jars/neo4j-cypher-2.0.0-M06.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-cypher/docs/neo4j-cypher-2.0.0-M06-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-cypher/srcs/neo4j-cypher-2.0.0-M06-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

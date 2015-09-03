@@ -4,6 +4,7 @@
 object Test extends App {
 
 
+  /*
   val num = 270.0
 
   var result = 0.0
@@ -31,5 +32,9 @@ object Test extends App {
     }
 
   }
-  println("val["+result+"]")
+  */
+  val s = "akdfjasd:fjaskdlf";
+  val first = s.substring(0,s.indexOf(":"));
+  val second = s.substring(s.indexOf(":")+1,s.length);
+  println("val["+first+"] ["+second+"]")
 }

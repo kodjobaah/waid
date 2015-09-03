@@ -1,5 +1,7 @@
 package com.waid.redis.service
 
+import java.text.{DecimalFormat, NumberFormat}
+
 import com.waid.redis.model.{UserStreamNode, Node, UserTokenNode, UserNode}
 import com.waid.redis.utils.RedisUtils
 import com.waid.redis.{KeyPrefixGenerator, RedisDataStore, RedisReadOperations}
@@ -19,6 +21,41 @@ object RedisUserService {
     * ******************************************************************************************************************/
 
 
+
+  def getStoredStream(token: String, streamToken: String): Option[UserStreamNode] =  {
+
+
+      var res: Option[UserStreamNode] = None
+
+      val userNode = checkIfTokenIsValid(token)
+
+      if (userNode != None) {
+        val id = userNode.get.genId.split(":")(2)
+        val key = KeyPrefixGenerator.StoreStreams + id.substring(id.indexOf("_") + 1)
+        val streamNodeId = RedisReadOperations.getElementAttribute(key, streamToken)
+
+        var userTokenNode = RedisReadOperations.getUserTokenNodeId(token)
+        res = RedisReadOperations.populateStreamNode(streamNodeId.get,userTokenNode.get)
+
+      }
+    res
+  }
+  def addStreamToUsersList(user: Option[UserNode], stream: Option[UserStreamNode]): Unit = {
+
+    val id = user.get.genId.split(":")(2)
+    val userListKey = KeyPrefixGenerator.LookupAllStreams+id
+    val timestamp: Long = java.lang.Double.valueOf(System.currentTimeMillis / 1000).longValue()
+    val value = stream.get.genId
+    RedisDataStore.addZValue(userListKey,timestamp,value)
+
+  }
+
+  /*
+   * Used for test purposes
+   */
+  def getAllValidStreams(): Option[Map[String,String]] = {
+      RedisReadOperations.getAllValidStreams
+  }
   /*
    * This will only return the segment location if the stream is active
    */
@@ -113,6 +150,14 @@ object RedisUserService {
       userStreamNode = Some(RedisDataStore.createStreamForUser(userTokenNodeId, email))
 
     }
+    userStreamNode
+  }
+
+  def getStreamFromStore(streamToken: String, userId: String):Option[UserStreamNode] = {
+    var userStreamNode = None
+
+    var streamStorekey = KeyPrefixGenerator.StoreStreams+userId
+     val streamNode  = RedisReadOperations.getElementAttribute(streamStorekey,streamToken)
     userStreamNode
   }
 

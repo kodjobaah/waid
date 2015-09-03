@@ -11,6 +11,7 @@
 #include <boost/thread/mutex.hpp>
 #include <boost/thread/thread.hpp>
 
+
 #include <tuple>
 #include <queue>
 #include <atomic>
@@ -19,8 +20,13 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/highgui/highgui.hpp>
-#include <jni.h>
-#include <zmq.hpp>
+
+#include <NativeCommunicator.h>
+#include <SoundCapture.h>
+#include <ZeroMq.h>
+
+#define LOG_TAG_MONITOR    "ZEROMQ_MONITOR"
+#define LOGM(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG_MONITOR, __VA_ARGS__)
 
 namespace  waid {
 
@@ -28,65 +34,57 @@ namespace  waid {
 
     private:
 
-
-        static const std::string CONNECT_MESSAGE;
         static const std::string IS_ALIVE_MESSAGE;
-
         static const std::string BROADCAST_MESSAGE;
+        static const std::string TYPE_MESSAGE;
+        static const std::string INIT_MESSAGE;
+        std::string streamId;
 
-        std::atomic<bool> processingStarted;
+        std::atomic <bool> processingStarted;
         bool stopDequeue = false;
+
         boost::mutex m_mutex;   // The mutex to synchronise on
-        boost::condition_variable m_cond;// The condition to wait for
 
-        std::queue<std::tuple<cv::Mat, std::string>> dataToSend;
-       // boost::lockfree::spsc_queue <boost::tuple<cv::Mat &, std::string>, boost::lockfree::capacity<1024>> dataToSend;
-        boost::mutex mtx_;
-
-        JavaVM *gJavaVM;
-        jobject gNativeObject;
+        boost::shared_ptr <boost::thread> monitorThread;
+        std::queue <std::tuple<cv::Mat, std::string, std::string>> dataToSend;
 
         pthread_mutex_t jpegFileMutex;
 
-        boost::shared_ptr<boost::thread> processImageThread;
+        waid::ZeroMq *zeroMq;
+        waid::ZeroMq *zeroMqAudio;
+        waid::SoundCapture *soundCapture;
+        waid::NativeCommunicator *nativeCommunicator;
 
-        JNIEnv *getJniEnv();
-
-        jobject getCallbackInterface(JNIEnv *env);
+        boost::shared_ptr <boost::thread> processImageThread;
 
         std::string base64Encode(const unsigned char *buffer, size_t length, char **b64text);
 
-        void unableToConnectZmq();
-
-        void zmqConnectionDropped();
-
         void processImage(const char *urlPath, const char *authToken);
 
-        void updateMessageSent(long messageSent);
-
-        zmq::socket_t s_client_socket(zmq::context_t & context,const char *urlPath, const char *authToken);
-
-        bool getDataFromDequeue(std::tuple<cv::Mat, std::string>& result);
+        bool getDataFromDequeue(std::tuple <cv::Mat, std::string, std::string> &result);
 
     public:
 
-        void storeJni(JavaVM *gjVM);
-
-        void storeMessenger(jobject gnObject);
-
-        void stop();
-
-        void establishConnection(const char *urlPath, const char *authToken);
-        void connectedZmq();
-
-        void storedMessenger(jobject gNObject);
-
-        void setJavaVm(JavaVM *javaVm);
+        static const std::string CONNECT_MESSAGE;
 
         ZeroMqTransport();
 
+        ~ZeroMqTransport();
 
-        void addDataToQueue(cv::Mat image, long time);
+        void stop();
+
+        void startSoundCapture();
+
+        boost::condition_variable m_cond;// The condition to wait for
+
+        void stopSoundCapture();
+
+        void establishConnection(const char *urlPath, const char *authToken);
+
+        void addDataToQueue(std::tuple <cv::Mat, std::string, std::string> frameData);
+
+        void setNativeCommunicator(NativeCommunicator *nc);
+
     };
 
 }

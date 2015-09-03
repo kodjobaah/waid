@@ -128,6 +128,19 @@ android:background="@android:color/transparent"
             android:layout_weight="1"
         </View>
 
+        <ImageButton
+            android:id="@+id/start_recording"
+            style="?android:attr/buttonBarButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
+            android:background="@null"
+            android:clickable="true"
+            android:contentDescription="recording"
+            android:onClick="recording"
+            android:layout_weight="1"
+            android:src="@drawable/camera" >
+        </ImageButton>
+
         <TextView
             android:id="@+id/totalWatchers"
             style="@style/btnStyleArsenic"

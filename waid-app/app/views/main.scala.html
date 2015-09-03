@@ -7,8 +7,17 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>@title</title>
 
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+<!--
 
-<link 
+<link
+        href='@routes.Assets.at("jquery-ui-1.11.4/jquery-ui.css")'
+        rel='stylesheet'
+        type="text/css" >
+
+-->
+
+    <link
       href='@routes.Assets.at("bootstrap/css/bootstrap.css")'
       rel='stylesheet'>
 
@@ -18,14 +27,27 @@
 
 
 
+
+<!--
+    <script
+	src='@routes.Assets.at("javascripts/jquery-2.1.4.min.js")'
+type='text/javascript'></script>
+-->
+
 <script
-	src='@routes.Assets.at("javascripts/jquery-2.0.3.js")'
+	src='http://code.jquery.com/jquery-1.11.1.min.js'
 	type='text/javascript'></script>
 
 <script
-        src='@routes.Assets.at("jquery-ui-1.10.3/js/jquery-ui-1.10.3.custom.js")'
+        src='http://code.jquery.com/ui/1.11.1/jquery-ui.min.js'
         type='text/javascript'></script>
 
+    <!--
+<script
+        src='@routes.Assets.at("jquery-ui-1.11.4/jquery-ui.js")'
+        type='text/javascript'></script>
+
+-->
  <script
             src='@routes.Assets.at("bootstrap/js/bootstrap.js")'
             type='text/javascript'></script>

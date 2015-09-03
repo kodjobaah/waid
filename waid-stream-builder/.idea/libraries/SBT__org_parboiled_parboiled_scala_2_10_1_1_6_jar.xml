@@ -3,11 +3,7 @@
     <CLASSES>
       <root url="jar://$USER_HOME$/software/scala/typesafe/activator-dist-1.3.5/repository/org.parboiled/parboiled-scala_2.10/1.1.6/bundles/parboiled-scala_2.10.jar!/" />
     </CLASSES>
-    <JAVADOC>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.parboiled/parboiled-scala_2.10/docs/parboiled-scala_2.10-1.1.6-javadoc.jar!/" />
-    </JAVADOC>
-    <SOURCES>
-      <root url="jar://$USER_HOME$/.ivy2/cache/org.parboiled/parboiled-scala_2.10/srcs/parboiled-scala_2.10-1.1.6-sources.jar!/" />
-    </SOURCES>
+    <JAVADOC />
+    <SOURCES />
   </library>
 </component>

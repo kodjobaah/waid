@@ -1,6 +1,5 @@
 package com.waid.activity.main;
 
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -24,13 +23,15 @@ import android.widget.TextView;
 
 import com.waid.R;
 import com.waid.activity.login.LoginActivity;
+import com.waid.activity.model.ViewControl;
 import com.waid.contentproviders.Authentication;
 import com.waid.contentproviders.DatabaseHandler;
 import com.waid.contentproviders.LinkedInAuthenticationToken;
+import com.waid.contentproviders.StateAttribute;
 import com.waid.contentproviders.TwitterAuthenticationToken;
 import com.waid.nativecamera.GL2JNILib;
 import com.waid.nativecamera.GL2JNIView;
-import com.waid.nativecamera.ZeroMQMessenger;
+import com.waid.nativecamera.NativeToJavaMessenger;
 import com.waid.sensors.SensorRotationListener;
 import com.waid.sensors.WaidLocationListener;
 import com.waid.utils.ViewGroupUtils;
@@ -40,6 +41,8 @@ import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 import org.opencv.core.Mat;
+
+import java.util.UUID;
 
 
 public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
@@ -64,13 +67,12 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     private SurfaceView viewToReplace;
     private GL2JNIView mView;
     //private OrientationListener orientationListener;
-    private boolean switchCamera = true;
-    private boolean startTransmission = false;
-    private boolean cameraStarted = true;
 
+    private Boolean onPause = false;
 
     private WhatAmIdoing mActivty;
     private String TAG = "WhatAmIdoing";
+    private ViewControl viewControl;
 
     public WhatAmIdoing() {
 
@@ -79,26 +81,47 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_what_am_idoing);
+        StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
+
+        if (sa == null) {
+            sa = new StateAttribute(UUID.randomUUID().toString(),StateAttribute.ON_PAUSE,"false");
+        }
+
+        Log.i(TAG, "APPINIT_onCreate_onPause[" + sa.getValue() + "]");
+
+        if (Boolean.valueOf(sa.getValue()) == false) {
+            setContentView(R.layout.activity_what_am_idoing);
+
+            mActivty = this;
+            //orientationListener = new OrientationListener(this);
+            viewControl = new ViewControl();
+
+            viewControl.setSwitchCamera(true);
+            viewControl.setStartTransmission(false);
+            viewControl.setCameraStarted(true);
+            viewControl.setRecording(false);
 
 
-        mActivty = this;
+            mSensorManager = (SensorManager) getSystemService(SENSOR_SERVICE);
+            mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
+            mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
+            // mLocationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 
-        //orientationListener = new OrientationListener(this);
+        }
+    }
 
+    @Override
+    protected void onStop() {
+        super.onStop();
 
-        viewToReplace = (SurfaceView) findViewById(R.id.viewToReplace);
-
-        final DisplayMetrics display = this.getResources().getDisplayMetrics();
-        mView = new GL2JNIView(getApplication(),display);
-        ViewGroupUtils.replaceView(viewToReplace, mView);
-        init();
-
-        mSensorManager = (SensorManager)getSystemService(SENSOR_SERVICE);
-        mAccelerometer = mSensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
-       // mLocationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-
+        StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
+        if (sa == null) {
+            sa = new StateAttribute(UUID.randomUUID().toString(),StateAttribute.ON_PAUSE,"false");
+        } else {
+            sa.setValue("false");
+        }
+        DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
+        Log.i(TAG,"APPINIT_onStop");
     }
 
 
@@ -106,10 +129,40 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     public void onResume()
     {
         super.onResume();
-        OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
 
-        TextView view = (TextView) findViewById(R.id.totalWatchers);
-        registerSensorManagerListeners(view);
+        StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
+        if (sa == null) {
+            sa = new StateAttribute(UUID.randomUUID().toString(),StateAttribute.ON_PAUSE,"false");
+        }
+
+        Log.i(TAG,"APPINIT_onResume["+sa.getValue()+"]");
+        if (Boolean.valueOf(sa.getValue()) == false) {
+            Log.i(TAG,"APPINIT_onResume_creating");
+            OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
+            viewToReplace = (SurfaceView) findViewById(R.id.viewToReplace);
+            final DisplayMetrics display = this.getResources().getDisplayMetrics();
+            mView = new GL2JNIView(getApplication(), display);
+            ViewGroupUtils.replaceView(viewToReplace, mView);
+            init();
+
+            TextView view = (TextView) findViewById(R.id.totalWatchers);
+            registerSensorManagerListeners(view);
+        } else {
+            sa.setValue("false");
+            DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
+            Log.i(TAG, "APPINIT_onResume_no_creating["+sa.getContent()+"]");
+        }
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.i(TAG,"APPINIT_onStart");
+    }
+    @Override
+    public void onRestart() {
+        super.onRestart();
+        Log.i(TAG,"APPINIT_onRestart");
     }
 
     public void registerSensorManagerListeners(TextView view) {
@@ -225,12 +278,41 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     public void onPause()
     {
         super.onPause();
+
+        //GL2JNILib.cleanUp();
+        //mView.setVisibility(View.GONE);
+
+        StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
+        if (sa == null) {
+            sa = new StateAttribute(UUID.randomUUID().toString(),StateAttribute.ON_PAUSE,"true");
+        } else {
+            sa.setValue("true");
+        }
+        DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
+        Log.i(TAG,"APPINIT_onPause");
+        super.onStop();
     }
 
 
+    @Override
     public void onDestroy() {
         super.onDestroy();
        // orientationListener.disable();
+        mView.setVisibility(View.GONE);
+        Log.i(TAG, "APPINIT_onDestry");
+        StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
+        if (sa == null) {
+            sa = new StateAttribute(UUID.randomUUID().toString(),StateAttribute.ON_PAUSE,"false");
+        } else {
+            sa.setValue("false");
+        }
+        DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
+        /*
+        TODO: GRACEFULL EXIT ALL ZEROMQ connections
+         */
+        GL2JNILib.cleanUp();
+        finish();
+
     }
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -243,8 +325,7 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
                 } break;
                 default:
                 {
-                    super.onManagerConnected(status);
-                } break;
+                    super.onManagerConnected(status);} break;
             }
         }
     };
@@ -255,18 +336,16 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
         ImageButton startVideoButton  = (ImageButton) mActivty.findViewById(R.id.start_video);
         startVideoButton.setEnabled(false);
         Log.i(TAG, "--STOPPING--");
-        if(cameraStarted) {
+        if(viewControl.isCameraStarted()) {
             GL2JNILib.stopCamera();
-            cameraStarted = false;
+            viewControl.setCameraStarted(false);
             startVideoButton.setImageResource(R.drawable.stop_camera);
-            startVideoButton.setEnabled(true);
-
         } else {
             GL2JNILib.startCamera();
-            cameraStarted = true;
+            viewControl.setCameraStarted(true);
             startVideoButton.setImageResource(R.drawable.camera);
-            startVideoButton.setEnabled(true);
         }
+        startVideoButton.setEnabled(true);
 
     }
 
@@ -275,32 +354,41 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
         Authentication auth =  DatabaseHandler.getInstance(this).getDefaultAuthentication();
 
         ImageButton startTransmissionButton = (ImageButton) mActivty.findViewById(R.id.start_transmission);
-        if (startTransmission) {
-            startTransmissionButton.setEnabled(false);
-            startTransmission = false;
+        startTransmissionButton.setEnabled(false);
+        if (viewControl.isStartTransmission()) {
+            viewControl.setStartTransmission(false);
             GL2JNILib.stopZeroMQ();
+            startTransmissionButton.setImageResource(R.drawable.share_blue);
+            Log.i(TAG, "STOPPING-ZMQ");
 
         } else  {
             startTransmissionButton.setImageResource(R.drawable.share_red);
-            startTransmission = true;
-            GL2JNILib.startZeroMQ("tcp://192.168.0.2:12345",auth.getToken());
-
+            viewControl.setStartTransmission(true);
+            String zeroMqUrl = getString(R.string.zeromq_url);
+            //GL2JNILib.startZeroMQ("tcp://192.168.0.2:12345", auth.getToken());
+            GL2JNILib.startZeroMQ(zeroMqUrl, auth.getToken());
+            Log.i(TAG, "STARTING-ZMQ");
         }
+        startTransmissionButton.setEnabled(true);
+        Log.i(TAG,"START-TRANS-STATE["+startTransmissionButton.isEnabled()+"]");
     }
+
     public void switchCamera(final View view) {
         Log.i(TAG, "SWITCHING CAMERA");
 
         DisplayMetrics display = this.getResources().getDisplayMetrics();
         if(Camera.getNumberOfCameras() > 1) {
+            //Disable buttons while switching camera's
             ImageButton startTransmissionButton = (ImageButton) mActivty.findViewById(R.id.start_transmission);
             startTransmissionButton.setEnabled(false);
             ImageButton startVideoButton  = (ImageButton) mActivty.findViewById(R.id.start_video);
             startVideoButton.setEnabled(false);
-            if (switchCamera) {
-                switchCamera = false;
+
+            if (viewControl.isSwitchCamera()) {
+                viewControl.setSwitchCamera(false);
                 GL2JNILib.restartCamera(1);
             } else {
-                switchCamera = true;
+                viewControl.setSwitchCamera(true);
                 GL2JNILib.restartCamera(0);
             }
 
@@ -310,8 +398,27 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
         }
     }
 
+    public void recording(final View view) {
+
+        Authentication auth =  DatabaseHandler.getInstance(this).getDefaultAuthentication();
+
+        ImageButton startRecordingButton  = (ImageButton) mActivty.findViewById(R.id.start_recording);
+        startRecordingButton.setEnabled(false);
+        if (viewControl.isRecording()) {
+            viewControl.setRecording(false);
+            startRecordingButton.setImageResource(R.drawable.camera);
+            startRecordingButton.setEnabled(true);
+            GL2JNILib.stopRecording();
+        } else {
+            viewControl.setRecording(true);
+            startRecordingButton.setEnabled(true);
+            startRecordingButton.setImageResource(R.drawable.stop_camera);
+            String zeroMqUrl = getString(R.string.zeromq_url);
+            GL2JNILib.startRecording(zeroMqUrl, auth.getToken());
+        }
+    }
     public void init() {
-        ZeroMQMessenger zeromMessenger = new ZeroMQMessenger(mActivty);
+        NativeToJavaMessenger zeromMessenger = new NativeToJavaMessenger(mActivty,viewControl);
         GL2JNILib.storeMessenger(zeromMessenger);
     }
 }

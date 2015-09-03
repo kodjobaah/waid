@@ -1,5 +1,6 @@
 import com.waid.redis.RedisReadOperations
 import com.waid.redis.model.UserStreamNode
+import com.waid.redis.service.RedisUserService
 import com.waid.redis.utils.RedisUtils
 
 /**
@@ -12,5 +13,13 @@ object Test extends App{
   //var userStreamnNode = UserStreamNode(None,"node:token:_1_:4", Option(20L),Option(Map()))
   //println(userStreamnNode.genId)
 
-  println(RedisUtils.getUserIdFromUserTokenId("node:token:_1_:4"))
+
+  val result = RedisUserService.getAllValidStreams()
+  for(r <- result) {
+      for((k,v) <- r) {
+        println(k)
+        println(v)
+      }
+  }
+  //println(RedisUtils.getUserIdFromUserTokenId("node:token:_1_:4"))
 }

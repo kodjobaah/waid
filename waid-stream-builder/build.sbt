@@ -1,6 +1,4 @@
-
 import com.typesafe.sbt.SbtNativePackager._
-import spray.revolver.RevolverPlugin.Revolver
 
 name := "waid-stream-builder"
 
@@ -99,11 +97,17 @@ scalacOptions ++= Seq(
 
 parallelExecution in Test := false
 
+Revolver.settings: Seq[sbt.Setting[_]]
+
 javaOptions in run ++= Seq(
-  "-javaagent:/Users/kodjobaah/projects/waid/waid-stream-builder/lib/weaver/aspectjweaver-1.8.6.jar",
-  "-Dorg.aspectj.tracing.factory=default",
-  "-Djava.library.path=/usr/local/lib"
+"-javaagent:/Users/kodjobaah/projects/waid/waid-stream-builder/lib/weaver/aspectjweaver-1.8.6.jar",
+"-Dorg.aspectj.tracing.factory=default",
+"-Djava.library.path=/usr/local/lib"
 )
+
+javaOptions in Revolver.reStart ++= Seq("-Djava.library.path=/usr/local/lib")
+
+Revolver.enableDebugging(port=4545, suspend = true)
 
 //javaOptions in run += "-javaagent:" + System.getProperty("user.home") + "/.ivy2/cache/org.aspectj/aspectjweaver/jars/aspectjweaver-1.7.3.jar"
 
@@ -122,5 +126,4 @@ net.virtualvoid.sbt.graph.Plugin.graphSettings
 mainClass in (Compile, run) := Some("VideoProcessingServer")
 
 //Revolver.settings.settings
-seq(Revolver.settings: _*)
 

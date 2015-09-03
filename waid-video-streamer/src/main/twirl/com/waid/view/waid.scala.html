@@ -1,0 +1,43 @@
+@(streamId: String, reference: String)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="http://192.168.0.2:8080/resource/css/mediaelement/mediaelementplayer.min.css" />
+    <script type="text/javascript" src="http://192.168.0.2:8080/resource/js/jquery/jquery.js"></script>
+    <script src="http://192.168.0.2:8080/resource/js/mediaelement/mediaelement-and-player.min.js"></script>
+
+    <!--
+    <script src="node_modules/pkcs7/dist/pkcs7.unpad.js"></script>
+    --
+    <script src="http://192.168.0.2:8080/resource/js/video-js/decrypter.js"></script>
+
+    <script src="http://192.168.0.2:8080/resource/js/video-js/bin-utils.js"></script
+
+    <!--
+    <script type="text/javascript">jwplayer.key="QD9+0zA3lBuUqY+H1VPxsxMbBYmxXR88oIcc/w==";</script>
+    -->
+</head>
+<body>
+
+<video id="example-video" width="600" height="300" class="video-js vjs-default-skin" controls>
+    <source
+            src="http://192.168.0.2:8080/stream/@streamId/playlist/@reference"
+            type="application/x-mpegURL">
+</video>
+
+<script>
+
+
+$('video').mediaelementplayer({
+	success: function(media, node, player) {
+		$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
+	}
+});
+
+
+
+</script>
+
+</body>
+</html>
+

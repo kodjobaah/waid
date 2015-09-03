@@ -1,7 +1,7 @@
 package com.waid.redis
 
 import com.redis.RedisClient
-import com.waid.redis.model.UserNode
+import com.waid.redis.model.{UserStreamNode, UserNode}
 import com.waid.redis.utils.RedisUtils
 
 /**
@@ -12,6 +12,41 @@ object RedisReadOperations {
 
   import RedisDataStore.clients
 
+
+  def populateStreamNode(userStreamNodeId: String, userTokenNodeId: String): Option[UserStreamNode] = {
+    var res: Option[UserStreamNode] = None
+    clients.withClient {
+      client => {
+        val atts = client.hgetall(userStreamNodeId)
+        res = Option(UserStreamNode(None,userTokenNodeId,None,atts))
+      }
+    }
+    res
+  }
+
+  def findRangeByScore(key: String, from: Long, to: Long) : Option[List[String]] = {
+    var res = Option(List[String]())
+    clients.withClient {
+      client => {
+        res = client.zrangebyscore(key,from.toDouble,true,to.toDouble,true,None)
+      }
+    }
+
+    res
+  }
+
+  def getAllValidStreams(): Option[Map[String,String]] = {
+
+    var result: Option[Map[String,String]] = None
+
+    clients.withClient {
+      client => {
+        result = client.hgetall(KeyPrefixGenerator.LookupValidStreams)
+      }
+    }
+
+    result
+  }
   def getElementAttribute(key: String, element: String): Option[String] = {
     var attribute:Option[String]= None
       clients.withClient{
@@ -81,6 +116,17 @@ object RedisReadOperations {
         user = populateUserNode(client,res)
     }
     user
+  }
+
+  def populateUserNode(userNode: String): Option[UserNode] = {
+    var un: Option[UserNode] = None
+    clients.withClient{
+      client =>
+        val userNodeMap= client.hgetall(userNode)
+        val id = Some(userNode.split(":_")(1).toLong)
+        un = Some(UserNode(KeyPrefixGenerator.UserNodePrefix,id,userNodeMap))
+    }
+    un
   }
 
   private def populateUserNode(client: RedisClient, userNode: Option[String]):Option[UserNode] =  {

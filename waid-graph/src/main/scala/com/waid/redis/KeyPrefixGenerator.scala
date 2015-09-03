@@ -42,10 +42,12 @@ object KeyPrefixGenerator {
   val LookupValidLogins = "lookup:valid_logins"//lookup:valid_logins $email <userTokenNodId>
   val LookupValidLoginsEmail = "lookup:valid_logins_email"//lookup:valid_logins $email <userTokenNodId>
   val LookupLiveStreams = "lookup:stream:live"   //lookup:stream:live:$streamTokenId   $viewerToken lastSequnceNumber
+  val LookupAllStreams = "lookup:stream:all:"   //lookup:stream:all/_<userId_
+
 
 
   val StoreAllUsers = "store:allusers:"//store:allusers:<epoch_hour_time>: <userNodeId>
-  val StoreStreams = "store:streams:" //store:streams:<user.id> streamNodeId
+  val StoreStreams = "store:streams:_" //store:streams:<user.id> streamNodeId
   val StoreStreamsInvits ="store:streams:invites:"//store:streams:invites:<user.id> inviteNodeId
   val StoreAccessTimes = "store:access_times:"//store:access_times<epoch_hour_time> userTokenId
   val StoreLogoutTimes = "store:logout_times:"//store:logout_times:"<epoch_hour_time> userTokenId
