@@ -33,6 +33,7 @@ namespace waid {
         boost::atomic <bool> shouldSendToZmq;
         bool stopZeroMqDeque = false;
         bool sendingToZeroMq = false;
+        bool cameraStarted = false;
 
         boost::condition_variable zmq_send_cond;
         boost::mutex m_mutex;   // The mutex to synchronise on
@@ -60,7 +61,7 @@ namespace waid {
         int fps =0;
 
 
-        pthread_mutex_t FGmutex;
+        static pthread_mutex_t FGmutex;
 
         int processVideo = 1;
         int videoStopped = 1;
@@ -75,6 +76,8 @@ namespace waid {
         WaidCamera();
 
         ~WaidCamera();
+
+        bool isOpened();
 
         void renderFrame();
 

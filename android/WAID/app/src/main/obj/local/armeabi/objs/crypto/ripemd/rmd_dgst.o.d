@@ -1,5 +1,5 @@
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/obj/local/armeabi/objs/crypto/ripemd/rmd_dgst.o: \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmd_dgst.c \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmd_dgst.c \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdio.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/freebsd.h \
@@ -32,7 +32,7 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/locale.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_stdio.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_stdio.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmd_locl.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmd_locl.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdlib.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-stdlib.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_stdlib.h \
@@ -55,7 +55,7 @@
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/ripemd.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/e_os2.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/md32_common.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmdconst.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmdconst.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/opensslv.h
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdio.h:
@@ -122,7 +122,7 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_stdio.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmd_locl.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmd_locl.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdlib.h:
 
@@ -168,6 +168,6 @@
 
 /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/md32_common.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmdconst.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/ripemd/rmdconst.h:
 
 /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/opensslv.h:

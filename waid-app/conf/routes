@@ -12,9 +12,9 @@ POST /videoStopped		        controllers.WhatAmIDoingController.videoStopped(sess
 POST /findAllInvites		    controllers.WhatAmIDoingController.findAllInvites(token: Option[String])
 POST /getInviteList		        controllers.WhatAmIDoingController.getInviteList(token: Option[String])
 POST /invalidateToken		    controllers.WhatAmIDoingController.invalidateToken(token: Option[String])
-POST /inviteTwitter		        controllers.WhatAmIDoingController.inviteTwitter(token: String)
-POST /inviteFacebook		    controllers.WhatAmIDoingController.inviteFacebook(token: String)
-POST /inviteLinkedin		    controllers.WhatAmIDoingController.inviteLinkedin(token: String)
+GET  /inviteTwitter		        controllers.WhatAmIDoingController.inviteTwitter(token: String)
+GET  /inviteFacebook		    controllers.WhatAmIDoingController.inviteFacebook(token: String)
+GET  /inviteLinkedin		    controllers.WhatAmIDoingController.inviteLinkedin(token: String)
 POST /usersWatching             controllers.WhatAmIDoingController.getCountOfAllUsersWatchingStream(token: String)
 POST /getRoomJid                controllers.WhatAmIDoingController.getRoomJid(token: String)
 POST /invite 			        controllers.WhatAmIDoingController.invite(token: Option[String], email: Option[String])
@@ -26,6 +26,7 @@ GET /getLocations               controllers.WhatAmIDoingController.whatAreTheLoc
 GET  /calendar                  controllers.AdminController.getInvites
 GET /streamInvites              controllers.AdminController.getStreamInvites(streamId: String)
 GET /getStreams                 controllers.AdminController.getStreams(start: String, end: String)
+GET /liveStream                 controllers.AdminController.getLiveStreamInvites(streamId: String, end: String)
 GET /logout                     controllers.AdminController.logout
 
 POST /login			            controllers.AdminController.login

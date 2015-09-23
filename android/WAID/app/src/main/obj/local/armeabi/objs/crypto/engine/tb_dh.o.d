@@ -1,6 +1,6 @@
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/obj/local/armeabi/objs/crypto/engine/tb_dh.o: \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/engine/tb_dh.c \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/engine/eng_int.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/engine/tb_dh.c \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/engine/eng_int.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/cryptlib.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdlib.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h \
@@ -131,7 +131,7 @@
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/pkcs7.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/ui.h
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/engine/eng_int.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/engine/eng_int.h:
 
 /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/cryptlib.h:
 

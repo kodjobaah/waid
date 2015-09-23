@@ -54,7 +54,7 @@ public class StateAttributeProvider extends ContentProvider {
             result = DatabaseHandler
                     .getInstance(getContext())
                     .getReadableDatabase()
-                    .query(Authentication.TABLE_NAME, Authentication.FIELDS, null, null, null,
+                    .query(StateAttribute.TABLE_NAME, StateAttribute.FIELDS, null, null, null,
                             null, null, null);
             result.setNotificationUri(getContext().getContentResolver(), URI_STATE_ATTRIBUTE);
         } else if (uri.toString().startsWith(STATE_ATTRIBUTE_BASE)) {
@@ -63,7 +63,7 @@ public class StateAttributeProvider extends ContentProvider {
                     .getInstance(getContext())
                     .getReadableDatabase()
                     .query(StateAttribute.TABLE_NAME, StateAttribute.FIELDS,
-                            Authentication.COL_ID + " IS ?",
+                            StateAttribute.COL_ID + " IS ?",
                             new String[] {id }, null, null,
                             null, null);
              result.setNotificationUri(getContext().getContentResolver(), URI_STATE_ATTRIBUTE);

@@ -1,5 +1,5 @@
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/obj/local/armeabi/objs/crypto/bf/bf_skey.o: \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_skey.c \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_skey.c \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdio.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/freebsd.h \
@@ -46,8 +46,8 @@
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/blowfish.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/e_os2.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/opensslconf.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_locl.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_pi.h
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_locl.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_pi.h
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdio.h:
 
@@ -141,6 +141,6 @@
 
 /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/opensslconf.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_locl.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_locl.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_pi.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/bf/bf_pi.h:

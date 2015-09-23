@@ -1,5 +1,5 @@
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/obj/local/armeabi/objs/crypto/aes/aes_ecb.o: \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/aes/aes_ecb.c \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/aes/aes_ecb.c \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/assert.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/cdefs.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h \
@@ -8,7 +8,7 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/android/api-level.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/aes.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/opensslconf.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/aes/aes_locl.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/aes/aes_locl.h \
  /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/e_os2.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdio.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/freebsd.h \
@@ -72,7 +72,7 @@
 
 /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/opensslconf.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/aes/aes_locl.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/aes/aes_locl.h:
 
 /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl/e_os2.h:
 

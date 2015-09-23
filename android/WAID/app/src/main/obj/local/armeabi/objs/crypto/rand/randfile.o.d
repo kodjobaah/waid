@@ -1,5 +1,5 @@
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/obj/local/armeabi/objs/crypto/rand/randfile.o: \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/rand/randfile.c \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/rand/randfile.c \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/errno.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/errno.h \

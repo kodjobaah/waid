@@ -634,59 +634,46 @@
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/turbojpeg.h \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMqTransport.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/atomic \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv/cv.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/core.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/version.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/operations.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/mat.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc_c.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/imgproc/types_c.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/video/tracking.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/features2d/features2d.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/config.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/flann.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/flann_base.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/general.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/matrix.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/params.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/any.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/saving.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/nn_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/result_set.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/all_indices.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/kdtree_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/dynamic_bitset.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/dist.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/heap.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/allocator.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/random.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/kdtree_single_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/kmeans_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/logger.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/composite_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/linear_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/hierarchical_clustering_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/lsh_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/lsh_table.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/unordered_map \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/autotuned_index.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/ground_truth.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/index_testing.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/timer.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/sampling.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/calib3d/calib3d.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/objdetect/objdetect.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/legacy/compat.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/internal.hpp \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv/highgui.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui_c.h \
- /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv/cv.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/cvdef.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/hal/defs.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/version.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/base.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/cvstd.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/ptr.inl.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/hal.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/sse_utils.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/traits.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/matx.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/types.hpp \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/cfloat \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/mat.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/bufferpool.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/mat.inl.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/persistence.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/operations.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/cvstd.inl.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/utility.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/optim.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc/types_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/photo/photo_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/video/tracking_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/objdetect/objdetect_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv/highgui.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgcodecs/imgcodecs_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/videoio/videoio_c.h \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/core.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/highgui.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgcodecs.hpp \
+ /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/videoio.hpp \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/NativeCommunicator.h \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/SoundCapture.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/SLES/OpenSLES.h \
@@ -1991,111 +1978,85 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/atomic:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv/cv.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv/cv.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/core_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/types_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/core.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/cvdef.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/version.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/hal/defs.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/operations.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/mat.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/version.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc_c.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/base.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/imgproc/types_c.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/cvstd.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/ptr.inl.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/video/tracking.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/hal.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/features2d/features2d.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/sse_utils.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/miniflann.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/traits.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/matx.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/config.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/types.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/flann.hpp:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/cfloat:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/flann_base.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/mat.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/general.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/bufferpool.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/defines.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/mat.inl.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/matrix.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/persistence.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/params.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/operations.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/any.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/cvstd.inl.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/saving.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/utility.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/nn_index.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/optim.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/result_set.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/all_indices.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc/types_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/kdtree_index.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/photo/photo_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/dynamic_bitset.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/video/tracking_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/dist.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/objdetect/objdetect_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/heap.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv/highgui.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/allocator.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/random.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgcodecs/imgcodecs_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/kdtree_single_index.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/videoio/videoio_c.h:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/kmeans_index.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/core/core.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/logger.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc/imgproc.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/composite_index.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgproc.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/linear_index.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/hierarchical_clustering_index.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/highgui.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/lsh_index.h:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/imgcodecs.hpp:
 
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/lsh_table.h:
-
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/unordered_map:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/autotuned_index.h:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/ground_truth.h:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/index_testing.h:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/timer.h:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/flann/sampling.h:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/calib3d/calib3d.hpp:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/objdetect/objdetect.hpp:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/legacy/compat.hpp:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/core/internal.hpp:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv/highgui.h:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui_c.h:
-
-/Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/include/opencv2/highgui/highgui.hpp:
+/Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk/sdk/native/jni/include/opencv2/videoio.hpp:
 
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/NativeCommunicator.h:
 

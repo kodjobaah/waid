@@ -50,4 +50,12 @@ object RedisUtils {
     KeyPrefixGenerator.UserStreamNodePrefix+userId+":_"+tokenId+"_"
   }
 
+  def getUserNodeFromStreamNode(streamNode: String): String = {
+
+    var toks = streamNode.split(":")
+    var userId = toks(2)
+    var id = userId.substring(userId.indexOf("_")+1,userId.lastIndexOf("_"))
+    KeyPrefixGenerator.UserNodePrefix+id
+  }
+
 }

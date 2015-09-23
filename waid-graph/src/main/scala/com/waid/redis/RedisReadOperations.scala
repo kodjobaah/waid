@@ -18,7 +18,10 @@ object RedisReadOperations {
     clients.withClient {
       client => {
         val atts = client.hgetall(userStreamNodeId)
-        res = Option(UserStreamNode(None,userTokenNodeId,None,atts))
+        for(mapOfAtts <- atts) {
+          if (!mapOfAtts.isEmpty)
+            res = Option(UserStreamNode(None, userTokenNodeId, None, atts))
+        }
       }
     }
     res
@@ -32,6 +35,16 @@ object RedisReadOperations {
       }
     }
 
+    res
+  }
+
+  def getStreamNodeIdFromValidStreams(streamToken: String) :Option[String] = {
+
+    var res: Option[String] = None
+    clients.withClient {
+      client =>
+        res = client.hget(KeyPrefixGenerator.LookupValidStreams,streamToken)
+    }
     res
   }
 
@@ -127,6 +140,15 @@ object RedisReadOperations {
         un = Some(UserNode(KeyPrefixGenerator.UserNodePrefix,id,userNodeMap))
     }
     un
+  }
+
+  def getCounterValue(counter: String):Option[String] = {
+    var res: Option[String] = None
+    clients.withClient{
+      client =>
+       res = client.get(counter)
+    }
+    res
   }
 
   private def populateUserNode(client: RedisClient, userNode: Option[String]):Option[UserNode] =  {

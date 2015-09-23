@@ -69,11 +69,31 @@ object RedisUserService {
     segLocation
   }
 
+  def endStream(streamToken: String): Unit = {
+    val streamNodeId = getStreamNodeId(streamToken)
+
+    for(sn <- streamNodeId) {
+      var attributes = Map.empty[String,String]
+      attributes += KeyPrefixGenerator.EndDate -> RedisUtils.getEpochTime.toString
+      RedisDataStore.addEleemnt(sn,attributes)
+
+      //Removing from list of active streams
+      var userNodeId = RedisUtils.getUserNodeFromStreamNode(sn)
+
+      var userNode = RedisReadOperations.populateUserNode(userNodeId)
+
+      for(un <- userNode) {
+          var email = un.attributes get KeyPrefixGenerator.Email
+          removeValidStreamUsingEmail(email)
+      }
+    }
+  }
+
   def addSegmentLocationToStream(streamNodeId: String, segmentLocation: String) {
 
         var attributes = Map.empty[String,String]
         attributes += KeyPrefixGenerator.SegmentLocation -> segmentLocation
-        RedisDataStore.addEleemnt(streamNodeId,attributes);
+        RedisDataStore.addEleemnt(streamNodeId,attributes)
   }
 
   /*
@@ -112,17 +132,11 @@ object RedisUserService {
       streamPlayList
   }
 
-  def getStreamSequenceNumber(streamId: String, sequenceReference: String): Option[Int] = {
+  def getStreamSequenceNumber(streamId: String, sequenceReference: String): Option[String] = {
 
-    var sequenceNumber: Option[Int] = None
     val key = KeyPrefixGenerator.LookupLiveStreams + ":" + streamId
     var seqNumber: Option[String] = RedisReadOperations.getElementAttribute(key, sequenceReference)
-
-    for (sn <- seqNumber)
-      sequenceNumber = Some(sn.toInt)
-
-    sequenceNumber
-
+    seqNumber
   }
 
   def addStreamSequenceNumber(streamId: String, sequenceReference: String, sequenceNumber: String) {

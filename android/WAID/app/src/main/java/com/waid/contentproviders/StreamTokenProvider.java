@@ -13,10 +13,10 @@ public class StreamTokenProvider extends ContentProvider {
 
     // URIs
     // Used for all persons
-    public static final String STATE_ATTRIBUTE= SCHEME + AUTHORITY + "/stateAttribute";
-    public static final Uri URI_STATE_ATTRIBUTE = Uri.parse(STATE_ATTRIBUTE);
+    public static final String STREAM_TOKEN = SCHEME + AUTHORITY + "/streamToken";
+    public static final Uri URI_STREAM_TOKEN = Uri.parse(STREAM_TOKEN);
     // Used for a single person, just add the id to the end
-    public static final String STATE_ATTRIBUTE_BASE = STATE_ATTRIBUTE + "/";
+    public static final String STREAM_TOKEN_BASE = STREAM_TOKEN + "/";
 
     public StreamTokenProvider() {
     }
@@ -50,23 +50,23 @@ public class StreamTokenProvider extends ContentProvider {
 	public Cursor query(Uri uri, String[] projection, String selection,
 			String[] selectionArgs, String sortOrder) {
 		Cursor result = null;
-        if (URI_STATE_ATTRIBUTE.equals(uri)) {
+        if (URI_STREAM_TOKEN.equals(uri)) {
             result = DatabaseHandler
                     .getInstance(getContext())
                     .getReadableDatabase()
-                    .query(Authentication.TABLE_NAME, Authentication.FIELDS, null, null, null,
+                    .query(StreamToken.TABLE_NAME, StreamToken.FIELDS, null, null, null,
                             null, null, null);
-            result.setNotificationUri(getContext().getContentResolver(), URI_STATE_ATTRIBUTE);
-        } else if (uri.toString().startsWith(STATE_ATTRIBUTE_BASE)) {
+            result.setNotificationUri(getContext().getContentResolver(), URI_STREAM_TOKEN);
+        } else if (uri.toString().startsWith(STREAM_TOKEN_BASE)) {
             final String id = uri.getLastPathSegment();
             result = DatabaseHandler
                     .getInstance(getContext())
                     .getReadableDatabase()
-                    .query(StateAttribute.TABLE_NAME, StateAttribute.FIELDS,
-                            Authentication.COL_ID + " IS ?",
+                    .query(StreamToken.TABLE_NAME, StateAttribute.FIELDS,
+                            StreamToken.COL_ID + " IS ?",
                             new String[] {id }, null, null,
                             null, null);
-             result.setNotificationUri(getContext().getContentResolver(), URI_STATE_ATTRIBUTE);
+             result.setNotificationUri(getContext().getContentResolver(), URI_STREAM_TOKEN);
         } else {
             throw new UnsupportedOperationException("Not yet implemented");
         }

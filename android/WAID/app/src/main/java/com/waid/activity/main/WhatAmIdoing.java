@@ -10,6 +10,7 @@ import android.hardware.Camera;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.location.LocationManager;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
@@ -18,10 +19,22 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.Window;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import android.widget.Toast;
 
-import com.waid.R;
+import com.facebook.share.model.ShareLinkContent;
+import com.linkedin.platform.APIHelper;
+import com.linkedin.platform.LISession;
+import com.linkedin.platform.LISessionManager;
+import com.linkedin.platform.errors.LIApiError;
+import com.linkedin.platform.errors.LIAuthError;
+import com.linkedin.platform.listeners.ApiListener;
+import com.linkedin.platform.listeners.ApiResponse;
+import com.linkedin.platform.listeners.AuthListener;
+import com.linkedin.platform.utils.Scope;
+import com.waids.R;
 import com.waid.activity.login.LoginActivity;
 import com.waid.activity.model.ViewControl;
 import com.waid.contentproviders.Authentication;
@@ -29,29 +42,44 @@ import com.waid.contentproviders.DatabaseHandler;
 import com.waid.contentproviders.LinkedInAuthenticationToken;
 import com.waid.contentproviders.StateAttribute;
 import com.waid.contentproviders.TwitterAuthenticationToken;
+import com.waid.invite.email.InviteListTask;
+import com.waid.invite.facebook.ShareContentTask;
+import com.waid.invite.facebook.fragment.FaceBookFragment;
+import com.waid.invite.linkedin.LinkedInShareContentTask;
+import com.waid.invite.twitter.TwitterAuthorization;
+import com.waid.invite.twitter.TwitterAuthorizationTask;
 import com.waid.nativecamera.GL2JNILib;
 import com.waid.nativecamera.GL2JNIView;
 import com.waid.nativecamera.NativeToJavaMessenger;
 import com.waid.sensors.SensorRotationListener;
 import com.waid.sensors.WaidLocationListener;
+import com.waid.services.ConnectionService;
+import com.waid.tasks.ZeroMqTasks;
+import com.waid.utils.AlertMessages;
 import com.waid.utils.ViewGroupUtils;
 
+import org.json.JSONException;
+import org.json.JSONObject;
 import org.opencv.android.BaseLoaderCallback;
-import org.opencv.android.CameraBridgeViewBase;
 import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
-import org.opencv.core.Mat;
 
+import java.lang.reflect.Method;
 import java.util.UUID;
 
+import twitter4j.auth.AccessToken;
 
-public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewBase.CvCameraViewListener2 {
 
+public class WhatAmIdoing extends AppCompatActivity {
+
+
+    private static final String TAG ="WhatAmIdoing";
 
     static {
         if (!OpenCVLoader.initDebug()) {
             // Handle initialization error
-            System.exit(-1);
+            //System.exit(-1);
+            Log.i(TAG,"APPINIT_ERROR_INITIALIZING_OPENCV");
         }
     }
 
@@ -71,8 +99,11 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     private Boolean onPause = false;
 
     private WhatAmIdoing mActivty;
-    private String TAG = "WhatAmIdoing";
     private ViewControl viewControl;
+    private ConnectionService connectionService;
+    private InviteListTask mInviteListTask;
+    private TwitterAuthorization twitterAuthorization;
+    private FaceBookFragment facebookFragment;
 
     public WhatAmIdoing() {
 
@@ -81,16 +112,20 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
 
-        if (sa == null) {
-            sa = new StateAttribute(UUID.randomUUID().toString(),StateAttribute.ON_PAUSE,"false");
+
+        if (mActivty != null) {
+            StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
+
+            if (sa == null) {
+                sa = new StateAttribute(UUID.randomUUID().toString(), StateAttribute.ON_PAUSE, "false");
+            } else {
+                sa.setValue("true");
+            }
         }
 
-        Log.i(TAG, "APPINIT_onCreate_onPause[" + sa.getValue() + "]");
-
-        if (Boolean.valueOf(sa.getValue()) == false) {
-            setContentView(R.layout.activity_what_am_idoing);
+        connectionService = new ConnectionService(this);
+        setContentView(R.layout.activity_what_am_idoing);
 
             mActivty = this;
             //orientationListener = new OrientationListener(this);
@@ -107,7 +142,7 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
             mMagnetometer = mSensorManager.getDefaultSensor(Sensor.TYPE_MAGNETIC_FIELD);
             // mLocationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
 
-        }
+
     }
 
     @Override
@@ -135,18 +170,49 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
             sa = new StateAttribute(UUID.randomUUID().toString(),StateAttribute.ON_PAUSE,"false");
         }
 
-        Log.i(TAG,"APPINIT_onResume["+sa.getValue()+"]");
+        Log.i(TAG, "APPINIT_onResume[" + sa.getValue() + "]");
         if (Boolean.valueOf(sa.getValue()) == false) {
-            Log.i(TAG,"APPINIT_onResume_creating");
+            Log.i(TAG, "APPINIT_onResume_creating");
+            System.loadLibrary("gl2jni");
+
             OpenCVLoader.initAsync(OpenCVLoader.OPENCV_VERSION_2_4_9, this, mLoaderCallback);
             viewToReplace = (SurfaceView) findViewById(R.id.viewToReplace);
             final DisplayMetrics display = this.getResources().getDisplayMetrics();
-            mView = new GL2JNIView(getApplication(), display);
-            ViewGroupUtils.replaceView(viewToReplace, mView);
-            init();
+            mView = new GL2JNIView(getApplication(), display,this);
 
-            TextView view = (TextView) findViewById(R.id.totalWatchers);
-            registerSensorManagerListeners(view);
+            if (((GL2JNIView)mView).isCameraOpened()) {
+                Log.i(TAG,"APPINIT_onResume_camera_opened");
+                if (viewToReplace != null) {
+                    Log.i(TAG, "APPINIT_onResume_viewToReplace_null");
+                    ViewGroupUtils.replaceView(viewToReplace, mView);
+                    init();
+
+                    //TextView view = (TextView) findViewById(R.id.totalWatchers);
+                   // registerSensorManagerListeners(view);
+                } else {
+
+                    if (twitterAuthorization != null) {
+                        StateAttribute saBrowser = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.OPEN_BROWSER);
+                        if (sa != null) {
+                            if (saBrowser.getValue().equalsIgnoreCase("true")) {
+                                twitterAuthorization.displayPinEntry();
+                                twitterAuthorization = null;
+                            }
+                        }
+                    }
+                }
+            } else {
+
+                Log.i(TAG,"APPINIT_onResume_camera_not_opened");
+                CharSequence text = "Can not attach to camera - Try restarting WAID or your Device";
+                int duration = Toast.LENGTH_LONG;
+                Toast toast = Toast.makeText(mActivty, text, duration);
+                toast.show();
+
+                /*
+                 *  TODO: DISABLE ALL BUTTONS
+                 */
+            }
         } else {
             sa.setValue("false");
             DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
@@ -157,12 +223,18 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     @Override
     public void onStart() {
         super.onStart();
-        Log.i(TAG,"APPINIT_onStart");
+        Log.i(TAG, "APPINIT_onStart");
     }
     @Override
     public void onRestart() {
         super.onRestart();
-        Log.i(TAG,"APPINIT_onRestart");
+        StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
+        if (sa == null) {
+            sa = new StateAttribute(UUID.randomUUID().toString(),StateAttribute.ON_PAUSE,"false");
+        } else {
+            sa.setValue("true");
+        }
+        Log.i(TAG, "APPINIT_onRestart");
     }
 
     public void registerSensorManagerListeners(TextView view) {
@@ -195,9 +267,43 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     }
 
     @Override
+    public boolean onMenuOpened(int featureId, Menu menu)
+    {
+        if(featureId == Window.FEATURE_ACTION_BAR && menu != null){
+            if(menu.getClass().getSimpleName().equals("MenuBuilder")){
+                try{
+                    Method m = menu.getClass().getDeclaredMethod(
+                            "setOptionalIconsVisible", Boolean.TYPE);
+                    m.setAccessible(true);
+                    m.invoke(menu, true);
+                }
+                catch(NoSuchMethodException e){
+                    Log.e(TAG, "onMenuOpened", e);
+                }
+                catch(Exception e){
+                    throw new RuntimeException(e);
+                }
+            }
+        }
+        return super.onMenuOpened(featureId, menu);
+    }
+
+    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        Log.d(TAG, "onCreateOptionsMenu");
         // Inflate the menu; this adds items to the action bar if it is present.
+
         getMenuInflater().inflate(R.menu.menu_what_am_idoing, menu);
+
+        menu.findItem(R.id.linkedin_menu_item).setIcon(
+                resizeImage(R.drawable.linkedin, 100, 95));
+        menu.findItem(R.id.facebook_menu_item).setIcon(
+                resizeImage(R.drawable.facebook, 108, 108));
+        menu.findItem(R.id.twitter_menu_item).setIcon(
+                resizeImage(R.drawable.twitter, 160, 160));
+        menu.findItem(R.id.email_menu_item).setIcon(
+                resizeImage(R.drawable.mail, 120, 120));
+
         menu.findItem(R.id.logout).setIcon(
                 resizeImage(R.drawable.logout, 120, 120));
         return true;
@@ -248,30 +354,83 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
             }
 
             Intent intent = new Intent(this, LoginActivity.class);
+
+            GL2JNILib.stopCamera();
             startActivity(intent);
 
         }
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
-        }
 
+
+        if (viewControl.isStartTransmission()) {
+
+            //noinspection SimplifiableIfStatement
+            if (id == R.id.email_menu_item) {
+                sendEmail();
+                return true;
+            }
+
+            if (id == R.id.twitter_menu_item) {
+
+                twitterAuthorization = new TwitterAuthorization(mActivty);
+                AccessToken accessToken = twitterAuthorization.getAccessToken();
+                Log.i(TAG, "--------------------------- should be tweeig");
+                if (accessToken == null) {
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            TwitterAuthorizationTask taTask = new TwitterAuthorizationTask(mActivty, twitterAuthorization);
+                            taTask.execute((Void) null);
+
+                            StateAttribute sa = new StateAttribute(UUID.randomUUID().toString(), StateAttribute.OPEN_BROWSER, "true");
+                            DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
+                        }
+                    });
+
+                } else {
+                    tweetWhatIAmDoing();
+                }
+            }
+
+            if (id == R.id.facebook_menu_item) {
+                shareOnFacebook();
+            }
+
+            if (id == R.id.linkedin_menu_item) {
+                LISessionManager sessionManager = LISessionManager.getInstance(getApplicationContext());
+                LISession session = sessionManager.getSession();
+                boolean accessTokenValid = session.isValid();
+
+                if (accessTokenValid) {
+                    Log.d(TAG, "Linkedin-Already-authenticated");
+                    sendToLinkedIn();
+
+                } else {
+
+                    LISessionManager.getInstance(getApplicationContext()).init(mActivty, buildScope(), new AuthListener() {
+                        @Override
+                        public void onAuthSuccess() {
+                            Log.d(TAG, "Linkedin-Authentication-Success");
+                            sendToLinkedIn();
+                        }
+
+                        @Override
+                        public void onAuthError(LIAuthError error) {
+                            Log.d(TAG, "Linkedin-Authentication-error[" + error.toString() + "]");
+                        }
+                    }, true);
+                    return true;
+                }
+            }
+        } else {
+            AlertMessages.displayGenericMessageDialog(mActivty,"You need to start sharing before you can send an invite");
+        }
         return super.onOptionsItemSelected(item);
     }
 
-    @Override
-    public void onCameraViewStarted(int width, int height) {
-
-    }
-
-    @Override
-    public void onCameraViewStopped() {
-
-    }
-
-    @Override
-    public Mat onCameraFrame(CameraBridgeViewBase.CvCameraViewFrame inputFrame) {
-        return inputFrame.rgba();
+    public void sendEmail() {
+        mInviteListTask = new com.waid.invite.email.InviteListTask(mActivty);
+        mInviteListTask.execute((Void) null);
     }
 
     @Override
@@ -289,8 +448,8 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
             sa.setValue("true");
         }
         DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
-        Log.i(TAG,"APPINIT_onPause");
-        super.onStop();
+        Log.i(TAG, "APPINIT_onPause");
+        //super.onStop();
     }
 
 
@@ -298,7 +457,8 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
     public void onDestroy() {
         super.onDestroy();
        // orientationListener.disable();
-        mView.setVisibility(View.GONE);
+        if (mView != null)
+            mView.setVisibility(View.GONE);
         Log.i(TAG, "APPINIT_onDestry");
         StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
         if (sa == null) {
@@ -308,11 +468,17 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
         }
         DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
         /*
-        TODO: GRACEFULL EXIT ALL ZEROMQ connections
+        TODO: GRACEFULL STOP CAMERA
          */
-        GL2JNILib.cleanUp();
+        GL2JNILib.stopCamera();
         finish();
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        // Add this line to your existing onActivityResult() method
+        LISessionManager.getInstance(getApplicationContext()).onActivityResult(this, requestCode, resultCode, data);
     }
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -351,26 +517,26 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
 
 
     public void startTransmission(final View view) {
-        Authentication auth =  DatabaseHandler.getInstance(this).getDefaultAuthentication();
+        final Authentication auth =  DatabaseHandler.getInstance(this).getDefaultAuthentication();
 
-        ImageButton startTransmissionButton = (ImageButton) mActivty.findViewById(R.id.start_transmission);
-        startTransmissionButton.setEnabled(false);
-        if (viewControl.isStartTransmission()) {
-            viewControl.setStartTransmission(false);
-            GL2JNILib.stopZeroMQ();
-            startTransmissionButton.setImageResource(R.drawable.share_blue);
-            Log.i(TAG, "STOPPING-ZMQ");
+        final ImageButton startTransmissionButton = (ImageButton) mActivty.findViewById(R.id.start_transmission);
 
-        } else  {
-            startTransmissionButton.setImageResource(R.drawable.share_red);
-            viewControl.setStartTransmission(true);
-            String zeroMqUrl = getString(R.string.zeromq_url);
-            //GL2JNILib.startZeroMQ("tcp://192.168.0.2:12345", auth.getToken());
-            GL2JNILib.startZeroMQ(zeroMqUrl, auth.getToken());
-            Log.i(TAG, "STARTING-ZMQ");
-        }
-        startTransmissionButton.setEnabled(true);
-        Log.i(TAG,"START-TRANS-STATE["+startTransmissionButton.isEnabled()+"]");
+            startTransmissionButton.setEnabled(false);
+            if (viewControl.isStartTransmission()) {
+                viewControl.setStartTransmission(false);
+                GL2JNILib.stopZeroMQ();
+                startTransmissionButton.setImageResource(R.drawable.share_blue);
+                Log.i(TAG, "STOPPING-ZMQ");
+                startTransmissionButton.setEnabled(true);
+
+            } else {
+                ZeroMqTasks zeroMqTasks = new ZeroMqTasks(mActivty,auth.getToken(),viewControl);
+                zeroMqTasks.execute();
+
+            }
+
+            Log.i(TAG, "START-TRANS-STATE[" + startTransmissionButton.isEnabled() + "]");
+
     }
 
     public void switchCamera(final View view) {
@@ -398,6 +564,7 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
         }
     }
 
+    /*
     public void recording(final View view) {
 
         Authentication auth =  DatabaseHandler.getInstance(this).getDefaultAuthentication();
@@ -417,8 +584,58 @@ public class WhatAmIdoing extends AppCompatActivity implements CameraBridgeViewB
             GL2JNILib.startRecording(zeroMqUrl, auth.getToken());
         }
     }
+    */
+
     public void init() {
-        NativeToJavaMessenger zeromMessenger = new NativeToJavaMessenger(mActivty,viewControl);
-        GL2JNILib.storeMessenger(zeromMessenger);
+        NativeToJavaMessenger nativeToJavaMessenger = new NativeToJavaMessenger(mActivty,viewControl);
+        GL2JNILib.storeMessenger(nativeToJavaMessenger);
+    }
+
+    public void shareOnFacebook() {
+        Log.d(TAG, "------------------------------- on click sharine (1)");
+
+        com.facebook.AccessToken accessToken = com.facebook.AccessToken.getCurrentAccessToken();
+
+        Log.d(TAG, "Facebook-accessToken[" + accessToken + "]");
+        if ((accessToken != null) && (!accessToken.isExpired())) {
+
+            ShareContentTask shareContentTask = new ShareContentTask(mActivty);
+            shareContentTask.execute((Void)null);
+
+        } else {
+
+            setContentView(R.layout.facebook_share);
+
+            android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+            facebookFragment = FaceBookFragment.newInstance("Facebook share", mActivty);
+            ft.add((android.support.v4.app.Fragment) facebookFragment,"Facebookshare");
+            ft.addToBackStack(null);
+            ft.commit();
+        }
+    }
+
+    public void tweetWhatIAmDoing() {
+        TwitterAuthorization ta = new TwitterAuthorization(mActivty);
+        AccessToken accessToken = ta.getAccessToken();
+        if (accessToken != null) {
+            String inviteUrl = mActivty
+                    .getString(R.string.send_invite_twitter_url);
+            Authentication auth = DatabaseHandler.getInstance(mActivty)
+                    .getDefaultAuthentication();
+            String url = inviteUrl + "?token=" + auth.getToken();
+            com.waid.invite.twitter.SendTwitterInviteTask stit = new com.waid.invite.twitter.SendTwitterInviteTask(url,
+                    mActivty);
+            stit.execute((Void) null);
+        }
+    }
+    // Build the list of member permissions our LinkedIn session requires
+    private static Scope buildScope() {
+        return Scope.build(Scope.R_BASICPROFILE, Scope.W_SHARE);
+    }
+
+    private void sendToLinkedIn() {
+
+        LinkedInShareContentTask linkedInShareContentTask = new LinkedInShareContentTask(mActivty);
+        linkedInShareContentTask.execute((Void)null);
     }
 }

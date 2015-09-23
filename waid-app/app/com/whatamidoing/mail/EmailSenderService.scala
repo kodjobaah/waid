@@ -1,6 +1,8 @@
 package com.whatamidoing.mail
 
 
+import com.waid.redis.KeyPrefixGenerator
+import com.waid.redis.model.{UserNode, UserStreamNode}
 import com.whatamidoing.mail.mailer._
 import com.whatamidoing.utils.ApplicationProps
 
@@ -48,6 +50,33 @@ class EmailSenderService {
       <br/>
       <p><bold><u>$firstname</u></bold> using this email:$inviteeEmail  wants to share what they are doing with you</p>
       <p>Click here to <a href="http://www.whatamidoing.info/whatamidoing?invitedId=$invId">View The Live Stream</></p>
+    </div>
+    </body>
+    </html>
+    """
+
+    send a new Mail(
+      from = (mailUser, "WAID (What Am I doing!!)"),
+      to = email,
+      subject = "What Am I Doing",
+      message = inviteMessage,
+      richMessage = Some("YES"))
+
+  }
+
+  def sendInviteEmail(email: String, invId: String, streamNode: UserStreamNode, userNode: UserNode) = {
+    val inviteeEmail = userNode.attributes get KeyPrefixGenerator.Email
+    val firstname = userNode.attributes get KeyPrefixGenerator.FirstName
+    val streamToken = streamNode.attributes get KeyPrefixGenerator.Token
+    val inviteMessage = s"""
+    <html>
+    <body>
+    <div>
+      <p>Hi,</p>
+      <p>WAID (What Am I Doing ?) is an application that allows you to share live video strems</p>
+      <br/>
+      <p><bold><u>$firstname</u></bold> using this email:$inviteeEmail  wants to share what they are doing with you</p>
+      <p>Click here to <a href="http://www.whatamidoing.info:9000/liveStream?streamId=$streamToken&ref=$invId">View The Live Stream</></p>
     </div>
     </body>
     </html>

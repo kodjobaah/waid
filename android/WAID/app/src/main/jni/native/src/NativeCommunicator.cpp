@@ -29,6 +29,36 @@ namespace  waid {
         gNativeObject = gNObject;
     }
 
+    void NativeCommunicator::unableToInitalizeCamera() {
+
+        JNIEnv *env = getJniEnv();
+        LOG("ZMQ_EVENT_NATIVE_UABLE_TO_INITIALIZE_CAMERA");
+        jobject obj;
+        if (env) {
+            obj = getCallbackInterface(env);
+        }
+
+        bool send = true;
+        if (obj) {
+            /* Find the callBack method ID */
+            jclass interfaceClass = env->GetObjectClass(obj);
+            jmethodID method = env->GetMethodID(interfaceClass, "unableToInitalizeCamera", "()V");
+            if (!method) {
+                LOG("callback_handler: failed to get method ID (unableToInitalizeCamera");
+                gJavaVM->DetachCurrentThread();
+                send = false;
+            }
+
+            if (send) {
+                env->CallVoidMethod(obj, method);
+            }
+
+            gJavaVM->DetachCurrentThread();
+
+        }
+        LOG("------------ Messages Sent (unableToInitalizeCamera)----------------");
+    }
+
 
     void NativeCommunicator::connectionLost() {
 
@@ -84,6 +114,39 @@ namespace  waid {
 
             if (send) {
                 env->CallVoidMethod(obj, method);
+            }
+
+            gJavaVM->DetachCurrentThread();
+
+        }
+        LOG("------------ Messages Sent----------------");
+    }
+
+
+    void NativeCommunicator::updateStreamToken(std::string streamToken) {
+
+        JNIEnv *env = getJniEnv();
+        LOG("ZMQ_EVENT_NATIVE_COMMUNICATOR_UPDATE_STREAM_TOKEN");
+        jobject obj;
+        if (env) {
+            LOG("-UMSC2");
+            obj = getCallbackInterface(env);
+        }
+
+        bool send = true;
+        if (obj) {
+            /* Find the callBack method ID */
+            jstring jstr = env->NewStringUTF(streamToken.c_str());
+            jclass interfaceClass = env->GetObjectClass(obj);
+            jmethodID method = env->GetMethodID(interfaceClass, "updateStreamToken", "(Ljava/lang/String;)V");
+            if (!method) {
+                LOG("callback_handler: failed to get method ID (updateStreamToken)");
+                gJavaVM->DetachCurrentThread();
+                send = false;
+            }
+
+            if (send) {
+                env->CallVoidMethod(obj, method,jstr);
             }
 
             gJavaVM->DetachCurrentThread();

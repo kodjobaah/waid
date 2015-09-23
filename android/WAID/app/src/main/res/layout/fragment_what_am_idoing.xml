@@ -4,7 +4,7 @@
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
     android:stretchColumns="*"
-    tools:context="om.waid.activity.main.WhatAmIdoingFragment">
+    tools:context="com.waid.activity.main.WhatAmIdoingFragment">
 
     <TableRow
         android:layout_weight="1"
@@ -124,6 +124,7 @@ android:background="@android:color/transparent"
         android:orientation="vertical"
         android:background="@android:color/transparent"
         >
+        <!--
         <View style="@style/DividerWithMarging">
             android:layout_weight="1"
         </View>
@@ -204,6 +205,7 @@ android:background="@android:color/transparent"
         <View style="@style/DividerWithMarging">
             android:layout_weight="1"
         </View>
+        -->
 
     </LinearLayout>
 </LinearLayout>

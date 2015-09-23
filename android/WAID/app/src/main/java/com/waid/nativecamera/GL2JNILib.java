@@ -52,4 +52,6 @@ public class GL2JNILib {
     public static native void stopRecording();
 
     public static native void cleanUp();
+
+    public static native boolean isCameraOpened();
 }

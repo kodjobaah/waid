@@ -3,15 +3,17 @@ package com.waid.nativecamera;
 import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.provider.ContactsContract;
 import android.util.Log;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
-import com.waid.R;
+import com.waids.R;
 import com.waid.activity.login.LoginActivity;
 import com.waid.activity.model.ViewControl;
 import com.waid.contentproviders.Authentication;
 import com.waid.contentproviders.DatabaseHandler;
+import com.waid.contentproviders.StreamToken;
 
 /**
  * Created by kodjobaah on 09/08/2015.
@@ -95,6 +97,38 @@ public class NativeToJavaMessenger {
 
     }
 
+
+    public void updateStreamToken(String token) {
+
+        StreamToken streamToken = DatabaseHandler.getInstance(activity).getDefaultStreamToken();
+
+        if (streamToken == null) {
+            streamToken = new StreamToken(token);
+        } else {
+            streamToken.setToken(token);
+        }
+        DatabaseHandler.getInstance(activity).putStreamToken(streamToken);
+        Log.i(TAG,"UPDATED STREAM TOKEN["+token+"]");
+    }
+
+    public void unableToInitalizeCamera() {
+
+        activity.runOnUiThread(new Thread(new Runnable() {
+            public void run() {
+
+
+                ImageButton startTransmissionButton  = (ImageButton) activity.findViewById(R.id.start_transmission);
+                startTransmissionButton.setImageResource(R.drawable.share_blue);
+                Context context = activity.getApplicationContext();
+                CharSequence text = "Problems attaching to camera - Try to Restart the device";
+                int duration = Toast.LENGTH_SHORT;
+                Toast toast = Toast.makeText(context, text, duration);
+                toast.show();
+                startTransmissionButton.setEnabled(true);
+                viewControl.setStartTransmission(false);
+            }
+        }));
+    }
 
     public void unableToConnect() {
 

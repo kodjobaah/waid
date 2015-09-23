@@ -10,10 +10,13 @@ object Test extends App{
 
   //var result = RedisUtils.getUserNodeFromUserToken("node:token:_1_:1")
   //var result = RedisUtils.getStreamNodeFromUserToken("node:token:_1_:4")
+  var result = RedisUtils.getUserNodeFromStreamNode("node:stream:_1_:_4_:100")
+  println(result)
   //var userStreamnNode = UserStreamNode(None,"node:token:_1_:4", Option(20L),Option(Map()))
   //println(userStreamnNode.genId)
 
 
+  /*
   val result = RedisUserService.getAllValidStreams()
   for(r <- result) {
       for((k,v) <- r) {
@@ -21,5 +24,6 @@ object Test extends App{
         println(v)
       }
   }
+  */
   //println(RedisUtils.getUserIdFromUserTokenId("node:token:_1_:4"))
 }

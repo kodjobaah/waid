@@ -32,10 +32,10 @@ namespace waid {
     }
 
     void ZeroMq::stopAll() {
-        LOG("ZMQ_EVENT:STARTING_STOP_ALL");
+        LOG("ZMQ_EVENT:STARTING_STOP_ALL[%s]",identifier.c_str());
         int linger = 0;
 
-        LOG("ZMQ_EVENT:STOPING MAIN SOCKET");
+        LOG("ZMQ_EVENT:STOPING MAIN SOCKET[%s]",identifier.c_str());
         pthread_mutex_lock(&mutex_mainSocket);
         if (mainSocketAvailable) {
             int rc = zmq_setsockopt(socket, ZMQ_LINGER, &linger, sizeof(linger));
@@ -44,7 +44,7 @@ namespace waid {
         }
         pthread_mutex_unlock(&mutex_mainSocket);
 
-        LOG("ZMQ_EVENT:STOPING MONITOR SOCKET");
+        LOG("ZMQ_EVENT:STOPING MONITOR SOCKET[%s]",identifier.c_str());
         pthread_mutex_lock(&mutex_monitorSocket);
         if (monitorSocketAvailable) {
             linger = 0;
@@ -58,25 +58,25 @@ namespace waid {
         zmq_ctx_term(context);
         pthread_mutex_destroy(&mutex_monitorSocket);
         pthread_mutex_destroy(&mutex_mainSocket);
-        LOG("ZMQ_EVENT:FINNISH_STOP_ALL");
+        LOG("ZMQ_EVENT:FINNISH_STOP_AL[%s]",identifier.c_str());
     }
 
     int ZeroMq::create_context() {
         context = zmq_ctx_new();
         if (context == NULL) {
-            LOG("CONTEXT_CREATION_ERROR(-1)");
+            LOG("CONTEXT_CREATION_ERROR(-1)[%s]",identifier.c_str());
             return -1;
         }
 
         int rc = zmq_ctx_set(context, ZMQ_IO_THREADS, 1);
         if (rc != 0) {
-            LOG("CONTEXT_CREATION_ERROR(-2)");
+            LOG("CONTEXT_CREATION_ERROR(-2)[%s]",identifier.c_str());
             return -2;
         }
 
         rc = zmq_ctx_set(context, ZMQ_MAX_SOCKETS, ZMQ_MAX_SOCKETS_DFLT);
         if (rc != 0) {
-            LOG("CONTEXT_CREATION_ERROR(-3)");
+            LOG("CONTEXT_CREATION_ERROR(-3)[%s]",identifier.c_str());
             return -3;
         }
 
@@ -86,6 +86,7 @@ namespace waid {
     int ZeroMq::create_socket(std::string auth, const char *urlPath) {
         socket = zmq_socket(context, ZMQ_DEALER);
         if (socket == NULL) {
+            LOG("ZMQ_EVENT_CREATE_SOCKET_ERROR_MINUS_[%s]",identifier.c_str());
             return -4;
         }
 
@@ -93,6 +94,7 @@ namespace waid {
         int rc = zmq_setsockopt(socket, ZMQ_LINGER, &linger, sizeof(linger));
 
         if (rc != 0) {
+            LOG("ZMQ_EVENT_CREATE_SOCKET_ERROR_MINUS_[%s]",identifier.c_str());
             return -5;
         }
 
@@ -100,12 +102,14 @@ namespace waid {
         rc = zmq_setsockopt(socket, ZMQ_IDENTITY, id.c_str(), (long) id.length());
 
         if (rc != 0) {
+            LOG("ZMQ_EVENT_CREATE_SOCKET_ERROR_MINUS_[%s]",identifier.c_str());
             return -6;
         }
 
         rc = zmq_connect(socket, urlPath);
 
         if (rc != 0) {
+            LOG("ZMQ_EVENT_CREATE_SOCKET_ERROR_MINUS_7[%s]",urlPath);
             return -7;
         }
 
@@ -114,6 +118,7 @@ namespace waid {
         std::string monitorsocket = "inproc://monitor.dealer-"+identifier;
         rc = zmq_socket_monitor(socket,monitorsocket.c_str() , ZMQ_EVENT_ALL);
         if (rc != 0) {
+            LOG("ZMQ_EVENT_CREATE_SOCKET_ERROR_MINUS_8[%s]",identifier.c_str());
             return -8;
         }
 
@@ -130,9 +135,9 @@ namespace waid {
         init_message.push_back(INIT_MESSAGE);
         s_sendmultiple(init_message);
 
-        LOG("ZMQ_EVENT: waitking for connection to complete");
+        LOG("ZMQ_EVENT: waitking for connection to complete[%s]",identifier.c_str());
         connection_cond.wait(lock);
-        LOG("ZMQ_EVENT: able to connect");
+        LOG("ZMQ_EVENT: able to connect[%s]",identifier.c_str());
 
         return connectionStatus;
     }
@@ -190,52 +195,52 @@ namespace waid {
         while (continueProcessing && !read_event_msg(monitorSocket, &event, addr)) {
             switch (event.event) {
                 case ZMQ_EVENT_LISTENING:
-                    LOG("ZMQ_EVENT:listening socket descriptor %d\n", event.value);
-                    LOG("ZMQ_EVENT:listening socket address %s\n", addr);
+                    LOG("ZMQ_EVENT:listening socket descriptor %d [%s]\n", event.value,identifier.c_str());
+                    LOG("ZMQ_EVENT:listening socket address %s [%s]\n", addr,identifier.c_str());
                     break;
                 case ZMQ_EVENT_ACCEPTED:
-                    LOG("ZMQ_EVENT:accepted socket descriptor %d\n", event.value);
-                    LOG("ZMQ_EVENT:accepted socket address %s\n", addr);
+                    LOG("ZMQ_EVENT:accepted socket descriptor %d [%s]\n", event.value,identifier.c_str());
+                    LOG("ZMQ_EVENT:accepted socket address %s [%s]\n", addr,identifier.c_str());
                     break;
                 case ZMQ_EVENT_CLOSE_FAILED:
-                    LOG("ZMQ_EVENT:socket close failure error code %d\n", event.value);
-                    LOG("ZMQ_EVENT:socket address %s\n", addr);
+                    LOG("ZMQ_EVENT:socket close failure error code %d [%s]\n", event.value,identifier.c_str());
+                    LOG("ZMQ_EVENT:socket address %s [%s]\n", addr,identifier.c_str());
                     break;
                 case ZMQ_EVENT_CLOSED:
-                    LOG("ZMQ_EVENT:closed socket descriptor %d\n", event.value);
-                    LOG("ZMQ_EVENT:closed socket address %s\n", addr);
+                    LOG("ZMQ_EVENT:closed socket descriptor %d [%s]\n", event.value,identifier.c_str());
+                    LOG("ZMQ_EVENT:closed socket address %s [%s] \n", addr,identifier.c_str());
                     nativeCommunicator->unableToConnectZmq();
                     connectionStatus = -1;
                     connection_cond.notify_one();
                     continueProcessing = false;
                     break;
                 case ZMQ_EVENT_DISCONNECTED:
-                    LOG("ZMQ_EVENT:disconnected socket descriptor %d\n", event.value);
-                    LOG("ZMQ_EVENT:disconnected socket address %s\n", addr);
+                    LOG("ZMQ_EVENT:disconnected socket descriptor %d [%s]\n", event.value,identifier.c_str());
+                    LOG("ZMQ_EVENT:disconnected socket address %s [%s]\n", addr,identifier.c_str());
                     nativeCommunicator->unableToConnectZmq();
                     connectionStatus = -1;
                     connection_cond.notify_one();
                     continueProcessing = false;
                     break;
                 case ZMQ_EVENT_CONNECT_DELAYED:
-                    LOG("ZMQ_EVENT:connect_delayed socket descriptor %d\n", event.value);
-                    LOG("ZMQ_EVENT:connect_delayed socket address %s\n", addr);
+                    LOG("ZMQ_EVENT:connect_delayed socket descriptor %d [%s]\n", event.value,identifier.c_str());
+                    LOG("ZMQ_EVENT:connect_delayed socket address %s [%s]\n", addr,identifier.c_str());
                     break;
                 case ZMQ_EVENT_CONNECTED:
-                    LOG("ZMQ_EVENT:connected socket descriptor %d\n", event.value);
-                    LOG("ZMQ_EVENT:connected socket address %s\n", addr);
+                    LOG("ZMQ_EVENT:connected socket descriptor %d [%s]\n", event.value,identifier.c_str());
+                    LOG("ZMQ_EVENT:connected socket address %s [%s]\n", addr,identifier.c_str());
                     connection_cond.notify_one();
                     break;
                 case ZMQ_EVENT_MONITOR_STOPPED:
-                    LOG("ZMQ_EVENT:monitor socket descriptor %d\n", event.value);
-                    LOG("ZMQ_EVENT:monitor socket address %s\n", addr);
+                    LOG("ZMQ_EVENT:monitor socket descriptor %d [%s]\n", event.value,identifier.c_str());
+                    LOG("ZMQ_EVENT:monitor socket address %s [%s]\n", addr,identifier.c_str());
                     //nativeCommunicator->unableToConnectZmq();
                     continueProcessing = false;
                     break;
 
             }
         }
-         LOG("ZMQ_EVENT:monitor closed");
+         LOG("ZMQ_EVENT:monitor closed [%s]",identifier.c_str());
     }
 
     std::vector<std::string> ZeroMq::s_recv_multi(int num)  {

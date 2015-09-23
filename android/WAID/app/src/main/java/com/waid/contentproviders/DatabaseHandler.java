@@ -38,6 +38,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         db.execSQL(TwitterAuthenticationToken.CREATE_TABLE);
         db.execSQL(LinkedInAuthenticationToken.CREATE_TABLE);
         db.execSQL(StateAttribute.CREATE_TABLE);
+        db.execSQL(StreamToken.CREATE_TABLE);
 
     }
 
@@ -74,6 +75,27 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return sa;
 
     }
+
+
+    public synchronized StreamToken getDefaultStreamToken() {
+
+        final SQLiteDatabase db = this.getReadableDatabase();
+        StreamToken item = null;
+
+        Cursor cursor = db.query(StreamToken.TABLE_NAME,
+                StreamToken.FIELDS, null, null, null, null, null);
+        if (cursor == null || cursor.isAfterLast()) {
+            return null;
+        }
+
+        if (cursor.moveToFirst()) {
+            item = new StreamToken(cursor);
+        }
+        cursor.close();
+
+        return item;
+    }
+
 
     public synchronized TwitterAuthenticationToken getDefaultTwitterAuthentication() {
 
@@ -186,6 +208,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         return item;
 
     }
+
+    public synchronized boolean putStreamToken(final StreamToken streamToken) {
+        boolean success = false;
+        int result = 0;
+        final SQLiteDatabase db = this.getWritableDatabase();
+
+        if (streamToken.getId() != null) {
+            result += db.update(StreamToken.TABLE_NAME, streamToken.getContent(),
+                    StreamToken.COL_ID + "  =?",
+                    new String[]{streamToken.getId()});
+
+        }
+
+        if (result > 0) {
+
+            success = true;
+        } else {
+
+            // Update failed or wasn't possible, insert instead
+
+            final long id = db.insert(StreamToken.TABLE_NAME, null,
+                    streamToken.getContent());
+
+            if (id > -1) {
+
+                db.close();
+                success = true;
+            }
+        }
+
+        return success;
+    }
+
 
     public synchronized boolean putStateAttribute(final StateAttribute sa) {
         boolean success = false;

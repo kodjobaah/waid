@@ -28,6 +28,9 @@ namespace waid {
         void invalidToken();
 
         void connectionLost();
+
+        void unableToInitalizeCamera();
+
         void unableToConnectZmq();
 
         void zmqConnectionDropped();
@@ -41,6 +44,8 @@ namespace waid {
         void setJavaVm(JavaVM *javaVm);
 
         void updateMessageSent(long messageSent);
+
+        void updateStreamToken(std::string streamToken);
 
     };
 }

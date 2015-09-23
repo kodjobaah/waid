@@ -32,6 +32,7 @@ package com.waid.nativecamera;
  */
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.PixelFormat;
 import android.opengl.GLSurfaceView;
@@ -41,8 +42,10 @@ import android.util.Log;
 import android.view.Display;
 import android.view.KeyEvent;
 import android.view.MotionEvent;
+import android.widget.ImageButton;
+import android.widget.Toast;
 
-import com.waid.R;
+import com.waids.R;
 
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
@@ -72,16 +75,20 @@ public class GL2JNIView extends GLSurfaceView {
     private static String TAG = "GL2JNIView";
     private static final boolean DEBUG = false;
     private final DisplayMetrics displayMetrics;
+    private final Activity mActivity;
+    private boolean cameraOpened;
 
-    public GL2JNIView(Context context, DisplayMetrics displayMetrics) {
+    public GL2JNIView(Context context, DisplayMetrics displayMetrics, Activity mActivity) {
         super(context);
         this.displayMetrics = displayMetrics;
+        this.mActivity = mActivity;
         init(true, 0, 0);
     }
 
-    public GL2JNIView(Context context, boolean translucent, int depth, int stencil, DisplayMetrics displayMetrics) {
+    public GL2JNIView(Context context, boolean translucent, int depth, int stencil, DisplayMetrics displayMetrics, Activity mActivity) {
         super(context);
         this.displayMetrics = displayMetrics;
+        this.mActivity = mActivity;
         init(translucent, depth, stencil);
 
     }
@@ -108,13 +115,30 @@ public class GL2JNIView extends GLSurfaceView {
          * custom config chooser. See ConfigChooser class definition
          * below.
          */
-        setEGLConfigChooser( translucent ?
-                             new ConfigChooser(8, 8, 8, 8, depth, stencil) :
-                             new ConfigChooser(5, 6, 5, 0, depth, stencil) );
+        setEGLConfigChooser(translucent ?
+                new ConfigChooser(8, 8, 8, 8, depth, stencil) :
+                new ConfigChooser(5, 6, 5, 0, depth, stencil));
 
         /* Set the renderer responsible for frame rendering */
-        setRenderer(new Renderer(displayMetrics));
-        Log.i(TAG,"APPINIT_VIEW_init_createdRendered");
+        Renderer renderer = new Renderer(displayMetrics,getContext(),mActivity);
+        Log.i(TAG, "APPINIT_VIEW_init_createdRendered");
+        if (renderer.isCameraOpened()) {
+            setRenderer(renderer);
+            cameraOpened = true;
+            Log.i(TAG, "APPINIT_VIEW_init_cameraOpened");
+
+        } else {
+            Log.i(TAG, "APPINIT_VIEW_init_cameraNotOpened");
+            cameraOpened = false;
+        }
+    }
+
+    public boolean isCameraOpened() {
+        return cameraOpened;
+    }
+
+    public void setCameraOpened(boolean cameraOpened) {
+        this.cameraOpened = cameraOpened;
     }
 
     private static class ContextFactory implements GLSurfaceView.EGLContextFactory {
@@ -335,27 +359,66 @@ public class GL2JNIView extends GLSurfaceView {
 
     private static class Renderer implements GLSurfaceView.Renderer {
         private final DisplayMetrics displayMetrics;
+        private final Context context;
+        private final Activity mActivity;
+        private boolean cameraOpened = true;
 
-        public Renderer(DisplayMetrics displayMetrics) {
+        public Renderer(DisplayMetrics displayMetrics, Context context, Activity mActivity) {
             this.displayMetrics = displayMetrics;
+            this.context = context;
+            this.mActivity = mActivity;
         }
 
         public void onDrawFrame(GL10 gl) {
+            Log.i(TAG,"DRAWING_FRAME");
             GL2JNILib.step();
         }
 
         public void onSurfaceChanged(GL10 gl, int width, int height) {
             Log.i(TAG,"----------------------DOOO-2");
 
-            GL2JNILib.resize(width,height);
+            GL2JNILib.resize(width, height);
         }
 
         public void onSurfaceCreated(GL10 gl, EGLConfig config) {
-            int width = (int)(displayMetrics.widthPixels*.8);
-            int height = (int)(displayMetrics.heightPixels*.8);
-            Log.i(TAG,"APPINIT_VIEW_RENDERER_onSurfaceCreate");
+            int width = (int) (displayMetrics.widthPixels * .8);
+            int height = (int) (displayMetrics.heightPixels * .8);
+            Log.i(TAG, "APPINIT_VIEW_RENDERER_onSurfaceCreate");
 
-            GL2JNILib.init(width,height,0,0);
+            GL2JNILib.init(width, height, 0, 0);
+
+            if (!GL2JNILib.isCameraOpened()) {
+
+                mActivity.runOnUiThread(new Thread(new Runnable() {
+                    public void run() {
+
+
+                        ImageButton startTransmissionButton  = (ImageButton) mActivity.findViewById(R.id.start_transmission);
+                        startTransmissionButton.setImageResource(R.drawable.share_blue);
+                        Context context = mActivity.getApplicationContext();
+                        CharSequence text = "Problems attaching to camera - Try to Restart the device";
+                        int duration = Toast.LENGTH_SHORT;
+                        Toast toast = Toast.makeText(context, text, duration);
+                        toast.show();
+                        startTransmissionButton.setEnabled(false);
+                        mActivity.finish();
+
+                    }
+                }));
+                cameraOpened = false;
+                Log.i(TAG, "APPINIT_VIEW_RENDERER_onSurfaceCreate_cameraNotOpened");
+
+            } else {
+                Log.i(TAG, "APPINIT_VIEW_RENDERER_onSurfaceCreate_cameraOpened");
+            }
+        }
+
+        public boolean isCameraOpened() {
+            return cameraOpened;
+        }
+
+        public void setCameraOpened(boolean cameraOpened) {
+            this.cameraOpened = cameraOpened;
         }
     }
 

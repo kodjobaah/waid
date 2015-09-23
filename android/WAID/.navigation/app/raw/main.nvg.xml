@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<navigationModel
+  ns = "http://schemas.android.com?import=com.android.tools.idea.editors.navigation.model.*">
+  <locations  
+    class = "java.util.ArrayList">
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.waid.activity.login.LoginActivity"/>
+      <point      
+        x = "192"      
+        y = "1680"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.waid.nativecamera.CameraPreviewer"/>
+      <point      
+        x = "1204"      
+        y = "1664"/>
+    </statePointEntry>
+    <statePointEntry>
+      <state      
+        class = "com.android.tools.idea.editors.navigation.model.ActivityState"      
+        className = "com.waid.activity.main.WhatAmIdoing"/>
+      <point      
+        x = "904"      
+        y = "208"/>
+    </statePointEntry>
+  </locations>
+</navigationModel>

@@ -10,20 +10,21 @@ import com.waid.redis.service.RedisUserService
 class PlayListService(val streamToken: String, val userReference: String, val host: String, val port: Int) {
 
 
-  val m3u3Header =
-    "#EXTM3U\n#EXT-X-PLAYLIST-TYPE:EVENT\n#EXT-X-TARGETDURATION:10\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:0\n"
+  val m3u8Header =
+    "#EXTM3U\n#EXT-X-PLAYLIST-TYPE:EVENT\n#EXT-X-TARGETDURATION:10\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:mediaSequenceNumber\n"
 
 
-  val m3u3VodHeader =
+  val m3u8VodHeader =
     "#EXTM3U\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXT-X-TARGETDURATION:10\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:0\n"
 
   val emptyList = "#EXT-X-VERSION:3\n#EXTM3U\n#EXT-X-TARGETDURATION:10\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-ENDLIST\n"
 
-  def getGenereatePlayList(): (String, Boolean, Int) = {
+  def generatePlayList(): (String, Boolean, Int) = {
     var playList = emptyList
     var streamEnded = false
     var sequenceCount = 0
-
+    var mediaSequenceNumber = 0
+    var playListCount:Option[Int] = None
     val currentSequenceCount = RedisUserService.getStreamSequenceNumber(streamToken, userReference)
 
     def buildSubPlayList(sb: StringBuilder, pc: Int, start: Int): Unit = {
@@ -38,23 +39,25 @@ class PlayListService(val streamToken: String, val userReference: String, val ho
     if (currentSequenceCount != None) {
 
       var sb: StringBuilder = new StringBuilder()
-      val playListCount = RedisUserService.getStreamPlayListCount(streamToken)
+      playListCount = RedisUserService.getStreamPlayListCount(streamToken)
       //Just need to send an update
-      for (pc <- playListCount) {
-        buildSubPlayList(sb, pc, currentSequenceCount.get)
-        playList = sb.toString
-        sequenceCount = pc
-      }
+      if (playListCount != None) {
+        val sequenceFields = currentSequenceCount.get.split(":")
+        val start = sequenceFields (0).toInt
+        if (sequenceFields.length > 1) {
+          mediaSequenceNumber = currentSequenceCount.get.split(":")(1).toInt + 1
+        }
 
-      if (playListCount == None) {
-        playList = "#EXT-X-ENDLIST\n"
-        streamEnded = true
+        sb.append(m3u8Header.replace("mediaSequenceNumber", mediaSequenceNumber.toString))
+        buildSubPlayList(sb, playListCount.get, start)
+        playList = sb.toString
+        sequenceCount = playListCount.get
       }
 
     } else {
-      val sb: StringBuilder = new StringBuilder(m3u3Header)
-
-      val playListCount = RedisUserService.getStreamPlayListCount(streamToken)
+      val sb: StringBuilder = new StringBuilder()
+      sb.append(m3u8Header.replace("mediaSequenceNunber",mediaSequenceNumber.toString))
+      playListCount = RedisUserService.getStreamPlayListCount(streamToken)
       val pc: Int = playListCount.getOrElse(0)
       if (pc > 0) {
         //Fist Time access the stream -- so send back
@@ -69,20 +72,23 @@ class PlayListService(val streamToken: String, val userReference: String, val ho
         playList = sb.toString
         sequenceCount = pc
       }
+    }
 
-
-      //Means stream has ended
-      if (playListCount == None) {
+    //Means stream has ended
+    if (playListCount == None) {
         playList = "#EXT-X-ENDLIST\n"
         streamEnded = true
 
-      }
+    } else {
+        println("------------------sequenceCount:mediaSequenceNumber["+sequenceCount+":"+mediaSequenceNumber+"]")
+        RedisUserService.addStreamSequenceNumber(streamToken,userReference,sequenceCount+":"+mediaSequenceNumber)
     }
+
     (playList, streamEnded, sequenceCount)
   }
 
 
-  def getGenereatePlayListAll(): String = {
+  def generateAllPlayList(): String = {
     var playList = emptyList
     var streamEnded = false
     var sequenceCount = 0
@@ -95,7 +101,7 @@ class PlayListService(val streamToken: String, val userReference: String, val ho
         sb.append(strm + "\n")
       }
     }
-    val sb: StringBuilder = new StringBuilder(m3u3VodHeader)
+    val sb: StringBuilder = new StringBuilder(m3u8VodHeader)
 
     val storedStream = RedisUserService.getStoredStream(userReference,streamToken)
     if (storedStream != None) {

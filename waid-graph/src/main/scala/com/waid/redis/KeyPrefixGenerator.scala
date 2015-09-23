@@ -14,6 +14,7 @@ object KeyPrefixGenerator {
   val LastName = "lastName"
   val Password = "password"
   val CreatedDate = "createdDate"
+  val EndDate = "endDate"
   val PlayListCount = "playListCount"
   val SegmentLocation = "segmentLocation"
 
@@ -44,6 +45,7 @@ object KeyPrefixGenerator {
   val LookupLiveStreams = "lookup:stream:live"   //lookup:stream:live:$streamTokenId   $viewerToken lastSequnceNumber
   val LookupAllStreams = "lookup:stream:all:"   //lookup:stream:all/_<userId_
 
+  val StoreInvitesEmail = "store:invites:email:" //store:invites:email:streamNodeId <email>
 
 
   val StoreAllUsers = "store:allusers:"//store:allusers:<epoch_hour_time>: <userNodeId>

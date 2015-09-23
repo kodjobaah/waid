@@ -38,6 +38,8 @@ namespace  waid {
         static const std::string BROADCAST_MESSAGE;
         static const std::string TYPE_MESSAGE;
         static const std::string INIT_MESSAGE;
+        static const std::string END_STREAM_MESSAGE;
+
         std::string streamId;
 
         std::atomic <bool> processingStarted;
@@ -84,6 +86,8 @@ namespace  waid {
         void addDataToQueue(std::tuple <cv::Mat, std::string, std::string> frameData);
 
         void setNativeCommunicator(NativeCommunicator *nc);
+
+        void endStream();
 
     };
 

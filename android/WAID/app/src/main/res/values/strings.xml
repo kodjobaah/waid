@@ -3,11 +3,20 @@
     <string translatable="false" name="session_name_in_cookie">PLAY_SESSION</string>
     <string translatable="false" name="auth_success_message">ADDED AUTHENTICATION TOKEN TO SESSISON</string>
     <string translatable="false" name="new_auth_success_message">USER CREATED - ADDED AUTHENTICATION TOKEN TO SESSISON</string>
+    <string translatable="false" name="stream_builder_url">http://www.whatamidoing.info:8080</string>
     <string translatable="false" name="app_url">http://www.whatamidoing.info</string>
     <string translatable="false" name="login_url">http://www.whatamidoing.info:9000/register</string>
     <string translatable="false" name="zeromq_url">tcp://www.whatamidoing.info:12345</string>
-    <string name="forgotten_password_url">http://www.whatamidoing.info:9000/resendPassword</string>
+    <string translatable="false" name="forgotten_password_url">http://www.whatamidoing.info:9000/resendPassword</string>
+    <string translatable="false" name="send_invite_url">http://www.whatamidoing.info:9000/invite</string>
+    <string translatable="false" name="send_invite_twitter_url">http://www.whatamidoing.info:9000/inviteTwitter</string>
+    <string translatable="false" name="send_invite_facebook_url">http://www.whatamidoing.info:9000/inviteFacebook</string>
+    <string translatable="false" name="send_invite_linkedin_url">http://www.whatamidoing.info:9000/inviteLinkedin</string>
+    <string translatable="false" name="findallinvites_url">http://www.whatamidoing.info:9000/findAllInvites</string>
+    <string translatable="false" name="share_location_url">http://www.whatamidoing.info:9000/location</string>
+    <string translatable="false" name="facebook_app_id">1028004893910960</string>
     <string name="title_activity_what_am_idoing">WhatAmIdoing</string>
+    <string name="connect_from_diff_location">You have connected from another location..logout and login again</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="select_camera">Select Location</string>
@@ -28,4 +37,24 @@
     <string name="account_verification_needed">Account has to be activated -- check email</string>
     <string name="num_of_viewers">Viewers</string>
     <string name="logout">Logout</string>
+    <string name="linkedin_menu_names">LinkedIn</string>
+    <string name="facebook_menu_names">Facebook</string>
+    <string name="twitter_menu_names">Twitter</string>
+    <string name="email_menu_names">Email</string>
+    <string name="enter_email">Email Not Valid</string>
+    <string name="invite_progress_fetch_invites">Fetching Invites</string>
+    <string name="invite_dialog_message">Invites</string>
+    <string name="invite_previous_message">Previous Invites</string>
+    <string name="invite_button">Invite</string>
+    <string name="cancel">Cancel</string>
+    <string name="invited_progress_fetch_invites">Fetch Invites</string>
+    <string name="twitter_auth_dialog">Twitter Login</string>
+    <string name="twitter_problems">Problems Login Into Twitter</string>
+    <string name="invite_location_url">http://www.whatamidoing.info/whatamidoing?invitedId</string>
+    <string name="twitter_pin_label">Enter the pn acquired from Twitter</string>
+    <string name="twitter_pin_button">Tweet</string>
+    <string name="facebook_feed_dialog_description">I am using WAID - Click to see what I am doing</string>
+    <string name="facebook_feed_dialog_name">WAID</string>
+    <string name="facebook_feed_dialog_picture">http://www.whatamidoing.info:9000/assets/images/icon.png</string>
+    <string name="facebook_feed_dialong_display">page</string>
 </resources>

@@ -7,7 +7,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.waid.R;
+import com.waids.R;
 
 /**
  * A placeholder fragment containing a simple view.

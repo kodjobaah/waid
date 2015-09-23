@@ -19,6 +19,9 @@
 #define LOG(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
 namespace waid {
 
+
+    pthread_mutex_t WaidCamera::FGmutex=PTHREAD_MUTEX_INITIALIZER;
+
     void WaidCamera::addToQueue() {
 
         boost::unique_lock <boost::mutex> lock(m_mutex);
@@ -69,7 +72,8 @@ namespace waid {
         cv::Mat rgbframe;
         cv::Mat rgbOne;
 
-        if ((bufferIndex > 0) && (processVideo)) {
+        //LOG("RENDER_FRAME_BEGIN[%d]",bufferIndex);
+        if (bufferIndex > 0) {
             pthread_mutex_lock(&FGmutex);
             buffer[(bufferIndex - 1) % 30].copyTo(fr);
             pthread_mutex_unlock(&FGmutex);
@@ -77,12 +81,14 @@ namespace waid {
             if (fr.empty() == false) {
                 cv::cvtColor(fr, outframe, CV_BGR2BGR565);
 
+                /*
                 std::stringstream s;
                 s << "Display performance: " << outframe.cols << "x" << outframe.rows << "@" <<
                 fps;
                 cv::putText(outframe, s.str(), cv::Point(outframe.rows / 4, outframe.cols / 4),
                             cv::FONT_HERSHEY_PLAIN, 2.5, cv::Scalar(0, 255, 0, 255), 2, CV_AA);
 
+                 */
                 if (orientation == 0) { //landscape
                     cv::flip(outframe, rgbframe, -1);
                 } else {
@@ -101,6 +107,7 @@ namespace waid {
             }
 
         }
+        //LOG("RENDER_FRAME_END");
 
     }
 
@@ -117,75 +124,84 @@ namespace waid {
 
         numberOfFramesSent = 0;
         int count = 0;
-        while (true) {
-
-            try {
-                boost::this_thread::interruption_point();
-            }
-            catch (const boost::thread_interrupted &) {
-                break;
-            }
-
-            int64 then;
-            int64 now = cv::getTickCount();
-            time_queue.push(now);
-
-            LOG("READ %d", capture.empty());
-            // Capture frame from camera and draw it
-            if (!capture.empty()) {
-
-                capture->read(drawing_frame);
-
-                pthread_mutex_lock(&FGmutex);
-                int loc = bufferIndex++ % 30;
-                drawing_frame.copyTo(buffer[loc]);
-
-                pthread_mutex_unlock(&FGmutex);
-
-                boost::posix_time::ptime current_date_microseconds = boost::posix_time::microsec_clock::local_time();
-                long currentFrameTime = current_date_microseconds.time_of_day().total_milliseconds();
-                long diffbetweenFrame = currentFrameTime - previousFrameTime;
-                previousFrameTime = currentFrameTime;
-
-                cv::Mat anotherCopy;
-                drawing_frame.copyTo(anotherCopy);
-                if (shouldSendToZmq) {
-                    LOG("---SHOULD-SEND-TO-ZMQ [%d][%d]", count, (int) diffbetweenFrame);
-                    count = count + 1;
-                    cv::Mat o;
-                    cv::cvtColor(anotherCopy, o, CV_BGR2BGR565);
-                    std::string arrivalTime;
-                    std::stringstream strstream;
-                    strstream << diffbetweenFrame;
-                    strstream >> arrivalTime;
-
-                    std::string framePs;
-                    std::stringstream fpsstream;
-                    fpsstream << fps;
-                    fpsstream >> framePs;
-
-                    std::tuple <cv::Mat, std::string, std::string > frameData(o, arrivalTime,framePs);
-                    // Acquire lock on the queue
-                    boost::lock_guard <boost::mutex> lock(m_mutex);
-                    dataToSend.push(frameData);
-                    zmq_send_cond.notify_one();
-                } else {
-                    LOG("--NOT-SENDKNG-TO-ZMQ");
+        if (!capture->grab()) {
+            nativeCommunicator->unableToInitalizeCamera();
+        } else {
+            while (true) {
+                cameraStarted = true;
+                try {
+                    boost::this_thread::interruption_point();
                 }
+                catch (const boost::thread_interrupted &) {
+                    break;
+                }
+
+                int64 then;
+                int64 now = cv::getTickCount();
+                time_queue.push(now);
+
+                LOG("READ %d", capture->isOpened());
+                // Capture frame from camera and draw it
+                if (capture->isOpened()) {
+
+                    capture->read(drawing_frame);
+
+                    pthread_mutex_lock(&FGmutex);
+                    int loc = bufferIndex++ % 30;
+                    drawing_frame.copyTo(buffer[loc]);
+
+                    pthread_mutex_unlock(&FGmutex);
+
+                    boost::posix_time::ptime current_date_microseconds = boost::posix_time::microsec_clock::local_time();
+                    long currentFrameTime = current_date_microseconds.time_of_day().total_milliseconds();
+                    long diffbetweenFrame = currentFrameTime - previousFrameTime;
+                    previousFrameTime = currentFrameTime;
+
+                    cv::Mat anotherCopy;
+                    drawing_frame.copyTo(anotherCopy);
+                    if (shouldSendToZmq) {
+                        LOG("---SHOULD-SEND-TO-ZMQ [%d][%d]", count, (int) diffbetweenFrame);
+                        count = count + 1;
+                        cv::Mat o;
+                        cv::cvtColor(anotherCopy, o, CV_BGR2BGR565);
+                        std::string arrivalTime;
+                        std::stringstream strstream;
+                        strstream << diffbetweenFrame;
+                        strstream >> arrivalTime;
+
+                        std::string framePs;
+                        std::stringstream fpsstream;
+                        fpsstream << fps;
+                        fpsstream >> framePs;
+
+                        std::tuple <cv::Mat, std::string, std::string> frameData(o, arrivalTime,
+                                                                                 framePs);
+                        // Acquire lock on the queue
+                        boost::lock_guard <boost::mutex> lock(m_mutex);
+                        dataToSend.push(frameData);
+                        zmq_send_cond.notify_one();
+                    } else {
+                        LOG("--NOT-SENDKNG-TO-ZMQ[%d]",drawing_frame.empty());
+                    }
+
+                }
+
+                if (time_queue.size() >= 2)
+                    then = time_queue.front();
+                else
+                    then = 0;
+
+                if (time_queue.size() >= 25)
+                    time_queue.pop();
+
+                fps = time_queue.size() * (float) cv::getTickFrequency() / (now - then);
             }
 
-            if (time_queue.size() >= 2)
-                then = time_queue.front();
-            else
-                then = 0;
-
-            if (time_queue.size() >= 25)
-                time_queue.pop();
-
-            fps = time_queue.size() * (float) cv::getTickFrequency() / (now - then);
         }
         capture.release();
         videoStopped = 0;
+        cameraStarted = false;
+        LOG("VIDEO-READER-THREAD-ENDED");
 
     }
 
@@ -228,34 +244,42 @@ namespace waid {
     void WaidCamera::initialize(int width, int height, int camera) {
 
         capture = new cv::VideoCapture(camera);
-        union {
-            double prop;
-            const char *name;
-        } u;
-        u.prop = capture->get(CV_CAP_PROP_SUPPORTED_PREVIEW_SIZES_STRING);
+        LOG("INITIALIZE-DONG-WIDTH=%d, HIEGHT=%d", width, height);
 
-        cv::Size camera_resolution;
+        if (capture->isOpened()) {
+            union {
+                double prop;
+                const char *name;
+            } u;
 
-        camera_resolution = calc_optimal_camera_resolution(u.name, width, height);
+            u.prop = capture->get(CV_CAP_PROP_SUPPORTED_PREVIEW_SIZES_STRING);
 
-        if ((camera_resolution.width != 0) && (camera_resolution.height != 0)) {
-            capture->set(CV_CAP_PROP_FRAME_WIDTH, camera_resolution.width);
-            capture->set(CV_CAP_PROP_FRAME_HEIGHT, camera_resolution.height);
+            cv::Size camera_resolution;
+
+            camera_resolution = calc_optimal_camera_resolution(u.name, width, height);
+
+            LOG("INITIALIZE-AFTER_CALC_RESOLUTION");
+            if ((camera_resolution.width != 0) && (camera_resolution.height != 0)) {
+                capture->set(CV_CAP_PROP_FRAME_WIDTH, camera_resolution.width);
+                capture->set(CV_CAP_PROP_FRAME_HEIGHT, camera_resolution.height);
+            }
+
+            float scale = std::min((float) width / camera_resolution.width,
+                                   (float) height / camera_resolution.height);
+
+            LOG("Camera initialized at resolution %dx%d", camera_resolution.width,
+                camera_resolution.height);
+
+            frameWidth = camera_resolution.width;
+            frameHeight = camera_resolution.height;
+
+            screenWidth = frameWidth;
+            screenHeight = frameHeight;
+
+            LOG("INITIALIZE-NEW_FRAME_DIMENSIONS WIDTH[%d] HIEGHT[%d]", frameWidth, frameHeight);
+        } else {
+            LOG("INITIALIZE-UNABLE_TO_OPEN_CAMERA");
         }
-
-        float scale = std::min((float) width / camera_resolution.width,
-                               (float) height / camera_resolution.height);
-
-        LOG("Camera initialized at resolution %dx%d", camera_resolution.width,
-            camera_resolution.height);
-
-        frameWidth = camera_resolution.width;
-        frameHeight = camera_resolution.height;
-
-        screenWidth = frameWidth;
-        screenHeight = frameHeight;
-
-        LOG("DONG-WIDTH=%d, HIEGHT=%d", frameWidth, frameHeight);
 
     }
 
@@ -314,12 +338,15 @@ namespace waid {
     }
 
     void WaidCamera::stop() {
-        cameraOperatorThread->interrupt();
-        while (videoStopped) {
-            LOG("WAITING-FOR-VIDEO-STOPED[%d]", videoStopped);
-        }
 
-        delete cameraOperatorThread;
+        if (cameraStarted) {
+            cameraOperatorThread->interrupt();
+            while (videoStopped) {
+                LOG("WAITING-FOR-VIDEO-STOPED[%d]", videoStopped);
+            }
+            delete cameraOperatorThread;
+        }
+        cameraStarted = false;
     }
 
     void WaidCamera::start() {
@@ -343,6 +370,9 @@ namespace waid {
         nativeCommunicator = nc;
     }
 
+    bool WaidCamera::isOpened() {
+        return capture->isOpened();
+    }
     void WaidCamera::cleanUp() {
         stopSendToZeroMq();
         stop();

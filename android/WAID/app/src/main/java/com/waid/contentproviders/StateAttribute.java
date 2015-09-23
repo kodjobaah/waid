@@ -5,6 +5,8 @@ import android.database.Cursor;
 
 public class StateAttribute {
 
+	public static final String OPEN_BROWSER = "open_browser";
+
     public static final String ON_PAUSE = "onPause";
 
 	public static final String TABLE_NAME = "StateAttribute";
@@ -15,15 +17,14 @@ public class StateAttribute {
 
 	public static final String COL_STATE_ATTRIBUTE_VALUE = "value";
 
+
 	//For database projects so order is consistent
 	public static final String[] FIELDS = {COL_ID, COL_STATE_ATTRIBUTE,COL_STATE_ATTRIBUTE_VALUE};
-
 
 	/*
 	 * The sql code that creates  Table for storing Authentications.
 	 *
 	 */
-
 	public static final String CREATE_TABLE =
 			"CREATE TABLE " + TABLE_NAME + "("
 			+ COL_ID + " TEXT PRIMARY KEY,"

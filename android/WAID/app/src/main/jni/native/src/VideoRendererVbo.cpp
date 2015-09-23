@@ -120,10 +120,12 @@ namespace waid {
 
     void VideoRendererVbo::init(int screenWidth, int screenHeight) {
 
+        LOG("INIT_BUFFERS");
         //framebuffer
         glGenFramebuffers(1, &frameBuffer);
         glBindFramebuffer(GL_FRAMEBUFFER, frameBuffer);
 
+        LOG("FRAME_BUFFER_CREATED");
         //texture
         glGenTextures(1, &textureId);
         glBindTexture(GL_TEXTURE_2D, textureId);
@@ -132,11 +134,13 @@ namespace waid {
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_CLAMP_TO_EDGE);
         glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_CLAMP_TO_EDGE);
 
+        LOG("TEXTURES_CREATED");
         //width and height: screen size
         glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, screenWidth, screenHeight, 0, GL_RGB,
                      GL_UNSIGNED_SHORT_5_6_5, NULL);
         glFramebufferTexture2D(GL_FRAMEBUFFER, GL_COLOR_ATTACHMENT0, GL_TEXTURE_2D, textureId, 0);
 
+        LOG("IMAGE_BOUND_TO_TEXTURE");
         //depth and stencil
         glGenRenderbuffers(1, &depthStencil);
         glBindRenderbuffer(GL_RENDERBUFFER, depthStencil);
@@ -145,6 +149,7 @@ namespace waid {
                                   depthStencil);
         glFramebufferRenderbuffer(GL_FRAMEBUFFER, GL_STENCIL_ATTACHMENT, GL_RENDERBUFFER,
                                   depthStencil);
+        LOG("TEXTURES_AND_STENCILS_ASSOCIATED_WITH_FREAME_BUFFER");
 
     }
 
@@ -168,6 +173,7 @@ namespace waid {
 
     void VideoRendererVbo::renderFrame(int screenWidth, int screenHeight, cv::Mat frame) {
 
+        LOG("STARTING_RENDER");
         glUseProgram(gProgram);
 
         renderFrameBuffer(screenWidth, screenHeight, frame);
@@ -203,6 +209,7 @@ namespace waid {
         //draw
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
+        LOG("FINNISH_RENDER");
     }
 
 
@@ -212,7 +219,7 @@ namespace waid {
         printGlString("Renderer", GL_RENDERER);
         printGlString("Extensions", GL_EXTENSIONS);
 
-        LOG("setupGraphics");
+        LOG("LOADING_SHADERS");
         gProgram = createProgram(VERTEX_SHADER, FRAGMENT_SHADER);
         if (!gProgram) {
             LOGE("Could not create program.");
@@ -227,7 +234,7 @@ namespace waid {
 
         modelUniform = glGetUniformLocation(gProgram, "u_model");
         viewUniform = glGetUniformLocation(gProgram, "u_view");
-
+        LOG("SHADERS_LOADED");
 
     }
 

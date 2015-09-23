@@ -25,6 +25,13 @@ object RedisDataStore {
     }
   }
 
+  def addInviteEmail(streamNodeId: String, email: String) = {
+    clients.withClient {
+      client =>
+        client.sadd(KeyPrefixGenerator.StoreInvitesEmail+streamNodeId,email)
+    }
+  }
+
   def addEleemnt(key: String, attributes: Map[String,String]) = {
 
       clients.withClient {
@@ -78,6 +85,11 @@ object RedisDataStore {
         for(token <- cur) {
           client.hdel(KeyPrefixGenerator.LookupValidStreams,token)
           client.hdel(KeyPrefixGenerator.LookupValidStreamsEmail,em)
+
+          /*
+           * TODO: Should we delete..or keep this so that we can use it as a historical record of who is watching what
+           */
+          //client.del(KeyPrefixGenerator.LookupLiveStreams+":"+token)
         }
     }
   }

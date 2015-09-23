@@ -147,9 +147,9 @@ class Segment(initTime: Long,segDirectory: String, streamName: String) {
     */
     //if (count < 20) {
      // log.info("WRTING FILE")
-      val outputfile = new File("/tmp/raw/image" + count + ".jpg")
-      ImageIO.write(im, "jpg", outputfile)
-      count = count + 1;
+     // val outputfile = new File("/tmp/raw/image" + count + ".jpg")
+     // ImageIO.write(im, "jpg", outputfile)
+     //  count = count + 1;
     //}
 
     mediaWriter.encodeVideo(0, im, startTime, TimeUnit.MILLISECONDS)

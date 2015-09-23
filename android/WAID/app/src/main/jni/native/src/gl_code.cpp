@@ -81,8 +81,13 @@ extern "C" {
     JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_startRecording(JNIEnv * env, jobject obj,jstring url, jstring token);
     JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_stopRecording(JNIEnv * env, jobject obj);
     JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_cleanUp(JNIEnv * env, jobject obj);
+    JNIEXPORT jboolean JNICALL Java_com_waid_nativecamera_GL2JNILib_isCameraOpened(JNIEnv * env, jobject obj);
 
 };
+
+JNIEXPORT jboolean JNICALL Java_com_waid_nativecamera_GL2JNILib_isCameraOpened(JNIEnv * env, jobject obj) {
+    return (bool) waidCamera->isOpened();
+}
 
 JNIEXPORT void JNICALL Java_com_waid_nativecamera_GL2JNILib_cleanUp(JNIEnv * env, jobject obj) {
         waidCamera->cleanUp();

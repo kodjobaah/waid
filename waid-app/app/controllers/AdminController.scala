@@ -1,5 +1,6 @@
 package controllers
 
+import java.util.UUID
 import javax.inject.Inject
 
 import com.typesafe.config.ConfigFactory
@@ -78,6 +79,17 @@ class AdminController extends Controller {
 
       }
       Future {Ok(views.html.welcome(Index.userForm)).withNewSession}
+  }
+
+  def getLiveStreamInvites(streamId: String, ref: String) = Action.async {
+    implicit request =>
+
+      val reference = ref.split(" ")(0)+".m3u8"
+
+      val reload = UUID.randomUUID().toString()
+      Future {Ok(views.html.livestreams(streamId,reference,reload))}
+
+
   }
 
   def getStreamInvites(streamId: String) = Action.async {

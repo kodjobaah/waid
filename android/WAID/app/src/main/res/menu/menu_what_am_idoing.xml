@@ -4,10 +4,42 @@
     tools:context="com.waid.activity.main.WhatAmIdoing">
 
 
+    <item android:id="@+id/linkedin_menu_item"
+        android:icon="@drawable/linkedin"
+        android:title="@string/linkedin_menu_names"
+        app:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource" />
 
-    <item android:id="@+id/logout" android:title="@string/logout"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/facebook_menu_item"
+        android:icon="@drawable/facebook"
+        android:title="@string/facebook_menu_names"
+        app:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource" />
 
-    <item android:id="@+id/action_settings" android:title="@string/action_settings"
-        android:orderInCategory="100" app:showAsAction="never" />
+    <item android:id="@+id/twitter_menu_item"
+        android:icon="@drawable/twitter"
+        android:title="@string/twitter_menu_names"
+        app:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource" />
+
+
+    <item android:id="@+id/email_menu_item"
+        android:icon="@drawable/mail"
+        android:title="@string/email_menu_names"
+        app:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource" />
+
+    <!--
+    <item android:id="@+id/send_location_menu_item"
+        android:title="@string/share_location"
+        android:showAsAction="never"
+        tools:ignore="AppCompatResource" />
+    -->
+    <item android:id="@+id/logout"
+        android:title="@string/logout"
+        android:orderInCategory="100"
+        app:showAsAction="ifRoom"
+        tools:ignore="AppCompatResource"
+        />
+
 </menu>

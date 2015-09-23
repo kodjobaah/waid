@@ -1,9 +1,11 @@
 package controllers
 
+import java.util.UUID
 import javax.inject.Inject
 
+import com.waid.redis.utils.RedisUtils
 import com.waid.redis.{RedisReadOperations, KeyPrefixGenerator, RedisDataStore}
-import com.waid.redis.service.{RedisModelService,RedisUserService}
+import com.waid.redis.service.{RedisModelService, RedisUserService}
 import models.ChangePassword
 import play.api.data.Form
 import play.api.data.Forms._
@@ -24,9 +26,7 @@ import com.whatamidoing.services.TwitterService
 import com.whatamidoing.services.LinkedinService
 
 
-
-
-class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Controller with I18nSupport {
+class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi) extends Controller with I18nSupport {
 
   val changePasswordForm = Form(
     mapping(
@@ -35,9 +35,9 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
       "changePasswordId" -> nonEmptyText()
     )(ChangePassword.apply)(ChangePassword.unapply))
 
-  val logger:Logger = Logger("controllers.WhatAmIDoingController")
+  val logger: Logger = Logger("controllers.WhatAmIDoingController")
 
-//object WhatAmIDoingController extends Controller {
+  //object WhatAmIDoingController extends Controller {
 
   val Twitter: String = "TWITTER"
   val Facebook: String = "FACEBOOK"
@@ -92,7 +92,7 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
               val json = Json.obj("email" -> email, "firstName" -> firstName, "lastName" -> lastName)
               response = response :+ json
 
-          }
+            }
         }
 
         //Getting info about twitter
@@ -165,7 +165,7 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
         }
 
     }
-   found
+    found
   }
 
   /**
@@ -394,7 +394,7 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
       val valid = ActorUtilsReader.getValidToken(token)
       if (valid.asInstanceOf[List[String]].size > 0) {
         val jid = ActorUtilsReader.getRoomJid(token)
-        Logger.info("roomjid:"+jid)
+        Logger.info("roomjid:" + jid)
         import models.UserDetails
         if (jid.size > 0) {
           val res: UserDetails = ActorUtilsReader.fetchUserDetails(token)
@@ -418,27 +418,19 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
   def inviteTwitter(token: String) = Action.async {
     implicit request =>
 
+      val node: Option[String] = RedisUserService.getStreamNodeId(token)
 
-      val valid = ActorUtilsReader.getValidToken(token)
-      if (valid.asInstanceOf[List[String]].size > 0) {
-        val streamName = ActorUtilsReader.streamNameForToken(token)
-        if ((streamName != null) && (!streamName.isEmpty)) {
-          /*
-           * Checking to see if invite is already in the system
-          */
-
-          val invitedId = java.util.UUID.randomUUID.toString + Twitter
-          Logger.info("INIVITED ID:" + invitedId)
-          ActorUtils.createInviteTwitter(streamName, Twitter, invitedId)
-          Future.successful(Ok(invitedId))
-
-        } else {
-          Future.successful(Ok("Unable to Invite No Stream"))
+      if (node != None) {
+        val reference = "twitter-" + UUID.randomUUID().toString() + ".m3u8"
+        val reload = UUID.randomUUID().toString()
+        Future {
+          Ok(views.html.livestreams(token, reference, reload))
         }
       } else {
-        Future.successful(Ok("Unable To Invite"))
+        Future {
+          Ok(views.html.streamNotAvailable())
+        }
       }
-
   }
 
   /**
@@ -448,27 +440,19 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
   def inviteLinkedin(token: String) = Action.async {
     implicit request =>
 
+      val node: Option[String] = RedisUserService.getStreamNodeId(token)
 
-      val valid = ActorUtilsReader.getValidToken(token)
-      if (valid.asInstanceOf[List[String]].size > 0) {
-        val streamName = ActorUtilsReader.streamNameForToken(token)
-        if ((streamName != null) && (!streamName.isEmpty)) {
-          /*
-           * Checking to see if invite is already in the system
-          */
-
-          val invitedId = java.util.UUID.randomUUID.toString + Linkedin
-          Logger.info("INIVITED ID:" + invitedId)
-          ActorUtils.createInviteLinkedin(streamName, Linkedin, invitedId)
-          Future.successful(Ok(invitedId))
-
-        } else {
-          Future.successful(Ok("Unable to Invite No Stream"))
+      if (node != None) {
+        val reference = "linkedin-" + UUID.randomUUID().toString() + ".m3u8"
+        val reload = UUID.randomUUID().toString()
+        Future {
+          Ok(views.html.livestreams(token, reference, reload))
         }
       } else {
-        Future.successful(Ok("Unable To Invite"))
+        Future {
+          Ok(views.html.streamNotAvailable())
+        }
       }
-
   }
 
   /**
@@ -478,27 +462,19 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
   def inviteFacebook(token: String) = Action.async {
     implicit request =>
 
+      val node: Option[String] = RedisUserService.getStreamNodeId(token)
 
-      val valid = ActorUtilsReader.getValidToken(token)
-      if (valid.asInstanceOf[List[String]].size > 0) {
-        val streamName = ActorUtilsReader.streamNameForToken(token)
-        if ((streamName != null) && (!streamName.isEmpty)) {
-          /*
-           * Checking to see if invite is already in the system
-          */
-
-          val invitedId = java.util.UUID.randomUUID.toString + Facebook
-          Logger.info("INIVITED ID:" + invitedId)
-          ActorUtils.createInviteFacebook(streamName, Facebook, invitedId)
-          Future.successful(Ok(invitedId))
-
-        } else {
-          Future.successful(Ok("Unable to Invite No Stream"))
+      if (node != None) {
+        val reference = "facebook-" + UUID.randomUUID().toString() + ".m3u8"
+        val reload = UUID.randomUUID().toString()
+        Future {
+          Ok(views.html.livestreams(token, reference, reload))
         }
       } else {
-        Future.successful(Ok("Unable To Invite"))
+        Future {
+          Ok(views.html.streamNotAvailable())
+        }
       }
-
   }
 
   /**
@@ -514,21 +490,39 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
       if (!token.equalsIgnoreCase("no-token-provided")) {
         if (!emails.equalsIgnoreCase("no-email-provided")) {
 
-          val valid = ActorUtilsReader.getValidToken(token)
+          val userNode = RedisUserService.checkIfTokenIsValid(token)
 
-          if (valid.asInstanceOf[List[String]].size > 0) {
-            val streamName = ActorUtilsReader.streamNameForToken(token)
-            if ((streamName != null) && (!streamName.isEmpty)) {
-              /*
+          if (userNode != None) {
+            val un = userNode.get
+            val tokenNodeId = RedisReadOperations.getUserTokenNodeId(token).get
+
+            val userId = RedisUtils.getUserIdFromUserTokenId(tokenNodeId)
+
+            val streamCount = RedisReadOperations.getCounterValue(KeyPrefixGenerator.StreamCounter + userId)
+            val streamNodePrefix = RedisUtils.getStreamNodeFromUserToken(tokenNodeId)
+            val streamNodeId = streamNodePrefix + ":" + streamCount.get
+            val streamNode = RedisReadOperations.populateStreamNode(streamNodeId, tokenNodeId)
+
+
+            if (streamNode != None) {
+              val streamToken = streamNode.get.attributes get KeyPrefixGenerator.Token
+              val validStreamNode = RedisReadOperations.getStreamNodeIdFromValidStreams(streamToken)
+
+              if (validStreamNode != None) {
+                /*
                * Checking to see if invite is already in the system
               */
 
-              Logger.info("emails[" + emails + "]")
-              val listOfEmails = emails.split(",")
+                Logger.info("emails[" + emails + "]")
+                val listOfEmails = emails.split(",")
 
-              Logger.info("LIST OF EMAILS [" + listOfEmails + "] size = [" + listOfEmails.size + "]")
-              for (email <- listOfEmails) {
+                Logger.info("LIST OF EMAILS [" + listOfEmails + "] size = [" + listOfEmails.size + "]")
+                for (email <- listOfEmails) {
 
+                  /*
+                 * TODO: For those users that are not already registered with waid send them a registration email
+                 */
+                  /*
                 val res = ActorUtilsReader.searchForUser(email)
 
                 if (res.isEmpty) {
@@ -536,30 +530,31 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi)  extends Co
                   ActorUtils.createUser("", "", email, password)
                   emailSenderService.sendRegistrationEmail(email, password)
                 }
+                */
+                  RedisDataStore.addInviteEmail(streamNodeId, email)
 
-                val invitedId = java.util.UUID.randomUUID.toString
-                Logger.info("INIVITED ID:" + invitedId)
-                ActorUtils.createInvite(streamName, email, invitedId)
-                val userDetails = ActorUtilsReader.fetchUserDetails(token)
-                Logger.info("----userdeteails:" + userDetails)
-                emailSenderService.sendInviteEmail(email, invitedId, userDetails)
+                  val invitedId = java.util.UUID.randomUUID.toString
+                  println("--------------------INVITED[" + invitedId + "]")
+                  emailSenderService.sendInviteEmail(email, invitedId, streamNode.get, userNode.get)
 
+                }
+
+                Future.successful(Ok("Done"))
+
+              } else {
+                Future.successful(Ok("Unable to Invite No Stream"))
               }
-
-
-              Future.successful(Ok("Done"))
-
             } else {
-              Future.successful(Ok("Unable to Invite No Stream"))
+              Future.successful(Unauthorized("Stream does not exits"))
             }
           } else {
-            Future.successful(Ok("Unable To Invite"))
+            Future.successful(Unauthorized("Unable To Invite"))
           }
         } else {
-          Future.successful(Ok("No email provided"))
+          Future.successful(BadRequest("No email provided"))
         }
       } else {
-        Future.successful(Ok("No token provided"))
+        Future.successful(BadRequest("No token provided"))
       }
   }
 

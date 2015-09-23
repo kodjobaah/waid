@@ -1,10 +1,14 @@
 LOCAL_PATH := $(call my-dir)
+#OPENCV_SDK :=  /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk
 OPENCV_SDK :=  /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk
 include $(CLEAR_VARS)
 
 # OpenCV
 OPENCV_CAMERA_MODULES:=on
 OPENCV_INSTALL_MODULES:=on
+WITH_TBB=ON
+#OPENCV_LIB_TYPE:=STATIC
+OPENCV_LIB_TYPE:=SHARED
 include $(OPENCV_SDK)/sdk/native/jni/OpenCV.mk
 
 # ZeroMQ
@@ -26,3 +30,4 @@ include /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-ext
 include $(CLEAR_VARS)
 include /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/Android.mk
 
+#LOCAL_WHOLE_STATIC_LIBRARIES := shape stitching objdetect superres videostab calib3d features2d highgui videoio imgcodecs video photo ml imgproc flann core hal

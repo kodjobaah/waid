@@ -104,25 +104,28 @@ namespace waid {
     // this callback handler is called every time a buffer finishes recording
     void SoundCapture::bqRecorderCallback(SLAndroidSimpleBufferQueueItf bq, void *context) {
 
-        LOG("AUDIO_LOCK_GETTING_LOCK_TO_STORE");
-        boost::unique_lock <boost::mutex> lock(m_mutex);
-        std::vector <short> element;
-        element.resize(RECORDER_FRAMES);
-        std::copy(recorderBuffer, recorderBuffer + RECORDER_FRAMES, element.begin());
-        filledIndices->push(element);
-        m_cond.notify_one();
 
-        LOG("AUDIO_LOCK_UNLOCKING_LOCK_TO_STORE");
-        recordCnt++;
-        SLresult result;
-        //if (recordCnt * 5 < RECORD_TIME) {
-        //enqueue the buffer again
-        LOG("AUDIO_SOUNDWRITE4");
         if (processSoundMessage) {
-            result = (*recorderBufferQueue)->Enqueue(recorderBufferQueue, recorderBuffer,
-                                                     RECORDER_FRAMES * sizeof(short));
+            LOG("AUDIO_LOCK_GETTING_LOCK_TO_STORE");
+            boost::unique_lock <boost::mutex> lock(m_mutex);
+            std::vector <short> element;
+            element.resize(RECORDER_FRAMES);
+            std::copy(recorderBuffer, recorderBuffer + RECORDER_FRAMES, element.begin());
+            filledIndices->push(element);
+            m_cond.notify_one();
+
+            LOG("AUDIO_LOCK_UNLOCKING_LOCK_TO_STORE");
+            recordCnt++;
+            SLresult result;
+            //if (recordCnt * 5 < RECORD_TIME) {
+            //enqueue the buffer again
+            LOG("AUDIO_SOUNDWRITE4");
+            if (processSoundMessage) {
+                result = (*recorderBufferQueue)->Enqueue(recorderBufferQueue, recorderBuffer,
+                                                         RECORDER_FRAMES * sizeof(short));
+            }
+            LOG("AUDIO_SOUNDWRITE5");
         }
-        LOG("AUDIO_SOUNDWRITE5");
         //} else {
         //    LOG("AUDIO_SOUNDWRITE6");
         //    result = (*recorderRecord)->SetRecordState(recorderRecord, SL_RECORDSTATE_STOPPED);
@@ -145,6 +148,7 @@ namespace waid {
 
         bool processSound = true;
         while (processSound) {
+
 
             try {
                 boost::this_thread::interruption_point();
@@ -169,7 +173,7 @@ namespace waid {
                 //short * rec = front.get();
                 //int numOfRecords = fwrite(rec, sizeof(short), RECORDER_FRAMES, recordF);
                 //LOG("AUDIO_RECORDING_NUM_RECORDS %d", numOfRecords);
-                LOG("AUDIO_LOCK_PROCESSING_BEFORE[%d]", front.size());
+               // LOG("AUDIO_LOCK_PROCESSING_BEFORE[%d]", front.size());
 
                 std::string sample;
                 for (std::vector<short>::size_type i = 0; i != front.size(); i++) {
@@ -182,7 +186,7 @@ namespace waid {
                         sample = sample + "," + s;
                     }
                 }
-                LOG("AUDIO_LOCK_PROCESSING_AFTER[%d]", sample.length());
+                //LOG("AUDIO_LOCK_PROCESSING_AFTER[%d]", sample.length());
 
 
                 /*
@@ -293,7 +297,7 @@ namespace waid {
          * https://www.khronos.org/registry/sles/api/1.1/OpenSLES.h -- but it is always meant
          * to be 1 when stopped.
          */
-        LOG("AUDIO_STOP_RECORDING_STATE[%d]",state.count);
+        //LOG("AUDIO_STOP_RECORDING_STATE[%d]",state.count);
         assert(SL_RESULT_SUCCESS == result);
         /*
         while(state.count != 0) {
@@ -311,6 +315,7 @@ namespace waid {
         LOG("AUDIO_STOP_5");
         while (!hasRecordingStop) {
             LOG("AUDIO_WAITING_FOR_RECORDING_TO_STOP");
+            m_cond.notify_one();
         }
 
         LOG("AUDIO_STOP_RECORDING_STOPED");

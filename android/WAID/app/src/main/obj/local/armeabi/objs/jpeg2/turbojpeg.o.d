@@ -1,5 +1,5 @@
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/obj/local/armeabi/objs/jpeg2/turbojpeg.o: \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/turbojpeg.c \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/turbojpeg.c \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdio.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/freebsd.h \
@@ -50,8 +50,8 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_string.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_string.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/string.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jinclude.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jconfig.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jinclude.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jconfig.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/types.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/stdint.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/limits.h \
@@ -65,16 +65,16 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_stdint.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/_stdint.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_stdint.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jpeglib.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jmorecfg.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jpegint.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jerror.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jerror.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jpeglib.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jmorecfg.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jpegint.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jerror.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jerror.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/setjmp.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/setjmp.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/./turbojpeg.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/./tjutil.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/transupp.h
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/./turbojpeg.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/./tjutil.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/transupp.h
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdio.h:
 
@@ -176,9 +176,9 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/string.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jinclude.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jinclude.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jconfig.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jconfig.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/types.h:
 
@@ -206,22 +206,22 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_stdint.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jpeglib.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jpeglib.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jmorecfg.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jmorecfg.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jpegint.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jpegint.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jerror.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jerror.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/jerror.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/jerror.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/setjmp.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/setjmp.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/./turbojpeg.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/./turbojpeg.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/./tjutil.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/./tjutil.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/transupp.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/transupp.h:

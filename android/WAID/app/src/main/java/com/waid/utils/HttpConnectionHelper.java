@@ -18,7 +18,8 @@ public class HttpConnectionHelper {
 	private static final int CONNECTION_TIMEOUT = 10000;
 	private static final int DATARETRIEVAL_TIMEOUT = 10000;
 	private HttpURLConnection urlConnection = null;
-	
+
+
 	public ConnectionResult connect(String urlVal) {
 		
 	
@@ -58,7 +59,7 @@ public class HttpConnectionHelper {
 		return connectionResult;
 	}
 	
-	public ConnectionResult connectOther(String urlVal) {
+	public ConnectionResult connectGet(String urlVal) {
 		
 		
 		disableConnectionReuseIfNecessary();

@@ -7,7 +7,7 @@ import com.waid.redis.service.RedisUserService
 import com.whatamidoing.actors.hls.model.Value.{AddToSegment, SegmentData, SegmentInfo, TooManyActiveStreams}
 import models.Messages._
 
-class Segmentor(val streamName: String) extends Actor with ActorLogging {
+class  Segmentor(val streamName: String) extends Actor with ActorLogging {
 
 
   import Segmentor.{redisPort, redisServer, segmentTime}

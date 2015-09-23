@@ -13,78 +13,78 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/config/stdlib/libstdcpp3.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/unistd.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/limits.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/limits.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/freebsd.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/ctassert.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/cdefs.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/cdefs.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/cdefs_elf.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/android/api-level.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-limits.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/_limits.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_limits.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/cdefs.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/android/api-level.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-limits.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/machine/_limits.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_limits.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/limits.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/limits.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/page.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/unistd.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/limits.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/page.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/unistd.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/types.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/_types.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/machine/_types.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/types.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/types.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/posix_types.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/stddef.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/compiler.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/posix_types.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/kernel.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/types.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/types.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/posix_types.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/stddef.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/compiler.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/posix_types.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/machine/kernel.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/stdint.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/_null.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_null.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/stdint.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-stdint.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/_stdint.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_stdint.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/_stdint.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_stdint.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/_null.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_null.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/stdint.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-stdint.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/machine/_stdint.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_stdint.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/_stdint.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_stdint.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/select.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/select.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/select.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/time.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/time.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/time.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/signal.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/limits.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-limits.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/time.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/time.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/signal.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/limits.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-limits.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/syslimits.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/string.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-string.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/strings.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-strings.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_strings.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_strings.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/string.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-string.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/strings.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-strings.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/xlocale/_strings.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_strings.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/strings.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/xlocale.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/locale.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-locale.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_locale.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_locale.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/locale.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-locale.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/xlocale/_locale.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_locale.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/locale.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_string.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_string.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/xlocale/_string.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_string.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/string.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/malloc.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/signal.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm-generic/signal.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/sigcontext.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/siginfo.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm-generic/siginfo.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/malloc.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/signal.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/siginfo.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/ucontext.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/ucontext.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/ucontext.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/user.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/user.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/user.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/sysconf.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/bionic/libc/include/sys/mangled-sysconf.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/capability.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/pathconf.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/capability.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/pathconf.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/config/select_platform_config.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/config/platform/linux.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/cstdlib \
@@ -96,16 +96,16 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/detail/workaround.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/config/auto_link.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/assert.hpp \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/assert.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/assert.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/pthread.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/pthread.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/time.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-time.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/pthread.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/time.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-time.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/timespec.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_time.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_time.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/xlocale/_time.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_time.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/time.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sched.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sched.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/throw_exception.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/core/ignore_unused.hpp \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/thread/exceptions.hpp \
@@ -414,10 +414,10 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/predef/other.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/predef/other/endian.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/endian.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/endian.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-endian.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/endian.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-endian.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/endian.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-endian.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/machine/endian.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-endian.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/endian.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/include/algorithm \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/smart_ptr/detail/operator_bool.hpp \
@@ -587,8 +587,8 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/thread/pthread/shared_mutex.hpp \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/zeromq/include/zmq.h \
  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/NativeCommunicator.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/jni.h \
- /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/android/log.h
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/jni.h \
+ /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/android/log.h
 
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/ZeroMq.h:
 
@@ -616,7 +616,7 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/limits.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/limits.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/freebsd.h:
 
@@ -624,25 +624,25 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/cdefs.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/cdefs.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/cdefs.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/cdefs_elf.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/cdefs_elf.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/android/api-level.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/android/api-level.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-limits.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-limits.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/_limits.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/machine/_limits.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_limits.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_limits.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/limits.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/limits.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/limits.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/page.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/page.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/unistd.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/unistd.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/types.h:
 
@@ -650,115 +650,115 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/machine/_types.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/types.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/types.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/types.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/types.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/posix_types.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/posix_types.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/stddef.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/stddef.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/compiler.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/compiler.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/posix_types.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/posix_types.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/kernel.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/machine/kernel.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/stdint.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/_null.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/_null.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_null.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_null.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/stdint.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/stdint.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-stdint.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-stdint.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/_stdint.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/machine/_stdint.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_stdint.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-_stdint.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/_stdint.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/_stdint.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_stdint.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-_stdint.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/select.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/select.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/select.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/time.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/time.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/time.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/time.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/time.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/signal.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/signal.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/limits.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/limits.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-limits.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-limits.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/syslimits.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/string.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/string.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-string.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-string.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/strings.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/strings.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-strings.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-strings.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_strings.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/xlocale/_strings.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_strings.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_strings.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/strings.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/xlocale.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/locale.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/locale.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-locale.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-locale.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_locale.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/xlocale/_locale.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_locale.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_locale.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/locale.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_string.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/xlocale/_string.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_string.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_string.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/string.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/malloc.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/malloc.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/signal.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/signal.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm-generic/signal.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm-generic/signal.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/sigcontext.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/sigcontext.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm/siginfo.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm/siginfo.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/asm-generic/siginfo.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/asm-generic/siginfo.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/ucontext.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/ucontext.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/ucontext.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/user.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/sys/user.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/sys/user.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/sysconf.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/bionic/libc/include/sys/mangled-sysconf.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/linux/capability.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/linux/capability.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/pathconf.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/pathconf.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/config/select_platform_config.hpp:
 
@@ -782,25 +782,25 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/assert.hpp:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/assert.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/assert.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/pthread.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/google/pthread.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/google/pthread.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/time.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/time.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/mangled-time.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/mangled-time.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/sys/timespec.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_time.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/xlocale/_time.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_time.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_time.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/time.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sched.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sched.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/boost/1.58.0/include/boost/throw_exception.hpp:
 
@@ -1418,13 +1418,13 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/endian.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/endian.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/sys/endian.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-endian.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/sys/mangled-endian.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/endian.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/machine/endian.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-endian.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/crystax/freebsd/sys/arm/include/mangled-endian.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/endian.h:
 
@@ -1764,6 +1764,6 @@
 
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/native/include/NativeCommunicator.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/jni.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/jni.h:
 
-/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/android/log.h:
+/Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-9/arch-arm/usr/include/android/log.h:

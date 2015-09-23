@@ -47,6 +47,7 @@ namespace  waid {
     const std::string ZeroMqTransport::BROADCAST_MESSAGE = "BROADCAST";
     const std::string ZeroMqTransport::TYPE_MESSAGE = "VIDEO";
     const std::string ZeroMqTransport::INIT_MESSAGE = "INIT";
+    const std::string ZeroMqTransport::END_STREAM_MESSAGE = "END_STREAM";
 
     ZeroMqTransport::ZeroMqTransport() {
 
@@ -143,6 +144,8 @@ namespace  waid {
                 LOG("IS_ALIVE_MESSAGE[%s] connectString[%s]", IS_ALIVE_MESSAGE.c_str(), connectString.c_str());
                 nativeCommunicator->invalidToken();
             } else {
+
+                nativeCommunicator->updateStreamToken(streamId);
 
                 /*
                  * Start recording the sound
@@ -261,6 +264,7 @@ namespace  waid {
         return message; //success
     }
 
+
     void ZeroMqTransport::startSoundCapture() {
 
         soundCapture = new waid::SoundCapture(streamId);
@@ -270,6 +274,23 @@ namespace  waid {
 
     }
 
+    void ZeroMqTransport::endStream() {
+
+        LOG("ENDSTREAM_BEFORE");
+        std::vector <std::string> messages;
+        messages.push_back(END_STREAM_MESSAGE);
+        messages.push_back(streamId);
+
+        try {
+            zeroMq->s_sendmultiple(messages);
+        } catch (std::exception &e) {
+            processingStarted = false;
+            nativeCommunicator->connectionLost();
+        }
+        LOG("ENDSTREAM_AFTER");
+
+
+    }
     void ZeroMqTransport::stopSoundCapture() {
         LOG("STOPPING");
         soundCapture->stopRecording();
@@ -282,12 +303,17 @@ namespace  waid {
 
         LOG("---ZEROMQ-INTERUPTINT");
         stopDequeue = true;
+        endStream();
         if (processingStarted) {
-            LOG("--ZEROMQ-INT-1");
-            zeroMq->stopAll();
-            LOG("--ZEROMQ-INT-2");
-            zeroMqAudio->stopAll();
             processingStarted = false;
+            LOG("--ZEROMQ-INT-1");
+            if (zeroMq) {
+                zeroMq->stopAll();
+            }
+            LOG("--ZEROMQ-INT-2");
+            if (zeroMqAudio) {
+                zeroMqAudio->stopAll();
+            }
             LOG("--ZEROMQ-INT-3");
             processImageThread->interrupt();
             LOG("--ZEROMQ-INT-4");

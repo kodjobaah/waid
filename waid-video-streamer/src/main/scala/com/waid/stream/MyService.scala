@@ -5,9 +5,11 @@ import java.util.UUID
 import akka.actor.Actor
 import akka.event.Logging._
 import com.waid.redis.KeyPrefixGenerator
+import com.waid.redis.model.UserNode
 import com.waid.redis.service.RedisUserService
 import com.waid.stream.service.PlayListService
-import spray.http.HttpHeaders.{RawHeader, `Content-Type`}
+import spray.http.CacheDirectives.`no-cache`
+import spray.http.HttpHeaders.{`Cache-Control`, RawHeader, `Content-Type`}
 import spray.http.StatusCodes.{ClientError, ServerError}
 import spray.routing._
 import spray.http._
@@ -38,12 +40,18 @@ trait MyService extends HttpService {
   val Img = "img"
   val JwPlayerProviderDir = "web/flash/provider"
 
+  val ImgDir = "web/img"
+
   val JwaplayerJsDir = "web/js/jwplayer"
   val JqueryJsDir = "web/js/jquery"
+  val JqueryUiJsDir = "web/js/jquery-ui"
   val VideoJsDir = "web/js/video-js"
+  val FlowplayerJsDir = "web/js/flowplayer"
   val VideoCssDir = "web/css/video-js"
   val MediaElementJsDir = "web/js/mediaelement"
   val MediaElementCssDir = "web/css/mediaelement"
+  val FlowplayerCssDir = "web/css/flowplayer/skin"
+  val JqueryUiCssDir = "web/css/jquery-ui/1.11.4"
 
   val crossdomain =
     """<?xml version="1.0"?>
@@ -58,54 +66,95 @@ trait MyService extends HttpService {
   val myRoute =
 
     get {
+
+      pathPrefix("validate" / Segment) { userToken: String =>
+
+        val user: Option[UserNode] = RedisUserService.checkIfTokenIsValid(userToken)
+
+        var result = "false"
+        if (user != None) {
+          result = "true"
+        }
+        complete {
+          result
+        }
+      } ~
       pathPrefix("resource" / Segments) { segments: List[String] =>
 
-        printf("---segments:"+segments)
-        segments.head match {
+        respondWithHeaders(`Cache-Control`(`no-cache`),
+          RawHeader("Access-Control-Allow-Origin", "*"),
+          RawHeader("Access-Control-Allow-Credentials", "true"),
+          RawHeader("Access-Control-Allow-Methods","POST, GET, PUT, DELETE, OPTIONS")) {
+          printf("---segments:" + segments)
+          segments.head match {
 
-          case Js => {
+            case Js => {
 
-            if (segments.contains("video-js")) {
+              if (segments.contains("video-js")) {
 
-              if (segments.contains("m3u8")) {
-                getFromResource(VideoJsDir + "/" + "m3u8/"+ segments.reverse.head)
+                if (segments.contains("m3u8")) {
+                  getFromResource(VideoJsDir + "/" + "m3u8/" + segments.reverse.head)
+                } else {
+                  getFromResource(VideoJsDir + "/" + segments.reverse.head)
+                }
+              } else if (segments.contains("jwplayer")) {
+                getFromResource(JwaplayerJsDir + "/" + segments.reverse.head)
+              } else if (segments.contains("flowplayer")) {
+                getFromResource(FlowplayerJsDir + "/" + segments.reverse.head)
+              } else if (segments.contains("jquery")) {
+                getFromResource(JqueryJsDir + "/" + segments.reverse.head)
+              } else if (segments.contains("jquery-ui")) {
+                getFromResource(JqueryUiJsDir + "/1.11.4/" + segments.reverse.head)
+              } else if (segments.contains("mediaelement")) {
+                getFromResource(MediaElementJsDir + "/" + segments.reverse.head)
               } else {
-                getFromResource(VideoJsDir + "/" + segments.reverse.head)
+                failWith(new IllegalRequestException(StatusCodes.registerCustom(400, "resource not found", "resource not found").asInstanceOf[ClientError]))
               }
-              }else  if (segments.contains("jwplayer")) {
-                getFromResource(JwaplayerJsDir+"/"+segments.reverse.head)
-            } else if (segments.contains("jquery")) {
-              getFromResource(JqueryJsDir+"/"+segments.reverse.head)
-            } else if (segments.contains("mediaelement")) {
-              getFromResource(MediaElementJsDir+"/"+segments.reverse.head)
-            }else {
-              failWith(new IllegalRequestException(StatusCodes.registerCustom(400,"resource not found","resource not found").asInstanceOf[ClientError]))
+
             }
 
-          }
-
-          case Css => {
-            if (segments.contains("video-js")) {
+            case Css => {
+              if (segments.contains("video-js")) {
                 if (segments.contains("font")) {
-                  getFromResource(VideoCssDir+"/font/"+segments.reverse.head)
+                  getFromResource(VideoCssDir + "/font/" + segments.reverse.head)
                 } else {
                   getFromResource(VideoCssDir + "/" + segments.reverse.head)
                 }
-            } else if (segments.contains("mediaelement")) {
-                getFromResource(MediaElementCssDir+"/"+segments.reverse.head)
-            }else {
+              } else if (segments.contains("flowplayer")) {
+                if (segments.contains("img")) {
+                  getFromResource(FlowplayerCssDir + "/img/" + segments.reverse.head)
+                } else if (segments.contains("fonts")) {
+                  getFromResource(FlowplayerCssDir + "/fonts/" + segments.reverse.head)
+                } else {
+                  getFromResource(FlowplayerCssDir + "/" + segments.reverse.head)
+                }
+              } else if (segments.contains("mediaelement")) {
+                getFromResource(MediaElementCssDir + "/" + segments.reverse.head)
+              } else if (segments.contains("jquery-ui")) {
+                if (segments.contains("images")) {
+                  getFromResource(JqueryUiCssDir + "/images/" + segments.reverse.head)
+                } else {
+                  getFromResource(JqueryUiCssDir + "/" + segments.reverse.head)
+                }
+              } else {
                 failWith(new IllegalRequestException(StatusCodes.registerCustom(400, "resource not found", "resource not found").asInstanceOf[ClientError]))
+              }
             }
-          }
 
-          case Flash => {
-            getFromResource(JwPlayerProviderDir+"/"+segments.reverse.head)
-          }
-          case Img => {failWith(new IllegalRequestException(StatusCodes.registerCustom(400,"resource not found","resource not found").asInstanceOf[ClientError]))
-          }
+            case Flash => {
+              getFromResource(JwPlayerProviderDir + "/" + segments.reverse.head)
+            }
+            case Img => {
+              if (segments.contains("waid")) {
+                getFromResource(ImgDir + "/waid/" + segments.reverse.head)
+              } else {
+                failWith(new IllegalRequestException(StatusCodes.registerCustom(400, "resource not found", "resource not found").asInstanceOf[ClientError]))
+              }
+            }
 
-          case _ =>
-            failWith(new IllegalRequestException(StatusCodes.registerCustom(400,"resource not found","resource not found").asInstanceOf[ClientError]))
+            case _ =>
+              failWith(new IllegalRequestException(StatusCodes.registerCustom(400, "resource not found", "resource not found").asInstanceOf[ClientError]))
+          }
         }
       } ~
       pathPrefix("crossdomain.xml") {
@@ -114,6 +163,10 @@ trait MyService extends HttpService {
             crossdomain
           }
         }
+      } ~
+      pathPrefix("favicon.ico") {
+          getFromResource(ImgDir + "/favicon.ico")
+
       } ~
       pathPrefix("stream" / Segment) { streamId =>
 
@@ -142,25 +195,22 @@ trait MyService extends HttpService {
             }
           }
         } ~
-        path("playlist" / Segment) { reference =>
+        path("playlist" / Segments) { reference =>
           detach() {
-            val playListService = PlayListService(streamId, reference)
-            val result = playListService.getGenereatePlayList()
-            if (!result._2) {
-              RedisUserService.addStreamSequenceNumber(streamId, reference, result._3.toString)
-            }
-            respondWithMediaType(MediaType.custom("application/x-mpegURL")) {
+            val playListService = PlayListService(streamId, reference.head)
+            val result = playListService.generatePlayList()
+            respondWithMediaType(MediaType.custom("application/x-mpegurl")) {
               complete(result._1)
-            }
+           }
           }
         } ~
         path("playlistall" / Segment / "referred" / Segment) { (userToken,referred) =>
           detach() {
             val playListService = PlayListService(streamId, userToken)
-            val result = playListService.getGenereatePlayListAll()
-            respondWithMediaType(MediaType.custom("application/x-mpegURL")) {
+            val result = playListService.generateAllPlayList()
+           // respondWithMediaType(MediaType.custom("application/x-mpegURL")) {
               complete(result)
-            }
+           // }
           }
         } ~
         path("waid" / Segment) { reference =>
@@ -176,11 +226,28 @@ trait MyService extends HttpService {
               val ref = UUID.randomUUID().toString+".m3u8"
               respondWithMediaType(`text/html`) {
                 complete {
-                  com.waid.view.html.waid(streamId, ref).toString
+                  com.waid.view.html.waid(streamId, ref,"hey").toString
                 }
               }
             }
-          }
+        } ~
+        path("invite" / Segment) { reference =>
+            detach() {
+              println("got-here")
+              val ref = reference.split(" ")(0)+".m3u8"
+              println("reference-----------------["+ref+"]")
+              respondWithMediaType(`text/html`) {
+                val reload = UUID.randomUUID().toString
+
+
+                respondWithHeader(RawHeader("Access-Control-Allow-Origin", "*")) {
+                  complete {
+                    com.waid.view.html.waid(streamId, ref, reload).toString
+                  }
+                }
+              }
+            }
+        }
       }
     }
 }

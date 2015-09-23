@@ -8,6 +8,9 @@ import android.app.LoaderManager.LoaderCallbacks;
 import android.content.CursorLoader;
 import android.content.Intent;
 import android.content.Loader;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.content.pm.Signature;
 import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
@@ -19,6 +22,7 @@ import android.os.Looper;
 import android.provider.ContactsContract;
 import android.text.Html;
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.KeyEvent;
@@ -32,6 +36,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import java.net.HttpURLConnection;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -44,7 +50,7 @@ import com.waid.utils.ConnectionResult;
 import com.waid.utils.HttpConnectionHelper;
 import com.waid.utils.SessionParser;
 
-import com.waid.R;
+import com.waids.R;
 import com.waid.utils.WaidUtils;
 
 /**
@@ -89,6 +95,19 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         Log.i(TAG,"onCreate");
+
+        try {
+            PackageInfo info = getPackageManager().getPackageInfo("com.waid.debug", PackageManager.GET_SIGNATURES);
+            for (Signature signature : info.signatures) {
+                MessageDigest md = MessageDigest.getInstance("SHA");
+                md.update(signature.toByteArray());
+                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        } catch (NoSuchAlgorithmException e) {
+            e.printStackTrace();
+        }
 
         mActivity = this;
         // Set up the login form.

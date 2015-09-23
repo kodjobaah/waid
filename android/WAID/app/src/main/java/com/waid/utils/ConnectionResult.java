@@ -18,4 +18,11 @@ public class ConnectionResult {
 		return result;
 	}
 
+    @Override
+    public String toString() {
+        return "ConnectionResult{" +
+                "result='" + result + '\'' +
+                ", statusCode=" + statusCode +
+                '}';
+    }
 }

@@ -1,7 +1,7 @@
 /Users/kodjobaah/projects/waid/android/WAID/app/src/main/obj/local/armeabi/objs/simd/simd/jsimd_arm.o: \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/jsimd_arm.c \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jinclude.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jconfig.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/jsimd_arm.c \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jinclude.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jconfig.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdlib.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/id.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/freebsd.h \
@@ -65,14 +65,14 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/xlocale/_stdio.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_stdio.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/stdio.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jpeglib.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jmorecfg.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jpegint.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jerror.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jsimd.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jdct.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jsimddct.h \
- /Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/jsimd.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jpeglib.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jmorecfg.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jpegint.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jerror.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jsimd.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jdct.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jsimddct.h \
+ /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/jsimd.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/elf.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/sys/exec_elf.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/machine/exec.h \
@@ -86,9 +86,9 @@
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/crystax/freebsd/include/xlocale/mangled-_ctype.h \
  /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/ctype.h
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jinclude.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jinclude.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jconfig.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jconfig.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/stdlib.h:
 
@@ -216,21 +216,21 @@
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/crystax/include/crystax/sys/stdio.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jpeglib.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jpeglib.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jmorecfg.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jmorecfg.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jpegint.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jpegint.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jerror.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jerror.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jsimd.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jsimd.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jdct.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jdct.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/../jsimddct.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/../jsimddct.h:
 
-/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/libjpeg-turbo/simd/jsimd.h:
+/Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo/simd/jsimd.h:
 
 /Users/kodjobaah/software/android/crystax-ndk-10.2.1/platforms/android-18/arch-arm/usr/include/elf.h:
 

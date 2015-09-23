@@ -12,6 +12,7 @@ import com.waid.redis.service.RedisUserService
 import com.whatamidoing.actors.hls.FrameSupervisorHls
 import com.whatamidoing.actors.hls.model.Value.FrameData
 import com.whatamidoing.utils.{ActorUtils, Compressor}
+import models.Messages.EndTransmission
 import org.joda.time.Seconds
 import org.slf4j.{LoggerFactory, Logger}
 import org.zeromq.ZMQ
@@ -121,9 +122,10 @@ class StreamProcessor(context: ZMQ.Context) extends Thread {
 
         }
       case "END_STREAM" =>
-        logger.info("ENDING STREAM")
-      /*
-       streamId = message.tail.head
+        var streamId = message.tail.tail.head
+        logger.info("ENDING STREAM ["+streamId+"]")
+        RedisUserService.endStream(streamId)
+
        val framesupervisor = framesupervisors get streamId
        if (framesupervisor != None) {
          println("size before remvoe:" + framesupervisors.size)
@@ -131,8 +133,8 @@ class StreamProcessor(context: ZMQ.Context) extends Thread {
          framesupervisors -= streamId
          println("size afer remvoe:" + framesupervisors.size)
        }
-       socket.send("STREAM_ENDED")
-       */
+
+
       case "BROADCAST" =>
         //println("broadcasting stream")
         var streamId = message.tail.tail.head
@@ -156,38 +158,6 @@ class StreamProcessor(context: ZMQ.Context) extends Thread {
         }
 
       case _ => println("--------------MESSAGE NOT MATCH["+action+"]")
-
-      /*
-      streamId = java.util.UUID.randomUUID.toString
-      if (streamId.length < 1) {
-        streamId = java.util.UUID.randomUUID.toString
-        val fs = priority.actorOf(FrameSupervisorHls.props(streamId).withMailbox("priority-dispatch"), "frameSupervisor-" + streamId)
-        framesupervisors += streamId -> fs
-      }
-
-
-      val framesupervisor = framesupervisors get streamId
-      if (framesupervisor == None) {
-        socket.send("terminate")
-        //socket.close()
-      } else {
-        val authToken = msg.head
-        msg = msg.tail
-        val sequence = msg.head.toInt
-        msg = msg.tail
-        val time = msg.head.toInt
-        msg = msg.tail
-        val data = msg.head
-
-        val f = FrameData(streamId, authToken, sequence, time, data)
-        framesupervisor.get ! f
-       socket.send(streamId)
-
-      }*/
-      //println("Message head["+message.head+"]")
-      //socket.send()
-      //socket.send(streamId)
-      // println("following stremId sent["+streamId+"]")
 
     }
   }
