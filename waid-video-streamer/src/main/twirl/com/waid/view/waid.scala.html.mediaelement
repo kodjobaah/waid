@@ -1,0 +1,68 @@
+@(streamId: String, reference: String, reload: String)
+<html lang="en">
+<head>
+
+    <link rel="stylesheet" href="http://192.168.0.2:8080/resource/css/jquery-ui/1.11.4/jquery-ui.css">
+    <script type="text/javascript" src="http://192.168.0.2:8080/resource/js/jquery/jquery.js"></script>
+    <script src="http://192.168.0.2:8080/resource/js/jquery-ui/1.11.4/jquery-ui.js"></script>
+
+    <script src="http://192.168.0.2:8080/resource/js/mediaelement/mediaelement-and-player.min.js"></script>
+    <link rel="stylesheet" href="http://192.168.0.2:8080/resource/js/mediaelement/mediaelementplayer.css?reload=@reload" />
+
+</head>
+<body>
+
+
+<div id="dialog" style="overflow:scroll;">
+    <video id="example-video" width="600" height="300" class="video-js vjs-default-skin" controls>
+        <source
+                src="http://192.168.0.2:8080/stream/@streamId/playlist/playlist-@reference"
+                type="application/x-mpegurl">
+    </video>
+</div>
+
+
+<script>
+
+
+    $('video').mediaelementplayer({
+     hls_debug: false,
+     hls_debug2: false,
+	success: function(media, node, player) {
+		$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
+	}
+    });
+
+
+
+</script>
+
+<script>
+  $(function() {
+    $( "#dialog" ).dialog();
+  });
+  </script>
+
+
+<style>
+    .mejs-controls .mejs-button button {
+    cursor: pointer;
+    display: block;
+    font-size: 0;
+    line-height: 0;
+    text-decoration: none;
+    margin: 7px 5px;
+    padding: 0;
+    position: absolute;
+    height: 16px;
+    width: 16px;
+    border: 0;
+    background: transparent url(controls.svg) no-repeat;
+    }
+
+</style>
+
+
+</body>
+</html>
+

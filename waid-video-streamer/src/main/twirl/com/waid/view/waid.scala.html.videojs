@@ -1,0 +1,39 @@
+@(streamId: String, reference: String, reload: String)
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- 2. jquery library - required for video tag based installs -->
+    <script type="text/javascript" src="http://192.168.0.2:8080/resource/js/jquery/jquery.js"></script>
+
+
+    <script src="http://192.168.0.2:8080/resource/js/video-js/video.js"></script>
+    <script src="http://192.168.0.2:8080/resource/js/video-js/videojs-media-sources.js"></script>
+    <script src="http://192.168.0.2:8080/resource/js/video-js/videojs-hls.js"></script>
+
+
+</head>
+<body>
+
+<style>
+    .flowplayer {
+    width: 600px;
+    height: 338px;
+    }
+</style>
+
+
+
+<video id=example-video width=600 height=300 class="video-js vjs-default-skin" controls>
+    <source
+            src="http://192.168.0.2:8080/stream/@streamId/playlist/playlist-@reference"
+            type="application/x-mpegURL">
+</video>
+
+<script>
+    var player = videojs('example-video');
+player.play();
+</script>
+
+</body>
+</html>
+

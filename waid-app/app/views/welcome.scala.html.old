@@ -1,0 +1,211 @@
+@* whatamidoing Template File *@
+@import play.i18n._
+@import models.User
+@import util.helper.MyHelper._
+
+@import play.api.i18n.Messages.Implicits._
+@import play.api.Play.current
+@(myForm: Form[User])
+@main("(WAID) What Am I Doing ?") {
+
+}{
+
+<div style="text-align: center;">
+    <br/>
+
+    <p>
+
+    <div class="row">
+        <div class="col-md-8">
+            <div class="hero-unit">
+                <p>Welcome to WAID (What Am I Doing) the app that allows you to share
+                    moments at the time of experience.</p>
+
+                <p>After downloading the Android <a href="https://play.google.com/store/apps/details?id=com.waid">
+                    (WAID) What Am I Doing ?</a> application enter an email
+                    address, a password, firstname, lastname and you can start sharing
+                    moments.
+
+                <p>
+
+                <p>
+                    If someone has already shared a stream with you then you were automatically registered and you
+                    should have received your password in an email. Click here to <a
+                        href="@routes.UserAdminController.forgottenPassword"> Request a new password</a>
+                </p>
+            </div>
+
+            <div cloass="border-top-radius(23)">
+            <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner">
+                    <!--
+
+                    <div class="item">
+                        <img src="/assets/images/device-portrait.png" alt="">
+
+                        <div class="carousel-caption">
+                            Live Streaming
+                        </div>
+                    </div>
+                    -->
+                    <div class="item active">
+                        <img src="/assets/images/device-landscape.png" alt="">
+
+                        <div class="carousel-caption">
+                            Live Streaming
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Controls -->
+                <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left"></span>
+                </a>
+                <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right"></span>
+                </a>
+
+          </div>
+          </div>
+        </div>
+            <div class="col-md-4">
+                <div class="well">
+                    <strong>Login to view activity</strong>
+                    @helper.form(action = routes.AdminController.login, 'class->"form-horizontal",'role -> "form") {
+                    @helper.inputText(myForm("Email"),'id -> "userName")
+                    @helper.inputPassword(myForm("Password"), 'id ->"password")
+                    <input type="submit" class="btn btn-lg" value='@Messages.get(Lang.forCode("en"),"login.submit.button")'> <a
+                        href="@routes.UserAdminController.forgottenPassword">Forgotten password</a>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <hr/>
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="well">
+                <p class="lead">
+
+                <p>Description of Mobile App Actions:</p>
+
+                <ul class="list-group" style="text-align:left;">
+
+                    <li class="list-group-item"><strong>Viewers Area</strong>
+                        <small>&nbsp;&nbsp;Total count of people watching the live stream</small>
+                    </li>
+
+                    <li class="list-group-item"><img src="/assets/images/location.png"/>
+                        <small>&nbsp;&nbsp;To share your location with viewers of your stream</small>
+                    </li>
+
+                    <li class="list-group-item"><img src="/assets/images/watching.png"/>
+                        <small>&nbsp;&nbsp;Fetches information about those you have invited to view your live stream
+                        </small>
+                    </li>
+
+                    <li class="list-group-item"><img src="/assets/images/switch_camera.png"/>
+                        <small>&nbsp;&nbsp;Switch between front and back camera
+                        </small>
+                    </li>
+
+                    <li class="list-group-item"><img src="/assets/images/camera.png"/>
+                        <small>&nbsp;&nbsp;To start and stop the camera</small>
+                    </li>
+
+                    <li class="list-group-item"><img src="/assets/images/share_blue.png"/>
+                        <small>&nbsp;&nbsp;To start and stop sharing a live stream.</small>
+                    </li>
+                    <li class="list-group-item"><img src="/assets/images/group_chat.png"/>
+                        <small>&nbsp;&nbsp;To start chat conversations with viewers of the current stream</small>
+                    </li>
+                    <li class="list-group-item"><img src="/assets/images/logout.png"/>
+                        <small>&nbsp;&nbsp;To log out from the program</small>
+                    </li>
+                </ul>
+                </p>
+            </div>
+
+        </div>
+        <div class="col-md-4">
+            <div class="well">
+                <p>Mobile App Usage:</p>
+
+                <ul class="list-group" style="text-align:left;">
+                    <li class="list-group-item">
+                        <small>Click on <img src="/assets/images/share_blue.png"/> to Start Sharing and <img
+                                src="/assets/images/camera.png"/> to Start Camera
+                        </small>
+                    </li>
+                    <li class="list-group-item">
+                        <small>When you see this</small>
+                        <img src="/assets/images/ic_cable_connect.png"/>
+                        <small> on the status bar and</small>
+                        </br>
+                        <small>all the buttons are enabled you are ready to invite people to view your stream.</small>
+                    </li>
+                    <li class="list-group-item">
+                        <small>You can send an email, post on facebook or tweet on twitter using the icons on the menu
+                            bar
+                        </small>
+                    </li>
+                    <li class="list-group-item">
+                        <small>Starting and Stopping the camera has no impact on the stream</small>
+                    </li>
+                    <li class="list-group-item">
+                        <small>Once you click on this</small>
+                        <img src="assets/images/share_red.png">
+                        <small>the stream is no longer active</small>
+                    </li>
+                    <li class="list-group-item">
+                        <small>If you start sharing again you will need to re-invite your viewers so that they can view
+                            your new live stream.
+                        </small>
+                    </li>
+                    <li class="list-group-item">
+                        <small>After clicking on "Chat" you should see <img src="/assets/images/chat.png"/> on the
+                            status bar.
+                        </small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="well">
+                <p>Sharing Actions</p>
+
+                <ul class="list-group" style="text-align:left;">
+                    <li class="list-group-item">
+                        <small><img src="/assets/images/mail.png"/>&nbsp;&nbsp;To invite via email</small>
+                    </li>
+                    <li class="list-group-item">
+                        <small><img src="/assets/images/facebook.png"/>&nbsp;&nbsp;To share stream on facebook</small>
+                    </li>
+                    <li class="list-group-item">
+                        <small><img src="/assets/images/linkedin.png"/>&nbsp;&nbsp;To share stream on linkedin</small>
+                    </li>
+                    <li class="list-group-item">
+                        <small><img src="/assets/images/twitter.png"/>&nbsp;&nbsp;To share stream on twitter</small>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+
+    </div>
+    <style>
+        .divider-vertical {
+        height: 40px;
+        margin: 0 9px;
+        border-left: 1px solid #f2f2f2;
+        border-right: 1px solid #ffffff;
+        }
+    </style>
+    }
