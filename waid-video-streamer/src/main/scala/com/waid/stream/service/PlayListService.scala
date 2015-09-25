@@ -8,8 +8,6 @@ import com.waid.redis.service.RedisUserService
  * Created by kodjobaah on 08/08/2015.
  */
 class PlayListService(val streamToken: String, val userReference: String, val host: String, val port: Int) {
-
-
   val m3u8Header =
     "#EXTM3U\n#EXT-X-PLAYLIST-TYPE:EVENT\n#EXT-X-TARGETDURATION:10\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:mediaSequenceNumber\n"
 
@@ -17,7 +15,13 @@ class PlayListService(val streamToken: String, val userReference: String, val ho
   val m3u8VodHeader =
     "#EXTM3U\n#EXT-X-PLAYLIST-TYPE:VOD\n#EXT-X-TARGETDURATION:10\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:0\n"
 
-  val emptyList = "#EXT-X-VERSION:3\n#EXTM3U\n#EXT-X-TARGETDURATION:10\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-ENDLIST\n"
+
+  val emptyList = "#EXTM3U\n#EXT-X-PLAYLIST-TYPE:EVENT\n#EXT-X-TARGETDURATION:10\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:0\n#EXT-X-ENDLIST\n"
+
+  def generateEndOfList() : String = {
+    var sb: StringBuilder = new StringBuilder(emptyList)
+    sb.toString
+  }
 
   def generatePlayList(): (String, Boolean, Int) = {
     var playList = emptyList
