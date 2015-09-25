@@ -63,8 +63,8 @@ class Segment(initTime: Long,segDirectory: String, streamName: String) {
     videoCoder.setProperty("nr", 0)
     videoCoder.setProperty("mbd", 0)
     // g / gop should be less than a segment so at least one key frame is in a segment
-    val gops:Int = (10 / 10) // (fps / segment length) == gops
-    videoCoder.setProperty("g", gops)
+    //val gops:Int = 15 // (fps / segment length) == gops
+    //videoCoder.setProperty("g", gops)
     //videoCoder.setNumPicturesInGroupOfPictures(gops)
     // previously used with mpeg-ts
     //videoCoder.setProperty("level",3)
@@ -72,16 +72,19 @@ class Segment(initTime: Long,segDirectory: String, streamName: String) {
     //videoCoder.setProperty("vsync", 1)
     import Segment.bitrate
     videoCoder.setBitRate(350000)
-    //videoCoder.setNumPicturesInGroupOfPictures(30)
-    //videoCoder.setPixelType(IPixelFormat.Type.YUV420P)
+    videoCoder.setNumPicturesInGroupOfPictures(15)
+    videoCoder.setPixelType(IPixelFormat.Type.YUV420P)
 
     val frameRate: IRational  = IRational.make(1,30)
     //videoCoder.setFrameRate(frameRate)
 
     //videoCoder.setTimeBase(IRational.make(frameRate.getDenominator/frameRate.getNumerator))
     videoCoder.setBitRateTolerance(videoCoder.getBitRate() / 2)
-    videoCoder.setGlobalQuality(0);
+    videoCoder.setGlobalQuality(0)
+    //videoCoder.setProperty("tune","zerolatency")
 
+    //videoCoder.setProperty("preset","veryslow")
+    //videoCoder.setProperty("crf",0)
  //  log.info("After ------------------")
   // // Configuration.printConfigurable(System.out,videoStream.getStreamCoder)
   //  Configuration.printConfigurable(System.out,mediaWriter.getContainer)
