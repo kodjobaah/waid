@@ -197,11 +197,19 @@ trait MyService extends HttpService {
         } ~
         path("playlist" / Segments) { reference =>
           detach() {
+
             val playListService = PlayListService(streamId, reference.head)
-            val result = playListService.generatePlayList()
+            val node = RedisUserService.getStreamNodeId(streamId)
+            var playList = playListService.generateEndOfList()
+            if (node != None) {
+              val result = playListService.generatePlayList()
+              playList = result._1
+            }
+
+            println(playList)
             respondWithMediaType(MediaType.custom("application/x-mpegurl")) {
-              complete(result._1)
-           }
+              complete(playList)
+            }
           }
         } ~
         path("playlistall" / Segment / "referred" / Segment) { (userToken,referred) =>
