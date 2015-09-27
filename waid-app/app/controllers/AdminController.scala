@@ -87,7 +87,7 @@ class AdminController extends Controller {
       val reference = ref.split(" ")(0)+".m3u8"
 
       val reload = UUID.randomUUID().toString()
-      Future {Ok(views.html.livestreams(streamId,reference,reload))}
+      Future {Ok(views.html.livestreams(hostStreamer,portStreamer,streamId,reference,reload))}
 
 
   }
