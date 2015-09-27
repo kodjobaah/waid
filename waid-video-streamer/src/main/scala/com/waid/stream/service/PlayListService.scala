@@ -1,5 +1,7 @@
 package com.waid.stream.service
 
+import java.io.FileWriter
+
 import com.typesafe.config.ConfigFactory
 import com.waid.redis.{KeyPrefixGenerator, RedisReadOperations}
 import com.waid.redis.service.RedisUserService
@@ -9,7 +11,7 @@ import com.waid.redis.service.RedisUserService
  */
 class PlayListService(val streamToken: String, val userReference: String, val host: String, val port: Int) {
   val m3u8Header =
-    "#EXTM3U\n#EXT-X-PLAYLIST-TYPE:EVENT\n#EXT-X-TARGETDURATION:10\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:mediaSequenceNumber\n"
+    "#EXTM3U\n#EXT-X-PLAYLIST-TYPE:EVENT\n#EXT-X-TARGETDURATION:10\n#EXT-X-VERSION:3\n#EXT-X-MEDIA-SEQUENCE:0\n"
 
 
   val m3u8VodHeader =
@@ -52,7 +54,7 @@ class PlayListService(val streamToken: String, val userReference: String, val ho
           mediaSequenceNumber = currentSequenceCount.get.split(":")(1).toInt + 1
         }
 
-        sb.append(m3u8Header.replace("mediaSequenceNumber", mediaSequenceNumber.toString))
+       sb.append(m3u8Header.replace("mediaSequenceNumber", mediaSequenceNumber.toString))
         buildSubPlayList(sb, playListCount.get, start)
         playList = sb.toString
         sequenceCount = playListCount.get
