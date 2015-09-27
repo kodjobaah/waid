@@ -1,8 +1,11 @@
 package com.waid.invite.twitter;
 
+import android.content.ComponentName;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import com.waid.contentproviders.StateAttribute;
+import com.waid.contentproviders.TwitterAuthenticationToken;
 import com.waids.R;
 import com.waid.activity.main.WhatAmIdoing;
 import com.waid.contentproviders.DatabaseHandler;
@@ -45,7 +48,14 @@ public class UpdateTwitterStatusTask extends AsyncTask<Void, Void, Boolean> {
 			twitter4j.Status status = twitter
                     .updateStatus("I am using #WAID (What Am I Doing) to share a live stream, click here:"
 							+ url);
-		} catch (TwitterException e) {
+
+            StateAttribute saBrowser = DatabaseHandler.getInstance(context).getStateAttribute(StateAttribute.OPEN_BROWSER);
+            if (saBrowser != null) {
+                saBrowser.setValue("false");
+                DatabaseHandler.getInstance(context).putStateAttribute(saBrowser);
+            }
+
+        } catch (TwitterException e) {
 			e.printStackTrace();
 			return false;
 		}
@@ -64,7 +74,9 @@ public class UpdateTwitterStatusTask extends AsyncTask<Void, Void, Boolean> {
 
 		} else {
 			Log.i(TAG, "Twitter update failed");
-			AlertMessages.displayGenericMessageDialog(context,"Twitter update failed");
+            TwitterAuthenticationToken twitterAuthentication = DatabaseHandler.getInstance(context).getDefaultTwitterAuthentication();
+			DatabaseHandler.getInstance(context).removeAuthentication(twitterAuthentication);
+            AlertMessages.displayGenericMessageDialog(context,"Twitter update failed: Try again");
 
 		}
 	}

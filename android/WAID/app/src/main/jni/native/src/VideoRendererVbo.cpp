@@ -168,7 +168,7 @@ namespace waid {
                         GL_UNSIGNED_SHORT_5_6_5, frame.ptr());
 
         glBindFramebuffer(GL_FRAMEBUFFER, 0);
-
+        frame.release();
     }
 
     void VideoRendererVbo::renderFrame(int screenWidth, int screenHeight, cv::Mat frame) {
@@ -209,6 +209,7 @@ namespace waid {
         //draw
         glDrawArrays(GL_TRIANGLE_STRIP, 0, 4);
 
+        frame.release();
         LOG("FINNISH_RENDER");
     }
 

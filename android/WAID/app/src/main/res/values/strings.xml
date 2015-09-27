@@ -14,7 +14,7 @@
     <string translatable="false" name="send_invite_linkedin_url">http://www.whatamidoing.info:9000/inviteLinkedin</string>
     <string translatable="false" name="findallinvites_url">http://www.whatamidoing.info:9000/findAllInvites</string>
     <string translatable="false" name="share_location_url">http://www.whatamidoing.info:9000/location</string>
-    <string translatable="false" name="facebook_app_id">1028004893910960</string>
+    <string translatable="false" name="facebook_app_id">735949386449847</string>
     <string name="title_activity_what_am_idoing">WhatAmIdoing</string>
     <string name="connect_from_diff_location">You have connected from another location..logout and login again</string>
     <string name="hello_world">Hello world!</string>

@@ -201,6 +201,7 @@ namespace  waid {
                                                       JPEG_QUALITY,
                                                       flags);
                         newSize.release();
+                        newOut.release();
 
                         int len = (int) (_jpegSize);
                         char *messageToSend;

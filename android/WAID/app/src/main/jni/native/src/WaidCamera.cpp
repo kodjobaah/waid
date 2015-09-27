@@ -45,6 +45,8 @@ namespace waid {
 
             std::tuple <cv::Mat, std::string, std::string> frameData(rgbframe, time,framePs);
             zeroMqTransport->addDataToQueue(frameData);
+            outframe.release();
+
         }
     }
 
@@ -100,7 +102,7 @@ namespace waid {
                 pthread_mutex_lock(&FGmutex);
                 frameToSend = rgbframe.clone();
                 videoRendererVbo->renderFrame(screenWidth, screenHeight, rgbframe);
-
+                outframe.release();
                 pthread_mutex_unlock(&FGmutex);
             } else {
                 LOG("DAMN---VIDOEO IS EMPTY");

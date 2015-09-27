@@ -401,7 +401,7 @@ public class GL2JNIView extends GLSurfaceView {
                         Toast toast = Toast.makeText(context, text, duration);
                         toast.show();
                         startTransmissionButton.setEnabled(false);
-                        mActivity.finish();
+                        //mActivity.finish();
 
                     }
                 }));

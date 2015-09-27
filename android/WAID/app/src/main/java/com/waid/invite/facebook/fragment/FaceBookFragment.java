@@ -10,11 +10,14 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
 import com.facebook.FacebookException;
 import com.facebook.login.LoginResult;
 import com.facebook.login.widget.LoginButton;
+import com.waid.activity.main.WhatAmIdoing;
+import com.waid.invite.facebook.ShareContentTask;
 import com.waids.R;
 
 /**
@@ -23,17 +26,24 @@ import com.waids.R;
 public class FaceBookFragment extends Fragment {
     private static final String TAG = "FaceBookFragment";
     private static FaceBookFragment frag;
+    private WhatAmIdoing context;
     private LoginButton loginButton;
     private CallbackManager callbackManager;
 
+    public FaceBookFragment() {
 
-    public static FaceBookFragment newInstance(String title, Activity context) {
+    }
+
+
+    public static FaceBookFragment newInstance(String title, WhatAmIdoing context) {
 
         if (frag == null) {
             frag = new FaceBookFragment();
+            frag.setContext(context);
             Bundle args = new Bundle();
             args.putString("title", title);
             frag.setArguments(args);
+
             //frag.mContext = context;
             //frag.inviteDialogInteration = inviteDialogInteraction;
 
@@ -42,7 +52,7 @@ public class FaceBookFragment extends Fragment {
             //frag.setShowsDialog(false);
             //wDialog.setStyle(SherlockDialogFragment.STYLE_NORMAL,android.R.style.Theme_Holo_Light_Dialog);
             //We don't want to recreate the instance every time user rotates the phone
-            frag.setRetainInstance(true);
+            //frag.setRetainInstance(true);
             //Don't close the dialog when touched outside
             //frag.setCancelable(true);
         }
@@ -70,20 +80,26 @@ public class FaceBookFragment extends Fragment {
         loginButton.registerCallback(callbackManager, new FacebookCallback<LoginResult>() {
             @Override
             public void onSuccess(LoginResult loginResult) {
-                Log.d(TAG, "Login Successful");
+                Log.i(TAG, "Login Successful");
+                AccessToken.setCurrentAccessToken(loginResult.getAccessToken());
                 //frag.dismiss();
+
+                ShareContentTask shareContentTask = new ShareContentTask(context);
+                shareContentTask.execute((Void) null);
+
+                context.getSupportFragmentManager().beginTransaction().remove(frag).commit();
             }
 
             @Override
             public void onCancel() {
-                Log.d(TAG,"Login cancel");
+                Log.i(TAG,"Login cancel");
                 //frag.dismiss();
 
             }
 
             @Override
             public void onError(FacebookException exception) {
-                Log.d(TAG,"Login Problems");
+                Log.i(TAG,"Login Problems");
                 exception.printStackTrace();
             }
         });
@@ -94,7 +110,15 @@ public class FaceBookFragment extends Fragment {
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        Log.d(TAG,"onActivityResult");
+        Log.d(TAG, "onActivityResult");
         callbackManager.onActivityResult(requestCode, resultCode, data);
+    }
+
+    public void setContext(WhatAmIdoing context) {
+        this.context = context;
+    }
+
+    public WhatAmIdoing getContext() {
+        return context;
     }
 }

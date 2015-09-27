@@ -24,10 +24,7 @@
     <uses-feature android:name="android.hardware.camera.any" />
     <uses-feature android:glEsVersion="0x00020000" android:required="true"></uses-feature>
 
-    <uses-feature android:name="android.hardware.camera"/>
-    <uses-feature android:name="android.hardware.camera.autofocus"/>
-    <uses-feature android:name="android.hardware.camera.front"/>
-    <uses-feature android:name="android.hardware.camera.front.autofocus"/>
+    <uses-feature android:name="android.hardware.camera" android:required="false"/>
 
     <supports-screens
         android:anyDensity="true"
@@ -68,7 +65,7 @@
             android:label="@string/title_activity_what_am_idoing" >
         </activity>
 
-        <provider android:authorities="com.facebook.app.FacebookContentProvider1028004893910960"
+        <provider android:authorities="com.facebook.app.FacebookContentProvider735949386449847"
             android:name="com.facebook.FacebookContentProvider"
             android:exported="true" />
 

@@ -12,6 +12,8 @@ import android.hardware.SensorManager;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.util.DisplayMetrics;
 import android.util.Log;
@@ -24,7 +26,13 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.facebook.CallbackManager;
+import com.facebook.FacebookCallback;
+import com.facebook.FacebookException;
+import com.facebook.login.LoginManager;
+import com.facebook.login.LoginResult;
 import com.facebook.share.model.ShareLinkContent;
+import com.facebook.share.widget.ShareDialog;
 import com.linkedin.platform.APIHelper;
 import com.linkedin.platform.LISession;
 import com.linkedin.platform.LISessionManager;
@@ -65,6 +73,7 @@ import org.opencv.android.LoaderCallbackInterface;
 import org.opencv.android.OpenCVLoader;
 
 import java.lang.reflect.Method;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import twitter4j.auth.AccessToken;
@@ -104,6 +113,7 @@ public class WhatAmIdoing extends AppCompatActivity {
     private InviteListTask mInviteListTask;
     private TwitterAuthorization twitterAuthorization;
     private FaceBookFragment facebookFragment;
+    private CallbackManager facebookCallbackManager;
 
     public WhatAmIdoing() {
 
@@ -113,6 +123,7 @@ public class WhatAmIdoing extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        facebookCallbackManager = CallbackManager.Factory.create();
 
         if (mActivty != null) {
             StateAttribute sa = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.ON_PAUSE);
@@ -193,14 +204,13 @@ public class WhatAmIdoing extends AppCompatActivity {
 
                     if (twitterAuthorization != null) {
                         StateAttribute saBrowser = DatabaseHandler.getInstance(mActivty).getStateAttribute(StateAttribute.OPEN_BROWSER);
-                        if (sa != null) {
-                            if (saBrowser.getValue().equalsIgnoreCase("true")) {
+                        if ((sa != null) && (saBrowser.getValue().equalsIgnoreCase("true"))) {
                                 twitterAuthorization.displayPinEntry();
                                 twitterAuthorization = null;
-                            }
                         }
                     }
                 }
+
             } else {
 
                 Log.i(TAG,"APPINIT_onResume_camera_not_opened");
@@ -216,7 +226,7 @@ public class WhatAmIdoing extends AppCompatActivity {
         } else {
             sa.setValue("false");
             DatabaseHandler.getInstance(mActivty).putStateAttribute(sa);
-            Log.i(TAG, "APPINIT_onResume_no_creating["+sa.getContent()+"]");
+            Log.i(TAG, "APPINIT_onResume_no_creating[" + sa.getContent() + "]");
         }
     }
 
@@ -417,6 +427,7 @@ public class WhatAmIdoing extends AppCompatActivity {
                         @Override
                         public void onAuthError(LIAuthError error) {
                             Log.d(TAG, "Linkedin-Authentication-error[" + error.toString() + "]");
+                            AlertMessages.displayGenericMessageDialog(mActivty,error.toString());
                         }
                     }, true);
                     return true;
@@ -478,7 +489,10 @@ public class WhatAmIdoing extends AppCompatActivity {
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         // Add this line to your existing onActivityResult() method
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.d(TAG, "onActivityResult");
         LISessionManager.getInstance(getApplicationContext()).onActivityResult(this, requestCode, resultCode, data);
+        facebookCallbackManager.onActivityResult(requestCode, resultCode, data);
     }
 
     private BaseLoaderCallback mLoaderCallback = new BaseLoaderCallback(this) {
@@ -594,23 +608,59 @@ public class WhatAmIdoing extends AppCompatActivity {
     public void shareOnFacebook() {
         Log.d(TAG, "------------------------------- on click sharine (1)");
 
+
         com.facebook.AccessToken accessToken = com.facebook.AccessToken.getCurrentAccessToken();
 
         Log.d(TAG, "Facebook-accessToken[" + accessToken + "]");
         if ((accessToken != null) && (!accessToken.isExpired())) {
 
+
             ShareContentTask shareContentTask = new ShareContentTask(mActivty);
-            shareContentTask.execute((Void)null);
+            shareContentTask.execute((Void) null);
 
         } else {
 
+            //Login Callback registration
+            LoginManager.getInstance().registerCallback(facebookCallbackManager, new FacebookCallback<LoginResult>() {
+                @Override
+                public void onSuccess(LoginResult loginResult) {
+                    Toast.makeText(getApplicationContext(), "in LoginResult on success", Toast.LENGTH_LONG).show();
+
+                    ShareContentTask shareContentTask = new ShareContentTask(mActivty);
+                    shareContentTask.execute((Void) null);
+                }
+
+                @Override
+                public void onCancel() {
+                    Toast.makeText(getApplicationContext(), "in LoginResult on cancel", Toast.LENGTH_LONG).show();
+                }
+
+                @Override
+                public void onError(FacebookException exception) {
+                    Toast.makeText(getApplicationContext(), "in LoginResult on error", Toast.LENGTH_LONG).show();
+                }
+            });
+
+            ArrayList<String> permissions = new ArrayList<String>();
+            permissions.add("publish_actions");
+            LoginManager.getInstance().logInWithPublishPermissions(mActivty, permissions);
+
+            /*
             setContentView(R.layout.facebook_share);
 
             android.support.v4.app.FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+
+            Fragment prev =  getSupportFragmentManager().findFragmentByTag("Facebookshare");
+            if (prev != null) {
+                ft.remove(prev);
+            }
+            ft.addToBackStack(null);
+
             facebookFragment = FaceBookFragment.newInstance("Facebook share", mActivty);
             ft.add((android.support.v4.app.Fragment) facebookFragment,"Facebookshare");
             ft.addToBackStack(null);
             ft.commit();
+            */
         }
     }
 

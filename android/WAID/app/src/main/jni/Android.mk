@@ -1,5 +1,6 @@
 LOCAL_PATH := $(call my-dir)
 #OPENCV_SDK :=  /Users/kodjobaah/software/opencv/3.0.0/OpenCV-android-sdk
+#OPENCV_SDK :=   /Users/kodjobaah/software/opencv/3.0.0.RC2/OpenCV-android-sdk
 OPENCV_SDK :=  /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk
 include $(CLEAR_VARS)
 

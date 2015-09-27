@@ -79,8 +79,8 @@ public class TwitterAuthorization {
         
 	    dialog.show();
         //Add event listeners
-        Button cancel = (Button) dialog.findViewById(R.id.twitterPinButton);
-        cancel.setOnClickListener(new View.OnClickListener() {
+        Button pinButton = (Button) dialog.findViewById(R.id.twitterPinButton);
+        pinButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String pin = twitterPinText.getText().toString().trim();
 				Log.d(TAG,"----PIN["+pin+"]");

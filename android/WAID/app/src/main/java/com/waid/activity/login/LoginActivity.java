@@ -97,11 +97,11 @@ public class LoginActivity extends Activity implements LoaderCallbacks<Cursor> {
         Log.i(TAG,"onCreate");
 
         try {
-            PackageInfo info = getPackageManager().getPackageInfo("com.waid.debug", PackageManager.GET_SIGNATURES);
+            PackageInfo info = getPackageManager().getPackageInfo("com.waids", PackageManager.GET_SIGNATURES);
             for (Signature signature : info.signatures) {
                 MessageDigest md = MessageDigest.getInstance("SHA");
                 md.update(signature.toByteArray());
-                Log.d("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
+                Log.i("KeyHash:", Base64.encodeToString(md.digest(), Base64.DEFAULT));
             }
         } catch (PackageManager.NameNotFoundException e) {
             e.printStackTrace();

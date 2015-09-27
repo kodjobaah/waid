@@ -5,9 +5,10 @@ include $(CLEAR_VARS)
 
 OPENCV_CAMERA_MODULES:=on
 OPENCV_INSTALL_MODULES:=on
-WITH_TBB=ON
+#WITH_TBB=ON
 OPENCV_LIB_TYPE:=SHARED
 #OPENCV_LIB_TYPE:=STATIC
+#include /Users/kodjobaah/software/opencv/3.0.0.RC2/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk
 include /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/OpenCV.mk
 
 #CPP_STATIC := /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/libs/$(TARGET_ARCH_ABI)/libgnustl_static.a

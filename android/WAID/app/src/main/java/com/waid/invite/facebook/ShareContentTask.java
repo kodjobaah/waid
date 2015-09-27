@@ -47,7 +47,9 @@ public class ShareContentTask extends AsyncTask<Void, Void, Boolean> {
                     .setImageUrl(Uri.parse(context.getString(R.string.facebook_feed_dialog_picture)))
 					.build();
 
-            ShareDialog.show(context,linkContent);
+            //ShareDialog.show(context,linkContent);
+
+            shareDialog.show(linkContent, ShareDialog.Mode.FEED);
 
         } else {
 
