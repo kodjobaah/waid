@@ -3,6 +3,7 @@ package controllers
 import java.util.UUID
 import javax.inject.Inject
 
+import com.typesafe.config.ConfigFactory
 import com.waid.redis.utils.RedisUtils
 import com.waid.redis.{RedisReadOperations, KeyPrefixGenerator, RedisDataStore}
 import com.waid.redis.service.{RedisModelService, RedisUserService}
@@ -27,6 +28,10 @@ import com.whatamidoing.services.LinkedinService
 
 
 class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi) extends Controller with I18nSupport {
+
+  val config = ConfigFactory.load()
+  val hostStreamer = config.getString("waid.servers.streamer.host")
+  val portStreamer = config.getInt("waid.servers.streamer.port")
 
   val changePasswordForm = Form(
     mapping(
@@ -424,7 +429,7 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi) extends Con
         val reference = "twitter-" + UUID.randomUUID().toString() + ".m3u8"
         val reload = UUID.randomUUID().toString()
         Future {
-          Ok(views.html.livestreams(token, reference, reload))
+          Ok(views.html.livestreams(hostStreamer,portStreamer,token, reference, reload))
         }
       } else {
         Future {
@@ -446,7 +451,7 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi) extends Con
         val reference = "linkedin-" + UUID.randomUUID().toString() + ".m3u8"
         val reload = UUID.randomUUID().toString()
         Future {
-          Ok(views.html.livestreams(token, reference, reload))
+          Ok(views.html.livestreams(hostStreamer,portStreamer,token, reference, reload))
         }
       } else {
         Future {
@@ -468,7 +473,7 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi) extends Con
         val reference = "facebook-" + UUID.randomUUID().toString() + ".m3u8"
         val reload = UUID.randomUUID().toString()
         Future {
-          Ok(views.html.livestreams(token, reference, reload))
+          Ok(views.html.livestreams(hostStreamer,portStreamer,token, reference, reload))
         }
       } else {
         Future {
