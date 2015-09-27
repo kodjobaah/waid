@@ -72,13 +72,13 @@ class Segment(initTime: Long,segDirectory: String, streamName: String) {
     //videoCoder.setProperty("vsync", 1)
     import Segment.bitrate
     videoCoder.setBitRate(350000)
-    videoCoder.setNumPicturesInGroupOfPictures(15)
+    videoCoder.setNumPicturesInGroupOfPictures(45)
     videoCoder.setPixelType(IPixelFormat.Type.YUV420P)
 
-    val frameRate: IRational  = IRational.make(1,30)
-    //videoCoder.setFrameRate(frameRate)
+    val frameRate: IRational  = IRational.make(1,10)
+    videoCoder.setFrameRate(frameRate)
 
-    //videoCoder.setTimeBase(IRational.make(frameRate.getDenominator/frameRate.getNumerator))
+   // videoCoder.setTimeBase(IRational.make(frameRate.getDenominator/frameRate.getNumerator))
     videoCoder.setBitRateTolerance(videoCoder.getBitRate() / 2)
     videoCoder.setGlobalQuality(0)
     //videoCoder.setProperty("tune","zerolatency")
