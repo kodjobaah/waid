@@ -1,5 +1,6 @@
 package com.waid.stream
 
+import java.io.FileWriter
 import java.util.UUID
 
 import akka.actor.Actor
@@ -33,6 +34,8 @@ class MyServiceActor extends Actor with MyService {
 
 // this trait defines our service behavior independently from the service actor
 trait MyService extends HttpService {
+
+  val playListFile = new FileWriter("/tmp/playlist.m3u8", true)
 
   val Js = "js"
   val Css = "css"
@@ -175,8 +178,14 @@ trait MyService extends HttpService {
             var streamLocation = RedisUserService.getSegmentLocationOfStream(streamId)
             if (streamLocation != None){
               val tsFile = streamLocation.get + "/" + file
-              respondWithMediaType(MediaType.custom("video/MP2T"))
-              getFromFile(tsFile)
+
+              respondWithHeaders(`Cache-Control`(`no-cache`),
+                RawHeader("Access-Control-Allow-Origin", "*")) {
+
+                respondWithMediaType(MediaType.custom("video/MP2T")) {
+                  getFromFile(tsFile)
+                }
+              }
             } else {
               complete(" ")
             }
@@ -188,8 +197,14 @@ trait MyService extends HttpService {
             if (streamNode != None) {
               var streamLocation = streamNode.get.attributes get KeyPrefixGenerator.SegmentLocation
               val tsFile = streamLocation + "/" + file
-              respondWithMediaType(MediaType.custom("video/MP2T"))
-              getFromFile(tsFile)
+
+              respondWithHeaders(`Cache-Control`(`no-cache`),
+                RawHeader("Access-Control-Allow-Origin", "*")) {
+
+                respondWithMediaType(MediaType.custom("video/MP2T")) {
+                  getFromFile(tsFile)
+                }
+              }
             } else {
               complete(" ")
             }
@@ -206,9 +221,15 @@ trait MyService extends HttpService {
               playList = result._1
             }
 
+
+            playListFile.write("\n"+playList)
             println(playList)
-            respondWithMediaType(MediaType.custom("application/x-mpegurl")) {
-              complete(playList)
+
+            respondWithHeaders(`Cache-Control`(`no-cache`),
+              RawHeader("Access-Control-Allow-Origin", "*")) {
+              respondWithMediaType(MediaType.custom("application/x-mpegurl")) {
+                complete(playList)
+              }
             }
           }
         } ~
