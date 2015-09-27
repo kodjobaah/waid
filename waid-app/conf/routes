@@ -26,7 +26,7 @@ GET /getLocations               controllers.WhatAmIDoingController.whatAreTheLoc
 GET  /calendar                  controllers.AdminController.getInvites
 GET /streamInvites              controllers.AdminController.getStreamInvites(streamId: String)
 GET /getStreams                 controllers.AdminController.getStreams(start: String, end: String)
-GET /liveStream                 controllers.AdminController.getLiveStreamInvites(streamId: String, end: String)
+GET /liveStream                 controllers.AdminController.getLiveStreamInvites(streamId: String, ref: String)
 GET /logout                     controllers.AdminController.logout
 
 POST /login			            controllers.AdminController.login
