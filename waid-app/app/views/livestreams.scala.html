@@ -1,8 +1,16 @@
-@(streamId: String, reference: String, reload: String)
+@(host:String, port: Int,streamId: String, reference: String, reload: String)
 @main("(WAID) What Am I Doing ?") {
 
 
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+    <link href='@routes.Assets.at("flowplayer/skin/playful.css")' rel="stylesheet">
+
+<!-- site specific styling -->
+<style>
+    body { font: 12px "Myriad Pro", "Lucida Grande", sans-serif; text-align: center; padding-top: 5%; }
+    .flowplayer { width: 80%; }
+</style>
 
     <script
             src='http://code.jquery.com/jquery-1.11.1.min.js'
@@ -13,40 +21,125 @@
             type='text/javascript'></script>
 
 
-    <link rel="stylesheet" href='@routes.Assets.at("mediaelement/mediaelementplayer.min.css")' />
-    <script src='@routes.Assets.at("mediaelement/mediaelement-and-player.min.js")'></script>
 
+
+<script src='@routes.Assets.at("flowplayer/flowplayer.min.js")'></script>
 } {
+
+<style>
+
+    #content {
+    max-width: 720px;
+    }
+    .flowplayer {
+    background: #777;
+    margin-bottom: 30px;
+    }
+
+    /* customized error message */
+    .flowplayer.is-error .fp-message {
+    background-image: url(http://demos.flowplayer.org/media/img/interruption.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    }
+    .flowplayer.is-error .fp-message h2,
+    .flowplayer.is-error .fp-message p {
+    font-weight: bold;
+    color: #000;
+    text-shadow: 1px 1px #fff
+    }
+    .flowplayer.is-error .fp-message h2 {
+    font-size: 200%;
+    }
+    .flowplayer.is-error .fp-message p {
+    font-size: 150%;
+    }
+</style>
+
 <br/>
 <br/>
 <br/>
 <br/>
 
-<div align="center" id="dialog" style="overflow:scroll;">
+
+<div id="player" class="fixed-controls"></div>
+
+<script>
+var container = document.getElementById("player");
+var timer;
+
+  flowplayer(container, {
+       ratio: 9/16,
+       splash: true,
+       live: true,
+       clip:  {
+          autoPlay: true,
+          autoBuffering: true,
+          flashls: {
+          manifestloadmaxretry: 2
+          },
+          sources: [
+              { src: "http://@host:@port/stream/@streamId/playlist/playlist-@reference",
+                type: "application/x-mpegurl" }
+             ]
+      }
+  }).on("load", function (e, api) {
+    clearInterval(timer);
+
+    if (api.engine.engineName == "html5") {
+      // generic hls: trigger error when playlist is present, but no streams
+      setTimeout(function () {
+        if (api.loading && !api.error) {
+          api.trigger("error", [api, {code: 4}]);
+        }
+      }, 10000);
+    }
+
+  }).on("error", function (e, api, err) {
+    var delay = 5,
+        header = container.querySelector(".fp-message h2"),
+        detail = container.querySelector(".fp-message p");
+
+    if (err.code === 4 || err.code === 9) {
+      header.innerHTML = "We are sorry, currently no live stream available.";
+      detail.innerHTML = "Retrying in <span>" + delay + "</span> seconds ...";
+
+      if (flowplayer.support.flashVideo) {
+        api.one("flashdisabled", function () {
+          container.querySelector(".fp-flash-disabled").style.display = "none";
+        });
+      }
+
+      timer = setInterval(function () {
+        delay = delay - 1;
+        detail.querySelector("span").innerHTML = delay;
+
+        if (delay == 0) {
+          clearInterval(timer);
+          api.error = api.loading = false;
+          container.className = container.className.replace(/ *is-error */, "");
+          api.load(api.conf.clip);
+        }
+
+      }, 1000);
+    }
+  });
+</script>
+
+<!--
+<div  class="flowplayer" data-live="true" data-swf='@routes.Assets.at("flowplayerhls.swf")' data-ratio="0.4167" align="center" id="dialog" style="overflow:scroll;">
     <video id="example-video" width="600" height="300" class="video-js vjs-default-skin" controls>
         <source
-                src="http://192.168.0.2:8080/stream/@streamId/playlist/playlist-@reference"
+                src="http://@host:@port/stream/@streamId/playlist/playlist-@reference"
                 type="application/x-mpegurl">
     </video>
 </div>
+-->
+
 
 <br/>
 <br/>
 <br/>
 <br/>
-<script>
-
-
-    $('video').mediaelementplayer({
-     hls_debug: false,
-     hls_debug2: false,
-	success: function(media, node, player) {
-		$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
-	}
-    });
-
-
-
-</script>
 
 }
