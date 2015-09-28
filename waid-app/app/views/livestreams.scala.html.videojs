@@ -1,0 +1,75 @@
+@(host:String, port: Int,streamId: String, reference: String, reload: String)
+@main("(WAID) What Am I Doing ?") {
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+    <link href='@routes.Assets.at("video-js/video-js.css")' rel="stylesheet">
+
+    <script
+            src='http://code.jquery.com/jquery-1.11.1.min.js'
+            type='text/javascript'></script>
+
+    <script
+            src='http://code.jquery.com/ui/1.11.1/jquery-ui.min.js'
+            type='text/javascript'></script>
+
+
+
+
+<script src='@routes.Assets.at("video-js/video.js")'></script>
+<script src='@routes.Assets.at("video-js/videojs-media-sources.js")'></script>
+<script src='@routes.Assets.at("video-js/videojs-hls.js")'></script>
+
+<!-- segment handling -->
+<script src='@routes.Assets.at("video-js/xhr.js")'></script>
+<script src='@routes.Assets.at("video-js/flv-tag.js")'></script>
+<script src='@routes.Assets.at("video-js/stream.js")'></script>
+<script src='@routes.Assets.at("video-js/exp-golomb.js")'></script>
+<script src='@routes.Assets.at("video-js/h264-extradata.js")'></script>
+<script src='@routes.Assets.at("video-js/h264-stream.js")'></script>
+<script src='@routes.Assets.at("video-js/aac-stream.js")'></script>
+<script src='@routes.Assets.at("video-js/metadata-stream.js")'></script>
+<script src='@routes.Assets.at("video-js/segment-parser.js")'></script>
+
+<!-- m3u8 handling -->
+<script src='@routes.Assets.at("video-js/m3u8/m3u8-parser.js")'></script>
+<script src='@routes.Assets.at("video-js/playlist.js")'></script>
+<script src='@routes.Assets.at("video-js/playlist-loader.js")'></script>
+
+
+<script src='@routes.Assets.at("video-js/pkcs7/pkcs7.unpad.js")'></script>
+<script src='@routes.Assets.at("video-js/decrypter.js")'></script>
+
+<script src='@routes.Assets.at("video-js/bin-utils.js")'></script>
+
+<!-- Unless using the CDN hosted version, update the URL to the Flash SWF -->
+<script>
+    videojs.options.flash.swf = '@routes.Assets.at("video-js/video-js.swf")';
+  </script>
+} {
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div align="center" id="dialog" style="overflow:scroll;">
+    <video id="example-video" width="600" height="300" class="video-js vjs-default-skin" controls>
+        <source
+                src="http://@host:@port/stream/@streamId/playlist/playlist-@reference"
+                type="application/x-mpegurl">
+    </video>
+</div>
+
+<script>
+    var player = videojs('example-video');
+//player.play();
+</script>
+
+
+<br/>
+<br/>
+<br/>
+<br/>
+
+}
