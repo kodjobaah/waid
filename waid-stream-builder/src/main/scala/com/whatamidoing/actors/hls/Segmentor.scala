@@ -7,8 +7,7 @@ import com.waid.redis.service.RedisUserService
 import com.whatamidoing.actors.hls.model.Value.{AddToSegment, SegmentData, SegmentInfo, TooManyActiveStreams}
 import models.Messages._
 
-class  Segmentor(val streamName: String) extends Actor with ActorLogging {
-
+class  Segmentor(val streamName: String, val fps: Int) extends Actor with ActorLogging {
 
   import Segmentor.{redisPort, redisServer, segmentTime}
 
@@ -32,7 +31,7 @@ class  Segmentor(val streamName: String) extends Actor with ActorLogging {
       if (actSeg == None) {
 
         for(sd <- segmentDirectory) {
-          activeSegment = Segment(totalTime,sd,streamName + "_" + segCounter + ".ts")
+          activeSegment = Segment(totalTime,sd,streamName + "_" + segCounter + ".ts",fps)
           activeSegment.init()
           val segData = SegmentData(activeSegment, segCounter, streamName)
           segCounter = segCounter + 1
@@ -94,8 +93,8 @@ object Segmentor {
   val segmentTime = config.getInt("segment.time")
 
 
-  def props(streamName: String): Props = {
-    Props(classOf[Segmentor], streamName)
+  def props(streamName: String,fps:Int): Props = {
+    Props(classOf[Segmentor], streamName,fps)
   }
 
 }

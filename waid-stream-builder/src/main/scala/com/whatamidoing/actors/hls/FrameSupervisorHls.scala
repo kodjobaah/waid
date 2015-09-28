@@ -35,7 +35,7 @@ class FrameSupervisorHls(streamId: String) extends Actor with ActorLogging {
 
     case frame: FrameData =>
       if (videoEncoder == null) {
-          videoEncoder = context.actorOf(VideoEncoderHls.props(frame.streamId), "videoencoder:" + frame.streamId)
+          videoEncoder = context.actorOf(VideoEncoderHls.props(frame.streamId,frame.fps), "videoencoder:" + frame.streamId)
       }
 
       videoEncoder ! EncodeFrame(frame.data,frame.time,frame.sequence)

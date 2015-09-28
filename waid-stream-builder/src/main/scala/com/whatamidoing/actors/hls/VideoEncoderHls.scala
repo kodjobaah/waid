@@ -10,12 +10,9 @@ import spray.json.{JsonParser, DefaultJsonProtocol, JsObject}
 
 
 
-class VideoEncoderHls(streamName: String) extends Actor with ActorLogging {
-
+class VideoEncoderHls(streamName: String, fps:Int) extends Actor with ActorLogging {
 
   var segmentor: ActorRef = null
-
-
 
   /*
   object FrameDataJsonProtocol extends DefaultJsonProtocol {
@@ -40,7 +37,7 @@ class VideoEncoderHls(streamName: String) extends Actor with ActorLogging {
         val bufferedImage = ImageIO.read(bais)
 
         if (segmentor == null) {
-          segmentor =context.actorOf(Segmentor.props(streamName), "segmentor:" + streamName)
+          segmentor =context.actorOf(Segmentor.props(streamName,fps), "segmentor:" + streamName)
         }
         segmentor ! AddToSegment(bufferedImage,diff)
 
@@ -67,8 +64,8 @@ class VideoEncoderHls(streamName: String) extends Actor with ActorLogging {
 object VideoEncoderHls {
 
 
-  def props(streamName: String) : Props= {
-    Props(classOf[VideoEncoderHls],streamName)
+  def props(streamName: String, fps: Int) : Props= {
+    Props(classOf[VideoEncoderHls],streamName,fps)
   }
 
 }

@@ -140,14 +140,14 @@ class StreamProcessor(context: ZMQ.Context) extends Thread {
         var streamId = message.tail.tail.head
         var time = message.tail.tail.tail.head
         var data = message.tail.tail.tail.tail.head
-        var dataType = message.tail.tail.tail.tail.tail.head;
+        var fps = message.tail.tail.tail.tail.tail.head
         //println("streamId ["+streamId+"] time=["+time+"] data["+data.length+"]")
 
 
         val framesupervisor = framesupervisors get streamId
 
         if ("VIDEO".equalsIgnoreCase(type_id)) {
-          var frameData = FrameData(streamId, identifier, count, time.toInt, data)
+          var frameData = FrameData(streamId, identifier, count, time.toInt, data,fps.toInt)
           count = count + 1
 
           for (fs <- framesupervisor)

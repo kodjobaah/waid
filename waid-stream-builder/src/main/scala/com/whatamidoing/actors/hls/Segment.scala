@@ -14,7 +14,7 @@ import javax.imageio.ImageIO
 import java.util.Properties
 import org.javasimon.{Split, Stopwatch, SimonManager}
 
-class Segment(initTime: Long,segDirectory: String, streamName: String) {
+class Segment(initTime: Long,segDirectory: String, streamName: String,fps: Int) {
 
   val stopwatch: Stopwatch  = SimonManager.getStopwatch(streamName)
 
@@ -23,14 +23,9 @@ class Segment(initTime: Long,segDirectory: String, streamName: String) {
 
   var activeSegment = true
 
-  def SHARPEN3x3: Array[Float] = Array(0.0f, -1.0f, 0.0f, -1.0f, 5.0f, -1.0f, 0.0f, -1.0f, 0.0f);
+  def log = LoggerFactory.getLogger("Segment")
 
-  // def SHARPEN3x3:  Array[Float]  = Array(0.25f, -2.0f, 0.25f,-2.0f, 10.0f, -2.0f,0.25f, -2.0f, 0.25f);
-  //def SHARPEN3x3:  Array[Float]  = Array(-1.0f, -1.0f, -1.0f,-1.0f, 9.0f, -1.0f,-1.0f, -1.0f, -1.0f);
-
-  def log = LoggerFactory.getLogger("Xuggler")
-
-  def this() = this(0,"", "")
+  def this() = this(0,"", "",0)
 
   var startTime: Long = initTime
   var count = 0
@@ -70,12 +65,12 @@ class Segment(initTime: Long,segDirectory: String, streamName: String) {
     //videoCoder.setProperty("level",3)
     videoCoder.setProperty("async", 2)
     //videoCoder.setProperty("vsync", 1)
-    import Segment.bitrate
     videoCoder.setBitRate(350000)
     videoCoder.setNumPicturesInGroupOfPictures(45)
     videoCoder.setPixelType(IPixelFormat.Type.YUV420P)
 
-    val frameRate: IRational  = IRational.make(1,10)
+    println("----------FPS["+fps+"]-----------------")
+    val frameRate: IRational  = IRational.make(1,fps)
     videoCoder.setFrameRate(frameRate)
 
    // videoCoder.setTimeBase(IRational.make(frameRate.getDenominator/frameRate.getNumerator))
@@ -100,46 +95,13 @@ class Segment(initTime: Long,segDirectory: String, streamName: String) {
 
   def addImage(image: BufferedImage, diff: Int) {
     import java.util.concurrent.TimeUnit
-    //if (count == 0) {
-    //  startTime = 0
-    //}else {
       startTime = startTime + diff
-    //}
 
     var im = image
     if (im.getType() == BufferedImage.TYPE_INT_RGB) {
 
       im = convertType(im, BufferedImage.TYPE_3BYTE_BGR)
     }
-
-
-    /*
-    var kernelWidth = 2
-    var kernelHeight = 2
-
-    var xOffset = kernelWidth / 2
-    var yOffset = kernelHeight / 2
-
-    var newSource: BufferedImage = new BufferedImage(
-      im.getWidth + kernelWidth,
-      im.getHeight + kernelHeight,
-      BufferedImage.TYPE_INT_ARGB)
-    var g2: Graphics2D = newSource.createGraphics()
-    g2.drawImage(im, xOffset, yOffset, null)
-    g2.dispose()
-    */
-    //var dstbim: BufferedImage = new BufferedImage(im.getWidth,im.getHeight,BufferedImage.TYPE_INT_RGB);
-    /*
-    val kernel: Kernel = new Kernel(3, 3, SHARPEN3x3)
-
-    val cop: ConvolveOp = new ConvolveOp(kernel, ConvolveOp.EDGE_NO_OP, null)
-    var dstbim: BufferedImage = cop.filter(im, null)
-
-    if (dstbim.getType() == BufferedImage.TYPE_INT_RGB) {
-
-      dstbim = convertType(dstbim, BufferedImage.TYPE_3BYTE_BGR)
-    }
-     */
 
 
     /*
@@ -223,6 +185,6 @@ object Segment {
   val bitrate: Int = config.getInt("segment.bitrate")
 
   //def apply(streamName: String) = new Segment(0,segDirectory, streamName)
-  def apply(startTime: Long,sd: String, streamName: String) = new Segment(startTime,sd, streamName)
+  def apply(startTime: Long,sd: String, streamName: String, fps: Int) = new Segment(startTime,sd, streamName,fps)
 
 }

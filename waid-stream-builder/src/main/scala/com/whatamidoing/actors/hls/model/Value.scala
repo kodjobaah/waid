@@ -18,5 +18,5 @@ object Value {
   case class GetTsFile(val sender: ActorRef, val streamName: String)
   case class ReadSegment()
   case class FinnishReadingSegment()
-  case class FrameData(val streamId: String, val authToken: String, val sequence: Int, val time: Int, val data: String)
+  case class FrameData(val streamId: String, val authToken: String, val sequence: Int, val time: Int, val data: String, fps: Int)
 }
