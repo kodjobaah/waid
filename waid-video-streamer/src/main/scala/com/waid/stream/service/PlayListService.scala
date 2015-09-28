@@ -50,11 +50,20 @@ class PlayListService(val streamToken: String, val userReference: String, val ho
       if (playListCount != None) {
         val sequenceFields = currentSequenceCount.get.split(":")
         val start = sequenceFields (0).toInt
-        if (sequenceFields.length > 1) {
+        //if (sequenceFields.length > 1) {
+
+        println("---playlist-count["+playListCount+"] currentSequencetCount ["+start+"] mediasequenceCount["+mediaSequenceNumber+"]")
+        if (mediaSequenceNumber == 0) {
+          sb.append(m3u8Header.replace("mediaSequenceNumber", mediaSequenceNumber.toString))
+        }
+        if (playListCount.get == start) {
           mediaSequenceNumber = currentSequenceCount.get.split(":")(1).toInt + 1
         }
 
-       sb.append(m3u8Header.replace("mediaSequenceNumber", mediaSequenceNumber.toString))
+        if (mediaSequenceNumber > 4) {
+          mediaSequenceNumber = 0
+        }
+
         buildSubPlayList(sb, playListCount.get, start)
         playList = sb.toString
         sequenceCount = playListCount.get
