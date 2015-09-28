@@ -1,0 +1,54 @@
+@(host:String, port: Int,streamId: String, reference: String, reload: String)
+@main("(WAID) What Am I Doing ?") {
+
+
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
+
+    <script
+            src='http://code.jquery.com/jquery-1.11.1.min.js'
+            type='text/javascript'></script>
+
+    <script
+            src='http://code.jquery.com/ui/1.11.1/jquery-ui.min.js'
+            type='text/javascript'></script>
+
+
+    <link rel="stylesheet" href='@routes.Assets.at("mediaelement/mediaelementplayer.min.css")' />
+    <script src='@routes.Assets.at("mediaelement/mediaelement-and-player.min.js")'></script>
+
+} {
+<br/>
+<br/>
+<br/>
+<br/>
+
+<div align="center" id="dialog" style="overflow:scroll;">
+    <video id="example-video" width="600" height="300" class="video-js vjs-default-skin" controls>
+        <source
+                src="http://@host:@port/stream/@streamId/playlist/playlist-@reference"
+                type="application/x-mpegurl">
+    </video>
+</div>
+
+<br/>
+<br/>
+<br/>
+<br/>
+<script>
+
+
+    $('video').mediaelementplayer({
+     hls_debug: true,
+     hls_debug2: true,
+     hls_live_flushurlcache: true,
+     hls_minbufferlength: 10,
+	success: function(media, node, player) {
+		$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
+	}
+    });
+
+
+
+</script>
+
+}
