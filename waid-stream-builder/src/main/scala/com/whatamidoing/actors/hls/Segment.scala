@@ -69,13 +69,18 @@ class Segment(initTime: Long,segDirectory: String, streamName: String,fps: Int) 
     videoCoder.setNumPicturesInGroupOfPictures(45)
     videoCoder.setPixelType(IPixelFormat.Type.YUV420P)
 
-    println("----------FPS["+fps+"]-----------------")
-    val frameRate: IRational  = IRational.make(1,fps)
+    val frameRate: IRational  = IRational.make(fps,1)
     videoCoder.setFrameRate(frameRate)
 
-   // videoCoder.setTimeBase(IRational.make(frameRate.getDenominator/frameRate.getNumerator))
+    videoCoder.setTimeBase(IRational.make(1,fps))
     videoCoder.setBitRateTolerance(videoCoder.getBitRate() / 2)
     videoCoder.setGlobalQuality(0)
+
+    /*
+    val codecOptions: IMetaData  = IMetaData.make()
+    codecOptions.setValue("tune", "zerolatency")
+    */
+
     //videoCoder.setProperty("tune","zerolatency")
 
     //videoCoder.setProperty("preset","veryslow")
