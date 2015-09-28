@@ -38,7 +38,7 @@
 
     /* customized error message */
     .flowplayer.is-error .fp-message {
-    background-image: url(http://demos.flowplayer.org/media/img/interruption.png);
+    background-image: url(@routes.Assets.at("images/interruption.png"));
     background-size: contain;
     background-repeat: no-repeat;
     }
@@ -67,7 +67,7 @@
 <script>
 var container = document.getElementById("player");
 var timer;
-
+var finnish = false
   flowplayer(container, {
        ratio: 9/16,
        splash: true,
@@ -76,7 +76,7 @@ var timer;
           autoPlay: true,
           autoBuffering: true,
           flashls: {
-          manifestloadmaxretry: 2
+          manifestloadmaxretry: 3
           },
           sources: [
               { src: "http://@host:@port/stream/@streamId/playlist/playlist-@reference",
@@ -100,8 +100,8 @@ var timer;
         header = container.querySelector(".fp-message h2"),
         detail = container.querySelector(".fp-message p");
 
-    if (err.code === 4 || err.code === 9) {
-      header.innerHTML = "We are sorry, currently no live stream available.";
+    if ((err.code === 4 || err.code === 9) && (!finnish)) {
+      header.innerHTML = "We are sorry,there is delay in processing the live stream";
       detail.innerHTML = "Retrying in <span>" + delay + "</span> seconds ...";
 
       if (flowplayer.support.flashVideo) {
@@ -123,6 +123,9 @@ var timer;
 
       }, 1000);
     }
+  }).on("finish", function(e, api) {
+    finnish = true;
+    alert("Finnish");
   });
 </script>
 
