@@ -51,7 +51,9 @@ class  Segmentor(val streamName: String, val fps: Int) extends Actor with ActorL
         activeSegment.duration = time / 1000
         activeSegment.close()
         time = 0
-        log.info("reseting the time:")
+        log.info("reseting the time: before size of segments["+segments.length+"]")
+       // segments = segments.filter(_.streamName == activeSegment.sName)
+        //log.info("reseting the time: after size of segments ["+segments.length+"]")
       }
 
 //Check to see if we should create a new segment
@@ -62,6 +64,7 @@ class  Segmentor(val streamName: String, val fps: Int) extends Actor with ActorL
       if (actSeg != None) {
         actSeg.get.segment.close()
         actSeg.get.segment.removeSegment
+        segments = List()
       }
 
   }

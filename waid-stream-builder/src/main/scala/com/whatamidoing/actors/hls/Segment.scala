@@ -16,6 +16,8 @@ import org.javasimon.{Split, Stopwatch, SimonManager}
 
 class Segment(initTime: Long,segDirectory: String, streamName: String,fps: Int) {
 
+  val sName = streamName
+
   val stopwatch: Stopwatch  = SimonManager.getStopwatch(streamName)
 
   val split: Split  = stopwatch.start(); // start the stopwatch
@@ -148,6 +150,7 @@ class Segment(initTime: Long,segDirectory: String, streamName: String,fps: Int) 
 
     //segDirectory + streamName
     //mediaWriter.getContainer.writeHeader()
+    mediaWriter.flush()
     mediaWriter.close()
 
     val reader = ToolFactory.makeReader(segDirectory +"/"+ streamName)
