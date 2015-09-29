@@ -5,99 +5,30 @@
 <html lang="en">
 <head>
 
-
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.1/themes/smoothness/jquery-ui.css" />
-
-    <link href='@routes.Assets.at("flowplayer/skin/playful.css")' rel="stylesheet">
-
-    <!-- site specific styling -->
-    <style>
-        body { font: 12px "Myriad Pro", "Lucida Grande", sans-serif; text-align: center; padding-top: 5%; }
-        .flowplayer { width: 80%; }
-    </style>
-
-    <script
-            src='http://code.jquery.com/jquery-1.11.1.min.js'
-            type='text/javascript'></script>
-
-    <script
-            src='http://code.jquery.com/ui/1.11.1/jquery-ui.min.js'
-            type='text/javascript'></script>
-
-
-
-
-    <script src='@routes.Assets.at("flowplayer/flowplayer.min.js")'></script>
+    <link rel="stylesheet" href='@routes.Assets.at("mediaelement/mediaelementplayer.min.css")' />
+    <script src='@routes.Assets.at("mediaelement/mediaelement-and-player.min.js")'></script>
 
 </head>
 <body>
-<div style="overflow:scroll; ">
-    <div id="player" class="fixed-controls"></div>
-</div>
-<script>
-var container = document.getElementById("player");
-var timer;
-var finnish = false
-  flowplayer(container, {
-       ratio: 9/16,
-       splash: true,
-       live: true,
-       clip:  {
-          autoPlay: true,
-          autoBuffering: true,
-          flashls: {
-          manifestloadmaxretry: 3
-          },
-          sources: [
-              { src: "http://@hostStreamer:@portStreamer/stream/@streamId/playlistall/@token/referred/playlist.m3u8",
-                type: "application/x-mpegurl" }
-             ]
-      }
-  }).on("load", function (e, api) {
-    clearInterval(timer);
+<div style="overflow:scroll;">
+    <video id="example-video" width="600" height="300" class="video-js vjs-default-skin" controls>
+        <source
+                src="http://@hostStreamer:@portStreamer/stream/@streamId/playlistall/@token/referred/playlist.m3u8"
+                type="application/x-mpegURL">
+    </video>
 
-    if (api.engine.engineName == "html5") {
-      // generic hls: trigger error when playlist is present, but no streams
-      setTimeout(function () {
-        if (api.loading && !api.error) {
-          api.trigger("error", [api, {code: 4}]);
-        }
-      }, 10000);
-    }
+    <script>
 
-  }).on("error", function (e, api, err) {
-    var delay = 5,
-        header = container.querySelector(".fp-message h2"),
-        detail = container.querySelector(".fp-message p");
 
-    if ((err.code === 4 || err.code === 9) && (!finnish)) {
-      header.innerHTML = "We are sorry,there is delay in processing the live stream";
-      detail.innerHTML = "Retrying in <span>" + delay + "</span> seconds ...";
+    $('video').mediaelementplayer({
+     hls_debug: false,
+     hls_debug2: false,
+	success: function(media, node, player) {
+		$('#' + node.id + '-mode').html('mode: ' + media.pluginType);
+	}
+    });
 
-      if (flowplayer.support.flashVideo) {
-        api.one("flashdisabled", function () {
-          container.querySelector(".fp-flash-disabled").style.display = "none";
-        });
-      }
 
-      timer = setInterval(function () {
-        delay = delay - 1;
-        detail.querySelector("span").innerHTML = delay;
-
-        if (delay == 0) {
-          clearInterval(timer);
-          api.error = api.loading = false;
-          container.className = container.className.replace(/ *is-error */, "");
-          api.load(api.conf.clip);
-        }
-
-      }, 1000);
-    }
-  }).on("finish", function(e, api) {
-   // finnish = true;
-    //alert("Finnish");
-  });
-</script>
 
     </script>
 

@@ -48,48 +48,7 @@
     <script type="text/javascript" src='@routes.Assets.at("converse/locale/en/LC_MESSAGES/en.js")'></script>
     <script type="text/javascript" src='@routes.Assets.at("converse/converse.js")'></script>
 
-
-<link href='@routes.Assets.at("flowplayer/skin/playful.css")' rel="stylesheet">
-
-<!-- site specific styling -->
-<style>
-    body { font: 12px "Myriad Pro", "Lucida Grande", sans-serif; text-align: center; padding-top: 5%; }
-    .flowplayer { width: 80%; }
-</style>
-
-
-<script src='@routes.Assets.at("flowplayer/flowplayer.min.js")'></script>
 }{
-
-<style>
-
-    #content {
-    max-width: 720px;
-    }
-    .flowplayer {
-    background: #777;
-    margin-bottom: 30px;
-    }
-
-    /* customized error message */
-    .flowplayer.is-error .fp-message {
-    background-image: url(@routes.Assets.at("images/interruption.png"));
-    background-size: contain;
-    background-repeat: no-repeat;
-    }
-    .flowplayer.is-error .fp-message h2,
-    .flowplayer.is-error .fp-message p {
-    font-weight: bold;
-    color: #000;
-    text-shadow: 1px 1px #fff
-    }
-    .flowplayer.is-error .fp-message h2 {
-    font-size: 200%;
-    }
-    .flowplayer.is-error .fp-message p {
-    font-size: 150%;
-    }
-</style>
 
 <br/>
 <br/>
@@ -175,68 +134,20 @@ if( /webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.user
        alert('problems playing stream -- try reloading the page');
     }
 
-   var container = document.getElementById("player");
-var timer;
-var finnish = false
-  flowplayer(container, {
-       ratio: 9/16,
-       splash: true,
-       live: true,
-       clip:  {
-          autoPlay: true,
-          autoBuffering: true,
-          flashls: {
-          manifestloadmaxretry: 3
-          },
-          sources: [
-              { src: "http://www.whatamidoing.info:8080/hlsapp/@stream",
-                type: "application/x-mpegurl" }
-             ]
-      }
-  }).on("load", function (e, api) {
-    clearInterval(timer);
+    jwplayer("player").setup({
 
-    if (api.engine.engineName == "html5") {
-      // generic hls: trigger error when playlist is present, but no streams
-      setTimeout(function () {
-        if (api.loading && !api.error) {
-          api.trigger("error", [api, {code: 4}]);
-        }
-      }, 10000);
-    }
-
-  }).on("error", function (e, api, err) {
-    var delay = 5,
-        header = container.querySelector(".fp-message h2"),
-        detail = container.querySelector(".fp-message p");
-
-    if ((err.code === 4 || err.code === 9) && (!finnish)) {
-      header.innerHTML = "We are sorry,there is delay in processing the live stream";
-      detail.innerHTML = "Retrying in <span>" + delay + "</span> seconds ...";
-
-      if (flowplayer.support.flashVideo) {
-        api.one("flashdisabled", function () {
-          container.querySelector(".fp-flash-disabled").style.display = "none";
-        });
-      }
-
-      timer = setInterval(function () {
-        delay = delay - 1;
-        detail.querySelector("span").innerHTML = delay;
-
-        if (delay == 0) {
-          clearInterval(timer);
-          api.error = api.loading = false;
-          container.className = container.className.replace(/ *is-error */, "");
-          api.load(api.conf.clip);
-        }
-
-      }, 1000);
-    }
-  }).on("finish", function(e, api) {
-   // finnish = true;
-    //alert("Finnish");
-  });
+     playlist: [{
+       // file is the url to m3u8 file
+       file:'http://www.whatamidoing.info:8080/hlsapp/@stream',
+       provider: '@routes.Assets.at("/jwplayer/HLSprovider/test/jwplayer6/HLSProvider6.swf")',
+       type:'hls'
+      }],
+      width: 500,
+      height: 400,
+      primary: "flash"
+    });
+   jwplayer("").onPlay(videoStartedPlaying);
+   jwplayer("").onPause(videoStoppedPlaying);
 
 }
 </script>
