@@ -60,11 +60,36 @@
 <br/>
 <br/>
 <br/>
+<script>
 
+ var isMobile = {
+    Android: function() {
+        return /Android/i.test(navigator.userAgent);
+    },
+    BlackBerry: function() {
+        return /BlackBerry/i.test(navigator.userAgent);
+    },
+    iOS: function() {
+        return /iPhone|iPad|iPod/i.test(navigator.userAgent);
+    },
+    Windows: function() {
+        return /IEMobile/i.test(navigator.userAgent);
+    },
+    any: function() {
+        return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Windows());
+    }
+};
+
+</script>
 
 <div id="player" class="fixed-controls"></div>
-
 <script>
+
+if(typeof window.orientation !== 'undefined') {
+
+ $("#player").append('<video><source src="http://@host:@port/stream/@streamId/playlist/playlist-@reference" type="application/x-mpegurl"/></video>');
+
+} else {
 var container = document.getElementById("player");
 var timer;
 var finnish = false
@@ -127,6 +152,7 @@ var finnish = false
    // finnish = true;
     //alert("Finnish");
   });
+}
 </script>
 
 <!--

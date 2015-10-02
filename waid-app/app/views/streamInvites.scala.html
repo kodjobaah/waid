@@ -35,13 +35,33 @@
     <div id="player" class="fixed-controls"></div>
 </div>
 <script>
+
+if(typeof window.orientation !== 'undefined') {
+
+ $("#player").append('<video><source src="http://@hostStreamer:@portStreamer/stream/@streamId/playlistall/@token/referred/playlist.m3u8" type="application/x-mpegurl"/></video>');
+
+} else {
 var container = document.getElementById("player");
 var timer;
 var finnish = false
   flowplayer(container, {
        ratio: 9/16,
        splash: true,
-       live: true,
+       live: false,
+           plugins: {
+        sharing: {
+            url: '@routes.Assets.at("flowplayer/twitterfacebook-1bitnew.swf")',
+
+            facebook: {
+                // facebook sharing is opened to the current browser window
+                shareWindow: '_self'
+            },
+            twitter: {
+                // tweeting also happens in the current browser window
+                shareWindow: '_self'
+            }
+        }
+        },
        clip:  {
           autoPlay: true,
           autoBuffering: true,
@@ -97,6 +117,7 @@ var finnish = false
    // finnish = true;
     //alert("Finnish");
   });
+  }
 </script>
 
     </script>
