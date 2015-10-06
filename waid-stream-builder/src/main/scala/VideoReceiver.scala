@@ -23,6 +23,8 @@ class VideoReceiver(context: ZMQ.Context) extends Thread {
     frontend.bind("tcp://*:12345")
     backend.bind("inproc://backend")
 
+    frontend.monitor("inproc://monitor.socket", ZMQ.EVENT_ALL)
+
     val streamProcessor = new StreamProcessor(context)
     streamProcessor.start()
 
