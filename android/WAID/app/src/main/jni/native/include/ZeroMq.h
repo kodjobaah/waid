@@ -72,6 +72,8 @@ namespace waid {
         void setNativeCommunicator(NativeCommunicator *nc);
 
         void stopAll();
+
+        int getConnectionStatus();
     };
 
 }
