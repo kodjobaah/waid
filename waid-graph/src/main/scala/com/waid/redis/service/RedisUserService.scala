@@ -149,6 +149,8 @@ object RedisUserService {
 
   }
 
+
+
   def removeValidStreamUsingEmail(email: String) = {
     RedisDataStore.removeValidStreams(email)
   }

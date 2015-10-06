@@ -13,6 +13,15 @@ object RedisReadOperations {
   import RedisDataStore.clients
 
 
+  def getValidStreamUsingEmail(em: String):Option[String]= {
+    var streamId: Option[String] = None
+    clients.withClient {
+      client =>
+        streamId = client.hget(KeyPrefixGenerator.LookupValidStreamsEmail, em)
+    }
+    streamId
+  }
+
   def populateStreamNode(userStreamNodeId: String, userTokenNodeId: String): Option[UserStreamNode] = {
     var res: Option[UserStreamNode] = None
     clients.withClient {
