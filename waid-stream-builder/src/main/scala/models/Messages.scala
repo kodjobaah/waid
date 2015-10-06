@@ -1,7 +1,5 @@
 package models
 
-import play.api.libs.json.JsValue
-
 object Messages {
   
     case class PerformReadOperation(f: () => Neo4jResult)
