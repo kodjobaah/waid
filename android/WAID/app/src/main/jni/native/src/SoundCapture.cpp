@@ -12,7 +12,7 @@
 
 
 #define  LOG_TAG    "SOUND_CAPTURE"
-#define LOG(...)  __android_log_print(ANDROID_LOG_INFO, LOG_TAG, __VA_ARGS__)
+#define LOG(...)  __android_log_print(ANDROID_LOG_DEBUG, LOG_TAG, __VA_ARGS__)
 
 namespace waid {
 
@@ -87,7 +87,7 @@ namespace waid {
         assert(SL_RESULT_SUCCESS == result);
         recordCnt = 0;
 
-        recordF = fopen("/sdcard/waid.pcm", "wb");
+        // recordF = fopen("/sdcard/waidsound.pcm", "wb");
         if (recordF == NULL) {
             LOG("UNABLE_TO_CREATE_FILE");
         }
@@ -110,6 +110,7 @@ namespace waid {
             boost::unique_lock <boost::mutex> lock(m_mutex);
             std::vector <short> element;
             element.resize(RECORDER_FRAMES);
+            //int numOfRecords = fwrite(recorderBuffer, sizeof(short), RECORDER_FRAMES, recordF);
             std::copy(recorderBuffer, recorderBuffer + RECORDER_FRAMES, element.begin());
             filledIndices->push(element);
             m_cond.notify_one();
@@ -170,8 +171,7 @@ namespace waid {
 
                 front = filledIndices->front();
                 filledIndices->pop();
-                //short * rec = front.get();
-                //int numOfRecords = fwrite(rec, sizeof(short), RECORDER_FRAMES, recordF);
+
                 //LOG("AUDIO_RECORDING_NUM_RECORDS %d", numOfRecords);
                // LOG("AUDIO_LOCK_PROCESSING_BEFORE[%d]", front.size());
 

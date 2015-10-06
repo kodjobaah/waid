@@ -33,6 +33,8 @@
 #include <time.h>
 #include <string.h>
 
+#include <chrono>         // std::chrono::seconds
+
 #include <ZeroMqTransport.h>
 
 #define LOG_TAG    "ZEROMQ_TRANSPORT"
@@ -84,6 +86,7 @@ namespace  waid {
 
     void ZeroMqTransport::processImage(const char *urlPath, const char *authToken) {
 
+        processingStarted = false;
         LOG("---------------------------------------------- PROCESSING IMAGE DATA -----------------------");
 
         int rc;
@@ -268,10 +271,20 @@ namespace  waid {
 
     void ZeroMqTransport::startSoundCapture() {
 
-        soundCapture = new waid::SoundCapture(streamId);
-        soundCapture->setZeroMq(zeroMqAudio);
-        soundCapture->startRecording();
-        soundCapture->processRecording();
+
+        if (!processingStarted) {
+            //Waiting for half a second before trying to start the sound
+            LOG("SLEEPING_FOR_SECOND_BEFORE_STARTING_SOUND");
+            std::this_thread::sleep_for(std::chrono::seconds(1));
+        }
+
+        if (processingStarted) {
+            LOG("STARTING_SOUND");
+            soundCapture = new waid::SoundCapture(streamId);
+            soundCapture->setZeroMq(zeroMqAudio);
+            soundCapture->startRecording();
+            soundCapture->processRecording();
+        }
 
     }
 
@@ -322,8 +335,7 @@ namespace  waid {
             LOG("--ZEROMQ-INT-5");
 
         }
-        LOG("--ZEROMQ-INT-6"
-                    "");
+        LOG("--ZEROMQ-INT-6");
         while (processingStarted) {
             LOG("--WAITING_FOR_PROCESSING TO STOPE");
         }

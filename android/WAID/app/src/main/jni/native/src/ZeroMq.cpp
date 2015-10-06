@@ -113,7 +113,6 @@ namespace waid {
             return -7;
         }
 
-
         // REP socket monitor, all events
         std::string monitorsocket = "inproc://monitor.dealer-"+identifier;
         rc = zmq_socket_monitor(socket,monitorsocket.c_str() , ZMQ_EVENT_ALL);
@@ -121,7 +120,6 @@ namespace waid {
             LOG("ZMQ_EVENT_CREATE_SOCKET_ERROR_MINUS_8[%s]",identifier.c_str());
             return -8;
         }
-
 
         connectionStatus = 0;
 
@@ -333,5 +331,9 @@ namespace waid {
 
     void  ZeroMq::setNativeCommunicator(NativeCommunicator *nc) {
         nativeCommunicator =  nc;
+    }
+
+    int ZeroMq::getConnectionStatus() {
+        return connectionStatus;
     }
 }
