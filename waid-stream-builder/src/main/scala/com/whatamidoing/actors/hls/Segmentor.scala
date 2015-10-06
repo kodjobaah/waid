@@ -4,12 +4,15 @@ import akka.actor.{Actor, ActorLogging, Props}
 import com.redis.RedisClient
 import com.typesafe.config.ConfigFactory
 import com.waid.redis.service.RedisUserService
-import com.whatamidoing.actors.hls.model.Value.{AddToSegment, SegmentData, SegmentInfo, TooManyActiveStreams}
+import com.whatamidoing.actors.hls.model.Value._
 import models.Messages._
+import org.slf4j.{Logger, LoggerFactory}
 
-class  Segmentor(val streamName: String, val fps: Int) extends Actor with ActorLogging {
+class  Segmentor(val streamName: String, val fps: Int) extends Actor {
 
   import Segmentor.{redisPort, redisServer, segmentTime}
+
+  val log: Logger = LoggerFactory.getLogger(classOf[Segmentor])
 
   val redisClient = new RedisClient(redisServer, redisPort)
 
@@ -18,11 +21,20 @@ class  Segmentor(val streamName: String, val fps: Int) extends Actor with ActorL
   var segCounter = 1
   var time = 0
   var totalTime = 0
+  var streamTime = 0
   var prevSegmentCount = 0
 
   val segmentDirectory: Option[String] = RedisUserService.getSegmentLocationOfStream(streamName)
 
   override def receive: Receive = {
+
+    case sample: SampleData =>
+      val actSeg: Option[SegmentData] = getActiveSegment()
+      if (actSeg != None)  {
+        var activeSegment = actSeg.get.segment
+        streamTime  = streamTime + 1
+        activeSegment.addSound(sample.sample,streamTime)
+      }
 
     case AddToSegment(image, ts) =>
       val actSeg: Option[SegmentData] = getActiveSegment()
@@ -42,6 +54,7 @@ class  Segmentor(val streamName: String, val fps: Int) extends Actor with ActorL
       } else {
         activeSegment = actSeg.get.segment
       }
+
       activeSegment.addImage(image, ts)
 
       time = ts + time
@@ -51,13 +64,13 @@ class  Segmentor(val streamName: String, val fps: Int) extends Actor with ActorL
         activeSegment.duration = time / 1000
         activeSegment.close()
         time = 0
+        streamTime = 0
         log.info("reseting the time: before size of segments["+segments.length+"]")
        // segments = segments.filter(_.streamName == activeSegment.sName)
         //log.info("reseting the time: after size of segments ["+segments.length+"]")
       }
 
 //Check to see if we should create a new segment
-
     case EndTransmission =>
       val actSeg: Option[SegmentData] = getActiveSegment()
 

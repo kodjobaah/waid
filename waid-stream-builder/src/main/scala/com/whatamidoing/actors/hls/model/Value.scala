@@ -19,4 +19,5 @@ object Value {
   case class ReadSegment()
   case class FinnishReadingSegment()
   case class FrameData(val streamId: String, val authToken: String, val sequence: Int, val time: Int, val data: String, fps: Int)
+  case class SampleData(val streamId: String, val authToken: String, val sequence: Int, val time: Int, val sample: Array[Short])
 }

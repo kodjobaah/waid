@@ -5,14 +5,17 @@ import akka.actor.{Props, ActorRef, ActorLogging, Actor}
 import models.Messages._
 
 import com.whatamidoing.utils._
-import com.whatamidoing.actors.hls.model.Value.{FrameData, AddToSegment}
-import spray.json.{JsonParser, DefaultJsonProtocol, JsObject}
+import com.whatamidoing.actors.hls.model.Value.{SampleData, FrameData, AddToSegment}
+import org.slf4j.{LoggerFactory, Logger}
+
+import scala.collection.mutable
 
 
-
-class VideoEncoderHls(streamName: String, fps:Int) extends Actor with ActorLogging {
+class VideoEncoderHls(streamName: String, fps:Int) extends Actor  {
 
   var segmentor: ActorRef = null
+
+  var log: Logger =  LoggerFactory.getLogger(classOf[VideoEncoderHls])
 
   /*
   object FrameDataJsonProtocol extends DefaultJsonProtocol {
@@ -20,7 +23,7 @@ class VideoEncoderHls(streamName: String, fps:Int) extends Actor with ActorLoggi
   }
   */
 
-
+  val audioQueue = new mutable.Queue[SampleData]
   override def receive: Receive = {
 
     case fr: EncodeFrame =>
@@ -43,11 +46,21 @@ class VideoEncoderHls(streamName: String, fps:Int) extends Actor with ActorLoggi
 
       } catch {
         case ex: Throwable =>
-          println("PROBLEMS SHOULD STOP:"+ex)
+          log.info("PROBLEMS SHOULD STOP:"+ex)
           sender ! ProblemsEncoding
 
       }
 
+    case sample: SampleData =>
+       if (segmentor != null) {
+         while(!audioQueue.isEmpty) {
+           val leftOver = audioQueue.dequeue
+           segmentor ! leftOver
+         }
+         segmentor ! sample
+       } else {
+         audioQueue += sample
+       }
     case e: EndTransmission =>
         segmentor != e
         context.stop(segmentor)

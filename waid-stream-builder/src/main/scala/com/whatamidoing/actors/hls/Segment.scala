@@ -1,5 +1,8 @@
 package com.whatamidoing.actors.hls
 
+import java.util.concurrent.TimeUnit
+
+import com.xuggle.xuggler.IAudioSamples.Format
 import com.xuggle.xuggler._
 import com.xuggle.mediatool.IMediaWriter
 import com.xuggle.mediatool.ToolFactory
@@ -25,11 +28,13 @@ class Segment(initTime: Long,segDirectory: String, streamName: String,fps: Int) 
 
   var activeSegment = true
 
-  def log = LoggerFactory.getLogger("Segment")
+  def log = LoggerFactory.getLogger(classOf[Segment])
 
   def this() = this(0,"", "",0)
 
   var startTime: Long = initTime
+  var audioStartTime: Long = initTime
+
   var count = 0
   var mediaWriter: IMediaWriter = null
 
@@ -43,18 +48,25 @@ class Segment(initTime: Long,segDirectory: String, streamName: String,fps: Int) 
     }
     log info ("this is mediawrite:" + mediaWriter)
 
-
     val streamId: Int = mediaWriter.addVideoStream(0, 0, ICodec.ID.CODEC_ID_H264, 352, 288)
+
+
+    val audioId: Int = mediaWriter.addAudioStream(1,0,ICodec.ID.CODEC_ID_AAC,1,16000)
     val videoStream: IStream = mediaWriter.getContainer.getStream(streamId)
     val in: InputStream = classOf[Segment] getResourceAsStream ("mpegts-ipod320.properties")
     val props: Properties = new Properties()
     props.load(in)
     import com.xuggle.xuggler.Configuration
 
+
 //    log.info("Before ------------------")
  //  Configuration.printConfigurable(System.out,mediaWriter.getContainer)
 //    Configuration.printConfigurable(System.out,videoStream.getStreamCoder)
     val videoCoder = videoStream.getStreamCoder
+     videoCoder.setChannels(0)
+    videoCoder.setSampleFormat(IAudioSamples.Format.FMT_S16)
+      videoCoder.setSampleRate(16000)
+
     val retval: Int = Configuration.configure(props, videoCoder)
     videoCoder.setFlag(IStreamCoder.Flags.FLAG_QSCALE, false)
     videoCoder.setProperty("nr", 0)
@@ -100,9 +112,21 @@ class Segment(initTime: Long,segDirectory: String, streamName: String,fps: Int) 
 
   }
 
+  def addSound(sample: Array[Short], diff: Int ): Unit = {
+
+    audioStartTime = audioStartTime + (diff * 1000)
+    log.info("addsound ["+sample.length+"] ["+audioStartTime+"]")
+    mediaWriter.encodeAudio(1,sample,audioStartTime, TimeUnit.MILLISECONDS)
+
+  }
+
+
   def addImage(image: BufferedImage, diff: Int) {
     import java.util.concurrent.TimeUnit
       startTime = startTime + diff
+
+    log.info("addImage ["+startTime+"]")
+
 
     var im = image
     if (im.getType() == BufferedImage.TYPE_INT_RGB) {

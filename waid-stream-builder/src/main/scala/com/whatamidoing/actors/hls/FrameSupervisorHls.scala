@@ -2,12 +2,17 @@ package com.whatamidoing.actors.hls
 
 import akka.actor.SupervisorStrategy.Stop
 import akka.actor._
-import com.whatamidoing.actors.hls.model.Value.FrameData
+import com.whatamidoing.actors.hls.model.Value.{SampleData, FrameData}
 import models.Messages.{EncodeFrame, EndTransmission, ProblemsEncoding}
+import org.slf4j.{LoggerFactory, Logger}
 
-class FrameSupervisorHls(streamId: String) extends Actor with ActorLogging {
+import scala.collection.mutable.Queue
+
+class FrameSupervisorHls(streamId: String) extends Actor  {
 
   var videoEncoder: ActorRef = _
+
+  var log: Logger = LoggerFactory.getLogger(classOf[FrameSupervisorHls])
 
   val Tag: String = "FrameSupervisor"
   var token: String = _
@@ -16,6 +21,7 @@ class FrameSupervisorHls(streamId: String) extends Actor with ActorLogging {
 
   val ServiceStoppedMessage: String = "SERVICE_STOPPED"
 
+  var audioQueue = new Queue[SampleData]
 
   override val supervisorStrategy =
     OneForOneStrategy(maxNrOfRetries = 0) {
@@ -28,11 +34,22 @@ class FrameSupervisorHls(streamId: String) extends Actor with ActorLogging {
   override def receive: Receive = {
 
     case ProblemsEncoding =>
-        println("---------- something got wrong---")
+        log.error("---------- something went wrong---")
 
     case e:EndTransmission =>
       videoEncoder ! e
 
+    case sample: SampleData =>
+      if (videoEncoder != null) {
+        log.debug("-----FRAMESUPERISOER----SAMPLE")
+        while (!audioQueue.isEmpty) {
+          val leftOver = audioQueue.dequeue()
+          videoEncoder ! leftOver
+        }
+        videoEncoder ! sample
+      } else {
+          audioQueue += sample
+      }
     case frame: FrameData =>
       if (videoEncoder == null) {
           videoEncoder = context.actorOf(VideoEncoderHls.props(frame.streamId,frame.fps), "videoencoder:" + frame.streamId)
