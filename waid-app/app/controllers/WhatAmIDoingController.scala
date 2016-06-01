@@ -173,9 +173,6 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi) extends Con
     found
   }
 
-  /**
-   * Used to return the page for the user to view the stream
-   */
   def invalidateToken(tokenOption: Option[String]) = Action.async {
     implicit request =>
 
@@ -193,6 +190,12 @@ class WhatAmIDoingController @Inject()(val messagesApi: MessagesApi) extends Con
       }
   }
 
+  def validateToken(token: String) = Action.async {
+    implicit request =>
+
+      val userNode = RedisUserService.checkIfTokenIsValid(token)
+       userNode.fold(Future.successful(Ok("false"))){node => Future.successful(Ok("true"))}
+  }
   /**
    * Used to return the  locations for the inviteId
    */
