@@ -58,7 +58,7 @@ android {
             commandLine "$ndkDir\ndk-build.cmd", '-C', file('src/main/jni').absolutePath
 
         } else {
-            commandLine "$ndkDir/ndk-build",
+            commandLine "ndk-build",
                     'NDK_DEBUG=1',
                     '-C', file('src/main/jni').absolutePath
             //commandLine "$ndkDir/ndk-build",

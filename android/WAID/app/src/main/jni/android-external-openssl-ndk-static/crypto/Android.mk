@@ -428,14 +428,14 @@ cryptlib.c \
 	evp/e_bf.c bf/bf_skey.c bf/bf_ecb.c bf/bf_enc.c bf/bf_cfb64.c bf/bf_ofb64.c
 
 local_c_includes := \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/asn1 \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/evp \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/engine \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/dso \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/asn1 \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/evp \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/engine \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto/dso \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/include \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/include/openssl
 
 local_c_flags := -DNO_WINDOWS_BRAINDEATH
 

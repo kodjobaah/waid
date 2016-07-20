@@ -1,9 +1,9 @@
 LOCAL_PATH:= $(call my-dir)
 
 local_c_includes := \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/include \
-	/Users/kodjobaah/AndroidStudioProjects/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/include \
+	/opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/crypto
 
 local_src_files:= \
 	s2_meth.c \

@@ -9,7 +9,8 @@ OPENCV_INSTALL_MODULES:=on
 OPENCV_LIB_TYPE:=SHARED
 #OPENCV_LIB_TYPE:=STATIC
 #include /Users/kodjobaah/software/opencv/3.0.0.RC2/OpenCV-android-sdk/sdk/native/jni/OpenCV.mk
-include /Users/kodjobaah/software/opencv/OpenCV-2.4.9-android-sdk/sdk/native/jni/OpenCV.mk
+include /opt/android/OpenCV-2.4.9-android-sdk/sdk/native/jni/OpenCV.mk
+
 
 #CPP_STATIC := /Users/kodjobaah/software/android/crystax-ndk-10.2.1/sources/cxx-stl/gnu-libstdc++/4.9/libs/$(TARGET_ARCH_ABI)/libgnustl_static.a
 
@@ -22,12 +23,13 @@ LOCAL_CPPFLAGS   += -fno-rtti
 LOCAL_CPPFLAGS   += -fno-exceptions
 LOCAL_MODULE     := gl2jni
 
-LOCAL_SHARED_LIBRARIES :=  libzmq libjpeg2 -lopencv_core -lopencv_highgui
-LOCAL_STATIC_LIBRARIES += boost_serialization_static boost_thread_static libopenssl-static libcrypto libssl-static
-LOCAL_C_INCLUDES       += /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/zeromq/include \
-						  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/libjpeg-turbo \
-						  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/cppzmq \
-						  /Users/kodjobaah/projects/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/include \
+LOCAL_SHARED_LIBRARIES :=  libzmq libjpeg2 libsimplejson -lopencv_core -lopencv_highgui
+LOCAL_STATIC_LIBRARIES += boost_serialization_static boost_thread_static libopenssl-static libcrypto libssl-static libjpeg-turbo
+LOCAL_C_INCLUDES       += /opt/waid/android/WAID/app/src/main/jni/zeromq/include \
+						  /opt/waid/android/WAID/app/src/main/jni/libjpeg-turbo \
+						  /opt/waid/android/WAID/app/src/main/jni/cppzmq \
+						  /opt/waid/android/WAID/app/src/main/jni/SimpleJSON/src \
+						  /opt/waid/android/WAID/app/src/main/jni/android-external-openssl-ndk-static/include \
 						   $(LOCAL_PATH)/include
 LOCAL_SRC_FILES :=  src/gl_code.cpp \
                     src/SoundCapture.cpp \
